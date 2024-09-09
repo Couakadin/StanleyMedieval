@@ -19,6 +19,8 @@ namespace Game.Runtime
             _rigidbody = GetComponent<Rigidbody>();
             _cameraTransform = Camera.main.transform;
             _groundLayer = LayerMask.GetMask("Ground");
+            _standHeight = 2f;
+            _crouchHeight = 1f;
 
             if (_playerBlackboard.ContainsKey("WalkSpeed"))
                 _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
@@ -26,10 +28,6 @@ namespace Game.Runtime
                 _runSpeed = _playerBlackboard.GetValue<float>("RunSpeed");
             if (_playerBlackboard.ContainsKey("CrouchSpeed"))
                 _crouchSpeed = _playerBlackboard.GetValue<float>("CrouchSpeed");
-            if (_playerBlackboard.ContainsKey("CrouchHeight"))
-                _crouchHeight = _playerBlackboard.GetValue<float>("CrouchHeight");
-            if (_playerBlackboard.ContainsKey("StandHeight"))
-                _standHeight = _playerBlackboard.GetValue<float>("StandHeight");
             if (_playerBlackboard.ContainsKey("JumpForce"))
                 _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
 
