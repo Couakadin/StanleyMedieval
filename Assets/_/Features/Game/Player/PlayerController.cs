@@ -35,6 +35,12 @@ namespace Game.Runtime
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        private void Start()
+        {
+            _playerBlackboard.SetValue<bool>("IsDead", false);
+            _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
+        }
+
         private void OnEnable()
         {
             _runAction.Enable();
@@ -53,6 +59,8 @@ namespace Game.Runtime
 
         private void FixedUpdate()
         {
+            if (_playerBlackboard.GetValue<bool>("IsDead")) return;
+
             ViewAction();
             SpeedAction();
             CrouchAction();
@@ -66,6 +74,14 @@ namespace Game.Runtime
         #endregion
 
         #region Methods
+
+        public void GoToInitialPosition()
+        {
+            if (_playerBlackboard.ContainsKey("InitialPosition"))
+                transform.position = _playerBlackboard.GetValue<Vector3>("InitialPosition");
+        }
+
+        public void IsDead(bool dead) => _playerBlackboard.SetValue<bool>("IsDead", dead);
 
         #endregion
 

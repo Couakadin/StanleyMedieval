@@ -78,6 +78,7 @@ namespace Game.Runtime
 
         #region Privates
 
+        [Title("Data")]
         [SerializeField]
         private Blackboard _playerBlackboard;
 
