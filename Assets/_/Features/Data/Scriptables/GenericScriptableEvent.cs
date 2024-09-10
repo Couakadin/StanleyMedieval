@@ -39,4 +39,10 @@ namespace Data.Runtime
     {
 
     }
+
+    [CreateAssetMenu(fileName = "BoolEvent", menuName = "Event/Generic/bool")]
+    public class BoolScriptableEvent : GenericScriptableEvent<bool>
+    {
+
+    }
 }

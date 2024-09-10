@@ -14,9 +14,10 @@ namespace Game.Runtime
         public enum Archetype
         {
             NONE,
-            WARRIOR,
+            BARBARIAN,
             ROGUE,
-            MAGE
+            MAGE,
+            RANGER
         }
 
         public Archetype m_archetype
@@ -54,9 +55,10 @@ namespace Game.Runtime
         #region Methods
 
         public void SetArchetypeNone() => m_archetype = Archetype.NONE;
-        public void SetArchetypeWarrior() => m_archetype = Archetype.WARRIOR;
+        public void SetArchetypeWarrior() => m_archetype = Archetype.BARBARIAN;
         public void SetArchetypeRogue() => m_archetype = Archetype.ROGUE;
         public void SetArchetypeMage() => m_archetype = Archetype.MAGE;
+        public void SetArchetypeRanger() => m_archetype = Archetype.RANGER;
 
         #endregion
 
