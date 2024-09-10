@@ -31,9 +31,12 @@ namespace Game.Runtime
             if (_playerBlackboard.ContainsKey("JumpForce"))
                 _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
 
-            Cursor.visible = false;
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        private void Start() =>
+            _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
 
         private void OnEnable()
         {
@@ -53,6 +56,8 @@ namespace Game.Runtime
 
         private void FixedUpdate()
         {
+            if (_playerBlackboard.GetValue<bool>("IsDead")) return;
+
             ViewAction();
             SpeedAction();
             CrouchAction();
@@ -66,6 +71,12 @@ namespace Game.Runtime
         #endregion
 
         #region Methods
+
+        public void GoToInitialPosition()
+        {
+            if (_playerBlackboard.ContainsKey("InitialPosition"))
+                transform.position = _playerBlackboard.GetValue<Vector3>("InitialPosition");
+        }
 
         #endregion
 
