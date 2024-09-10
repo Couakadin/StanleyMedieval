@@ -35,11 +35,8 @@ namespace Game.Runtime
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        private void Start()
-        {
-            _playerBlackboard.SetValue<bool>("IsDead", false);
+        private void Start() =>
             _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
-        }
 
         private void OnEnable()
         {
@@ -80,8 +77,6 @@ namespace Game.Runtime
             if (_playerBlackboard.ContainsKey("InitialPosition"))
                 transform.position = _playerBlackboard.GetValue<Vector3>("InitialPosition");
         }
-
-        public void IsDead(bool dead) => _playerBlackboard.SetValue<bool>("IsDead", dead);
 
         #endregion
 

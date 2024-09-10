@@ -16,7 +16,11 @@ namespace Game.Runtime
 
         #region Methods
 
-        public void OnResetGame() => _resetGameEvent.Raise();
+        public void OnResetGame()
+        {
+            _resetGameEvent.Raise();
+            _DeadCounterEvent.Raise();
+        }
 
         #endregion
 
@@ -29,6 +33,8 @@ namespace Game.Runtime
         [Title("Events")]
         [SerializeField]
         private VoidScriptableEvent _resetGameEvent;
+        [SerializeField]
+        private VoidScriptableEvent _DeadCounterEvent;
 
         #endregion
     }
