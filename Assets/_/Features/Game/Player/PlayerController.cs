@@ -31,7 +31,7 @@ namespace Game.Runtime
             if (_playerBlackboard.ContainsKey("JumpForce"))
                 _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
 
-            Cursor.visible = false;
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
