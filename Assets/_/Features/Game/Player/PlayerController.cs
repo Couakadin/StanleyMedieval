@@ -19,6 +19,8 @@ namespace Game.Runtime
             _rigidbody = GetComponent<Rigidbody>();
             _cameraTransform = Camera.main.transform;
             _groundLayer = LayerMask.GetMask("Ground");
+            _standHeight = 2f;
+            _crouchHeight = 1f;
 
             if (_playerBlackboard.ContainsKey("WalkSpeed"))
                 _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
@@ -26,16 +28,15 @@ namespace Game.Runtime
                 _runSpeed = _playerBlackboard.GetValue<float>("RunSpeed");
             if (_playerBlackboard.ContainsKey("CrouchSpeed"))
                 _crouchSpeed = _playerBlackboard.GetValue<float>("CrouchSpeed");
-            if (_playerBlackboard.ContainsKey("CrouchHeight"))
-                _crouchHeight = _playerBlackboard.GetValue<float>("CrouchHeight");
-            if (_playerBlackboard.ContainsKey("StandHeight"))
-                _standHeight = _playerBlackboard.GetValue<float>("StandHeight");
             if (_playerBlackboard.ContainsKey("JumpForce"))
                 _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
 
-            Cursor.visible = false;
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        private void Start() =>
+            _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
 
         private void OnEnable()
         {
@@ -55,6 +56,8 @@ namespace Game.Runtime
 
         private void FixedUpdate()
         {
+            if (_playerBlackboard.GetValue<bool>("IsDead")) return;
+
             ViewAction();
             SpeedAction();
             CrouchAction();
@@ -68,6 +71,12 @@ namespace Game.Runtime
         #endregion
 
         #region Methods
+
+        public void GoToInitialPosition()
+        {
+            if (_playerBlackboard.ContainsKey("InitialPosition"))
+                transform.position = _playerBlackboard.GetValue<Vector3>("InitialPosition");
+        }
 
         #endregion
 
