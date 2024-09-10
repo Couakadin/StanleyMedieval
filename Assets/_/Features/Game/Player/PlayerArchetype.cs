@@ -46,7 +46,7 @@ namespace Game.Runtime
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0)) OnChangeArchetype();
+            if (IsArchetypeNone() && Input.GetMouseButtonDown(0)) OnChangeArchetype();
         }
 
         #endregion
@@ -58,7 +58,11 @@ namespace Game.Runtime
         public void SetArchetypeRogue() => m_archetype = Archetype.ROGUE;
         public void SetArchetypeMage() => m_archetype = Archetype.MAGE;
 
-        public void OnChangeArchetype()
+        #endregion
+
+        #region Utils
+
+        private void OnChangeArchetype()
         {
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
@@ -68,9 +72,7 @@ namespace Game.Runtime
             }
         }
 
-        #endregion
-
-        #region Utils
+        private bool IsArchetypeNone() => _archetype == Archetype.NONE;
 
         #endregion
 
