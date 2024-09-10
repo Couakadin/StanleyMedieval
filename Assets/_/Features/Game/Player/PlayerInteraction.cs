@@ -1,3 +1,4 @@
+using Data.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,8 +20,8 @@ namespace Game.Runtime
             _cameraTransform = Camera.main.transform;
             _mouseCurrentPosition = Mouse.current.position;
 
-            _holdDistance = 2f;
-            _distanceInteract = 2f;
+            _holdDistance = _playerBlackboard.GetValue<float>("HoldDistance");
+            _distanceInteract = _playerBlackboard.GetValue<float>("DistanceInteract");
             _interactableLayer = LayerMask.GetMask("Interactable");
         }
 
@@ -73,6 +74,10 @@ namespace Game.Runtime
         #endregion
 
         #region Privates
+
+        [Title("Inputs")]
+        [SerializeField]
+        private Blackboard _playerBlackboard;
 
         [Title("Inputs")]
         [SerializeField]
