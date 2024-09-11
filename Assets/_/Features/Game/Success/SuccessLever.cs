@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class SuccessWall : SuccessAbstract
+    public class SuccessLever : SuccessAbstract
     {
         #region Publics
 
@@ -31,6 +31,9 @@ namespace Game.Runtime
         #endregion
 
         #region Privates
+
+        [SerializeField]
+        private GameObject _bridgeToInteract;
 
         #endregion
     }
