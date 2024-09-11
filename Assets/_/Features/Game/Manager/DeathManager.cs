@@ -28,12 +28,12 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _playerBlackboard.GetValue<int>("DeadCount"))
-                        _audioList[i].Play();
+                        _audioList[i]?.Play();
             }
             else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioList[rand].Play();
+                _audioList[rand]?.Play();
             }
 
             _resetGameEvent.Raise();

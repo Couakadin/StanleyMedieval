@@ -1,5 +1,6 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -29,7 +30,22 @@ namespace Game.Runtime
 
         private void OnDisable() => _interactAction.Disable();
 
-        private void Update() => InteractAction();
+        private void Update()
+        {
+            if (_isHoldingObject)
+            {
+                HoldObject();
+            }
+            else if (IsInteracting())
+            {
+                TryInteract();
+            }
+
+            if (IsRelease() && _isHoldingObject)
+            {
+                ReleaseObject();
+            }
+        }
 
         #endregion
 
@@ -39,12 +55,6 @@ namespace Game.Runtime
 
         #region Utils
 
-        private void InteractAction()
-        {
-            if (IsInteracting()) TryInteract();
-            else DeselectInteract();
-        }
-
         private void TryInteract()
         {
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
@@ -53,23 +63,40 @@ namespace Game.Runtime
                 _hitObject = hit.collider.gameObject;
                 if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody))
                 {
-                    _hitRigidbody.isKinematic = true;
-                    Vector3 newPosition = _cameraTransform.position + _cameraTransform.forward * _holdDistance;
-                    _hitObject.transform.position = newPosition;
+                    Play(_hitObject.GetComponent<AudioSource>(), _audioKeyHold);
+                    _isHoldingObject = true;
+                    _hitRigidbody.isKinematic = false;
                 }
             }
         }
 
-        private void DeselectInteract()
+        private void HoldObject()
         {
-            if (_hitRigidbody != null)
-                _hitRigidbody.isKinematic = false;
+            Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
+            Vector3 targetPosition = ray.GetPoint(_distanceInteract);
+            Vector3 direction = targetPosition - _hitObject.transform.position;
 
-            _hitRigidbody = null;
-            _hitObject = null;
+            _hitRigidbody.velocity = direction * 10f;
+            _hitRigidbody.MovePosition(targetPosition);
         }
 
-        private bool IsInteracting() => _interactAction.IsPressed();
+        private void ReleaseObject()
+        {
+            Play(_hitObject.GetComponent<AudioSource>(), _audioKeyDrop);
+            _isHoldingObject = false;
+            _hitRigidbody.isKinematic = false;
+
+            //_hitRigidbody.AddForce(_camera.transform.forward * 5f, ForceMode.Impulse);
+        }
+
+        private void Play(AudioSource audioSource, AudioClip clipToPlay)
+        {
+            audioSource.clip = clipToPlay;
+            audioSource.Play();
+        }
+
+        private bool IsInteracting() => _interactAction.triggered;
+        private bool IsRelease() => _interactAction.WasReleasedThisFrame();
 
         #endregion
 
@@ -83,6 +110,12 @@ namespace Game.Runtime
         [SerializeField]
         private InputAction _interactAction;
 
+        [Title("Audios")]
+        [SerializeField]
+        private AudioClip _audioKeyHold;
+        [SerializeField]
+        private AudioClip _audioKeyDrop;
+
         [Title("Privates")]
         private Camera _camera;
         private Transform _cameraTransform;
@@ -93,6 +126,8 @@ namespace Game.Runtime
 
         private float _holdDistance;
         private float _distanceInteract;
+
+        private bool _isHoldingObject;
 
         #endregion
     }

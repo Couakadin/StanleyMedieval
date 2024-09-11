@@ -1,5 +1,6 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ namespace Game.Runtime
             _rigidbody = GetComponent<Rigidbody>();
             _cameraTransform = Camera.main.transform;
             _groundLayer = LayerMask.GetMask("Ground");
+            _audioSource = GetComponent<AudioSource>();
             _standHeight = 2f;
             _crouchHeight = 1f;
 
@@ -97,6 +99,9 @@ namespace Game.Runtime
                 _movement.x * _movementSpeed * Time.fixedDeltaTime,
                 _rigidbody.velocity.y,
                 _movement.z * _movementSpeed * Time.fixedDeltaTime);
+
+            if (_rigidbody.velocity.magnitude > 0.5f && Time.time - _lastPlayTime > .7f && !IsJumping())
+                Play();
         }
 
         private void JumpAction() => _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
@@ -141,6 +146,14 @@ namespace Game.Runtime
                     _capsuleCollider.bounds.min.y, 
                     _capsuleCollider.bounds.center.z), 0.1f, _groundLayer);
 
+        private void Play()
+        {
+            _lastPlayTime = Time.time;
+            AudioClip clipToPlay = _stepfoot[Random.Range(0, _stepfoot.Count)];
+            _audioSource.clip = clipToPlay;
+            _audioSource.Play();
+        }
+
         #endregion
 
         #region Privates
@@ -163,12 +176,17 @@ namespace Game.Runtime
         [SerializeField]
         private InputAction _runAction;
 
+        [Title("Audio")]
+        [SerializeField]
+        private List<AudioClip> _stepfoot;
+
         [Title("Privates")]
         private Vector3 _movement;
         private Rigidbody _rigidbody;
         private LayerMask _groundLayer;
         private Vector3 _forward, _right;
         private Transform _cameraTransform;
+        private AudioSource _audioSource;
 
         private bool _isGrounded;
 
@@ -176,6 +194,7 @@ namespace Game.Runtime
         private float _horizontal, _vertical;
         private float _crouchHeight, _standHeight;
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
+        private float _lastPlayTime;
 
         #endregion
     }
