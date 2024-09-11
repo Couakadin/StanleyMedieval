@@ -110,8 +110,9 @@ namespace Game.Runtime
         {
             float previousHeight = _capsuleCollider.height;
             _capsuleCollider.height = IsCrouching() ? _crouchHeight : _standHeight;
+            _capsuleCollider.radius = .3f;
             float heightDifference = previousHeight - _capsuleCollider.height;
-            transform.position += new Vector3(0, -heightDifference / 2, 0);
+            _viewTransform.position += new Vector3(0, -heightDifference / 2, 0);
         }
 
         private void ViewAction()
@@ -165,6 +166,8 @@ namespace Game.Runtime
         [Title("Components")]
         [SerializeField]
         private CapsuleCollider _capsuleCollider;
+        [SerializeField]
+        private Transform _viewTransform;
 
         [Title("Inputs")]
         [SerializeField]
