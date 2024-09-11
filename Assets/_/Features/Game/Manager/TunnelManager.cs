@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class DeathManager : MonoBehaviour
+    public class TunnelManager : MonoBehaviour
     {
         #region Publics
 
@@ -15,30 +15,35 @@ namespace Game.Runtime
 
         private void Awake()
         {
-            _playerBlackboard.SetValue<int>("DeadCount", 0);
+            _counterBlackboard.SetValue<int>("TunnelCount", 0);
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer != LayerMask.GetMask("Player")) return;
+
+            if (_counterBlackboard.GetValue<int>("TunnelCount") < _audioList.Count)
+            {
+                for (int i = 0; i < _audioList.Count; i++)
+                    if (i == _counterBlackboard.GetValue<int>("TunnelCount"))
+                        _audioList[i].Play();
+            }
+            else
+            {
+                int rand = Random.Range(0, _audioListRandom.Count);
+                _audioList[rand].Play();
+            }
+
+            IncrementTunnelCount();
         }
 
         #endregion
 
         #region Methods
 
-        public void OnResetGame()
-        {
-            if (_playerBlackboard.GetValue<int>("DeadCount") < _audioList.Count)
-            {
-                for (int i = 0; i < _audioList.Count; i++)
-                    if (i == _playerBlackboard.GetValue<int>("DeadCount"))
-                        _audioList[i]?.Play();
-            }
-            else
-            {
-                int rand = Random.Range(0, _audioListRandom.Count);
-                _audioList[rand]?.Play();
-            }
-
-            _resetGameEvent.Raise();
-            _DeadCounterEvent.Raise();
-        }
+        public void IncrementTunnelCount() =>
+            _counterBlackboard.SetValue<int>("TunnelCount", _counterBlackboard.GetValue<int>("TunnelCount") + 1);
 
         #endregion
 
@@ -50,13 +55,7 @@ namespace Game.Runtime
 
         [Title("Data")]
         [SerializeField]
-        private Blackboard _playerBlackboard;
-
-        [Title("Events")]
-        [SerializeField]
-        private VoidScriptableEvent _resetGameEvent;
-        [SerializeField]
-        private VoidScriptableEvent _DeadCounterEvent;
+        private Blackboard _counterBlackboard;
 
         [Title("Audios")]
         [SerializeField]

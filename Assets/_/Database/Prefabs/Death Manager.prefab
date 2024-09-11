@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f650ceec15022f45a620feb63762bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
   _resetGameEvent: {fileID: 11400000, guid: d1485725e07b3af44a43cec68ee9558b, type: 2}
   _DeadCounterEvent: {fileID: 11400000, guid: 33650c5427222a145bd3b69ec10ef1e9, type: 2}
+  _audioList: []
+  _audioListRandom: []
 --- !u!114 &2272726065438653448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +107,18 @@ MonoBehaviour:
   m_event:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerArchetype, Game.Runtime
+        m_MethodName: SetArchetypeNone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game.Runtime.PlayerController, Game.Runtime
         m_MethodName: GoToInitialPosition
