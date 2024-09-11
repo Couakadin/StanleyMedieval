@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class SuccessWall : SuccessAbstract
+    public class SuccessBridge : SuccessAbstract
     {
         #region Publics
 

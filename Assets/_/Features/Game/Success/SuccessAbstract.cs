@@ -62,6 +62,10 @@ namespace Game.Runtime
         [SerializeField]
         protected Blackboard _playerBlackboard;
 
+        [Title("Events")]
+        [SerializeField]
+        protected VoidScriptableEvent _deathEvent;
+
         [Title("Values")]
         [SerializeField]
         protected int _archetypeSuccess;
