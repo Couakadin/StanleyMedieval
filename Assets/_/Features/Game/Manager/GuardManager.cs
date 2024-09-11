@@ -41,8 +41,6 @@ namespace Game.Runtime
                 _audioRemoveGuard.Play();
                 _guardGameObject.SetActive(false);
             }
-
-            IncrementGuardCount();
         }
 
         public void IncrementGuardCount() =>

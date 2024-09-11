@@ -21,6 +21,7 @@ namespace Game.Runtime
 
         protected override void OnFailure()
         {
+            _guardManager.IncrementGuardCount();
             _deathEvent.Raise();
         }
 
@@ -31,6 +32,9 @@ namespace Game.Runtime
         #endregion
 
         #region Privates
+
+        [SerializeField]
+        private GuardManager _guardManager;
 
         #endregion
     }
