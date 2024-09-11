@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 
 namespace Game.Runtime
 {
-    public class PlayerInteraction : MonoBehaviour
+    public class OnClickAudio : MonoBehaviour
     {
         #region Publics
 
@@ -22,14 +22,14 @@ namespace Game.Runtime
 
             _holdDistance = _playerBlackboard.GetValue<float>("HoldDistance");
             _distanceInteract = _playerBlackboard.GetValue<float>("DistanceInteract");
-            _interactableLayer = LayerMask.GetMask("Interactable");
+            _interactableLayer = LayerMask.GetMask("Audio");
+            _audio.playOnAwake = false;
         }
 
-        private void OnEnable() => _interactAction.Enable();
-
-        private void OnDisable() => _interactAction.Disable();
-
-        private void Update() => InteractAction();
+        private void Update()
+        {
+            if (Input.GetMouseButton(0)) TryInteract();
+        }
 
         #endregion
 
@@ -39,37 +39,19 @@ namespace Game.Runtime
 
         #region Utils
 
-        private void InteractAction()
-        {
-            if (IsInteracting()) TryInteract();
-            else DeselectInteract();
-        }
-
         private void TryInteract()
         {
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
             {
                 _hitObject = hit.collider.gameObject;
-                if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody))
+                if (_hitObject.TryGetComponent<AudioSource>(out _audio) && !_wasPlayed)
                 {
-                    _hitRigidbody.isKinematic = true;
-                    Vector3 newPosition = _cameraTransform.position + _cameraTransform.forward * _holdDistance;
-                    _hitObject.transform.position = newPosition;
+                   _audio.Play();
+                    _wasPlayed = true;
                 }
             }
         }
-
-        private void DeselectInteract()
-        {
-            if (_hitRigidbody != null)
-                _hitRigidbody.isKinematic = false;
-
-            _hitRigidbody = null;
-            _hitObject = null;
-        }
-
-        private bool IsInteracting() => _interactAction.IsPressed();
 
         #endregion
 
@@ -79,17 +61,15 @@ namespace Game.Runtime
         [SerializeField]
         private Blackboard _playerBlackboard;
 
-        [Title("Inputs")]
-        [SerializeField]
-        private InputAction _interactAction;
-
         [Title("Privates")]
         private Camera _camera;
         private Transform _cameraTransform;
         private LayerMask _interactableLayer;
         private Vector2Control _mouseCurrentPosition;
         private GameObject _hitObject;
-        private Rigidbody _hitRigidbody;
+        private AudioSource _audio;
+
+        private bool _wasPlayed;
 
         private float _holdDistance;
         private float _distanceInteract;
