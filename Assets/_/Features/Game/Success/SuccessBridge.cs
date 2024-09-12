@@ -10,13 +10,18 @@ namespace Game.Runtime
 
         #region Unity
 
+        private void Awake()
+        {
+            _bridgeAnimator = GetComponent<Animator>();
+        }
+
         #endregion
 
         #region Methods
 
         protected override void OnSuccess()
         {
-            Debug.Log("Success");
+            _bridgeAnimator.SetBool("Fall", true);
         }
 
         protected override void OnFailure()
@@ -31,6 +36,8 @@ namespace Game.Runtime
         #endregion
 
         #region Privates
+
+        private Animator _bridgeAnimator;
 
         #endregion
     }
