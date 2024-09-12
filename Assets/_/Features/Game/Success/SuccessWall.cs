@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
+    [RequireComponent(typeof(Animator), typeof(BoxCollider))]
     public class SuccessWall : SuccessAbstract
     {
         #region Publics
@@ -10,13 +11,20 @@ namespace Game.Runtime
 
         #region Unity
 
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _boxCollider = GetComponent<BoxCollider>();
+        }
+
         #endregion
 
         #region Methods
 
         protected override void OnSuccess()
         {
-            Debug.Log("Success");
+            _animator.SetBool("Fall", true);
+            _boxCollider.enabled = false;
         }
 
         protected override void OnFailure()
@@ -31,6 +39,9 @@ namespace Game.Runtime
         #endregion
 
         #region Privates
+
+        private Animator _animator;
+        private BoxCollider _boxCollider;
 
         #endregion
     }
