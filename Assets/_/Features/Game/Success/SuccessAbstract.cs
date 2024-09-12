@@ -45,7 +45,7 @@ namespace Game.Runtime
             directionToObject.Normalize();
             float dotProduct = Vector3.Dot(playerForward, directionToObject);
 
-            if (dotProduct > 0.6f) return true;
+            //if (dotProduct > 0.6f) return true;
 
             return true;
         }

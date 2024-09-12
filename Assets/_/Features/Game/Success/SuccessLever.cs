@@ -10,13 +10,18 @@ namespace Game.Runtime
 
         #region Unity
 
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
         #endregion
 
         #region Methods
 
         protected override void OnSuccess()
         {
-            Debug.Log("Success");
+            _animator.SetBool("Pull", true);
         }
 
         protected override void OnFailure()
@@ -34,6 +39,8 @@ namespace Game.Runtime
 
         [SerializeField]
         private GameObject _bridgeToInteract;
+
+        private Animator _animator;
 
         #endregion
     }
