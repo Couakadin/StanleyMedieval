@@ -13,6 +13,7 @@ namespace Game.Runtime
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _bridgeAnimator = _bridgeToInteract.GetComponent<Animator>();
         }
 
         #endregion
@@ -22,6 +23,7 @@ namespace Game.Runtime
         protected override void OnSuccess()
         {
             _animator.SetBool("Pull", true);
+            _bridgeAnimator.SetBool("Fall", true);
         }
 
         protected override void OnFailure()
@@ -41,6 +43,7 @@ namespace Game.Runtime
         private GameObject _bridgeToInteract;
 
         private Animator _animator;
+        private Animator _bridgeAnimator;
 
         #endregion
     }
