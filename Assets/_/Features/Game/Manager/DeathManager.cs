@@ -16,6 +16,7 @@ namespace Game.Runtime
         private void Awake()
         {
             _playerBlackboard.SetValue<int>("DeadCount", 0);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         #endregion
@@ -28,12 +29,16 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _playerBlackboard.GetValue<int>("DeadCount"))
-                        _audioList[i]?.Play();
+                    {
+                        _audioSource.clip = _audioList[i];
+                        _audioSource.Play();
+                    }
             }
             else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioList[rand]?.Play();
+                _audioSource.clip = _audioList[rand];
+                _audioSource.Play();
             }
 
             _resetGameEvent.Raise();
@@ -60,9 +65,11 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
-        private List<AudioSource> _audioList;
+        private AudioSource _audioSource;
         [SerializeField]
-        private List<AudioSource> _audioListRandom;
+        private List<AudioClip> _audioList;
+        [SerializeField]
+        private List<AudioClip> _audioListRandom;
 
         #endregion
     }

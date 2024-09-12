@@ -16,6 +16,7 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("TeleportCount", 0);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -26,21 +27,24 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
-                        _audioList[i].Play();
+                    {
+                        _audioSource.clip = _audioList[i];
+                        _audioSource.Play();
+                    }
             }
             else
                 _wallToEnable.SetActive(true);
 
             _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
 
-            IncrementTunnelCount();
+            IncrementTeleportCount();
         }
 
         #endregion
 
         #region Methods
 
-        public void IncrementTunnelCount() =>
+        public void IncrementTeleportCount() =>
             _counterBlackboard.SetValue<int>("TeleportCount", _counterBlackboard.GetValue<int>("TeleportCount") + 1);
 
         #endregion
@@ -65,7 +69,9 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
-        private List<AudioSource> _audioList;
+        private AudioSource _audioSource;
+        [SerializeField]
+        private List<AudioClip> _audioList;
 
         #endregion
     }

@@ -16,6 +16,7 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("GuardCount", 0);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -34,7 +35,10 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("GuardCount"))
-                        _audioList[i].Play();
+                    {
+                        _audioSource.clip = _audioList[i];
+                        _audioSource.Play();
+                    }
             }
             else
             {
@@ -64,9 +68,11 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
+        private AudioSource _audioSource;
+        [SerializeField]
         private AudioSource _audioRemoveGuard;
         [SerializeField]
-        private List<AudioSource> _audioList;
+        private List<AudioClip> _audioList;
 
         #endregion
     }
