@@ -91,6 +91,7 @@ namespace Game.Runtime
 
         private void Play(AudioSource audioSource, AudioClip clipToPlay)
         {
+            if (!audioSource.gameObject.activeSelf) return;
             audioSource.clip = clipToPlay;
             audioSource.Play();
         }

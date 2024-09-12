@@ -16,6 +16,7 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("GuardCount", 0);
+            _counterBlackboard.SetValue<int>("GuardKilledCount", 0);
             _audioSource = GetComponent<AudioSource>();
         }
 
@@ -42,8 +43,18 @@ namespace Game.Runtime
             }
             else
             {
-                _audioRemoveGuard.Play();
+                _audioSource.clip = _audioRemoveGuard;
+                _audioSource.Play();
                 _guardGameObject.SetActive(false);
+            }
+        }
+
+        public void GuardRespawn()
+        {
+            if (_counterBlackboard.GetValue<int>("GuardKilledCount") < _audioList.Count)
+            {
+                _counterBlackboard.SetValue<int>("GuardKilledCount", _counterBlackboard.GetValue<int>("GuardKilledCount") + 1);
+                _guardGameObject.SetActive(true);
             }
         }
 
@@ -70,7 +81,7 @@ namespace Game.Runtime
         [SerializeField]
         private AudioSource _audioSource;
         [SerializeField]
-        private AudioSource _audioRemoveGuard;
+        private AudioClip _audioRemoveGuard;
         [SerializeField]
         private List<AudioClip> _audioList;
 
