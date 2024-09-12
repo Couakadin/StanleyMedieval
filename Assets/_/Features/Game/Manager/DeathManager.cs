@@ -45,6 +45,10 @@ namespace Game.Runtime
             _guardEvent.Raise();
             _onAudioScriptEvent.Raise();
             _DeadCounterEvent.Raise();
+
+            _bridgeAnimator.SetBool("Fall", false);
+            _wallAnimator.SetBool("Fall", false);
+            _leverAnimator.SetBool("Pull", false);
         }
 
         #endregion
@@ -76,6 +80,14 @@ namespace Game.Runtime
         private List<AudioClip> _audioList;
         [SerializeField]
         private List<AudioClip> _audioListRandom;
+
+        [Title("Animators")]
+        [SerializeField]
+        private Animator _bridgeAnimator;
+        [SerializeField]
+        private Animator _leverAnimator;
+        [SerializeField]
+        private Animator _wallAnimator;
 
         #endregion
     }
