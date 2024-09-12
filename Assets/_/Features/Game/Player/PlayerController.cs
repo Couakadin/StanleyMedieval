@@ -56,6 +56,27 @@ namespace Game.Runtime
             _crouchAction.Disable();
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("PrisonDoor"))
+            {
+                if (collision.gameObject.TryGetComponent<LockManager>(out LockManager lockManager))
+                    if (lockManager.IsLocked())
+                        Play(_audioManager, _audioBlackboard.GetValue<AudioClip>("CollisionPrisonDoorLocked"));
+            }
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("WoodDoor"))
+            {
+                if (collision.gameObject.TryGetComponent<LockManager>(out LockManager lockManager))
+                {
+                    if (lockManager.IsLocked())
+                        Play(_audioManager, _audioBlackboard.GetValue<AudioClip>("CollisionWoodDoorLocked"));
+                    else
+                        Play(_audioManager, _audioBlackboard.GetValue<AudioClip>("CollisionWoodDoorOpen"));
+                }
+            }
+        }
+
         private void FixedUpdate()
         {
             if (_playerBlackboard.GetValue<bool>("IsDead")) return;
@@ -83,6 +104,12 @@ namespace Game.Runtime
         #endregion
 
         #region Utils
+
+        private void Play(AudioSource audioSource, AudioClip clipToPlay)
+        {
+            audioSource.clip = clipToPlay;
+            audioSource.Play();
+        }
 
         private void MoveAction()
         {
@@ -162,12 +189,18 @@ namespace Game.Runtime
         [Title("Data")]
         [SerializeField]
         private Blackboard _playerBlackboard;
+        [SerializeField]
+        private Blackboard _audioBlackboard;
 
         [Title("Components")]
         [SerializeField]
         private CapsuleCollider _capsuleCollider;
         [SerializeField]
         private Transform _viewTransform;
+
+        [Title("Audios")]
+        [SerializeField]
+        private AudioSource _audioManager;
 
         [Title("Inputs")]
         [SerializeField]

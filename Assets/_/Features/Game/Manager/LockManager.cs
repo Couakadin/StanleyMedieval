@@ -1,3 +1,4 @@
+using Data.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace Game.Runtime
             if (collision.gameObject != _key.gameObject) return;
             collision.gameObject.SetActive(false);
             _locked = false;
+            Play(_audioManager, _audioBlackboard.GetValue<AudioClip>("DoorUnlock"));
         }
 
         private void Update()
@@ -30,19 +32,35 @@ namespace Game.Runtime
 
         #region Methods
 
+        public bool IsLocked() { return _locked; }
+
         #endregion
 
         #region Utils
 
+        private void Play(AudioSource audioSource, AudioClip clipToPlay)
+        {
+            audioSource.clip = clipToPlay;
+            audioSource.Play();
+        }
+
         #endregion
 
         #region Privates
+
+        [Title("Data")]
+        [SerializeField]
+        private Blackboard _audioBlackboard;
 
         [Title("Key")]
         [SerializeField]
         private GameObject _key;
         [SerializeField]
         private bool _locked;
+
+        [Title("Audios")]
+        [SerializeField]
+        private AudioSource _audioManager;
 
         [Title("Private")]
         private Rigidbody _rigidbody;

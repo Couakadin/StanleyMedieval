@@ -63,7 +63,7 @@ namespace Game.Runtime
                 _hitObject = hit.collider.gameObject;
                 if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody))
                 {
-                    Play(_hitObject.GetComponent<AudioSource>(), _audioKeyHold);
+                    Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
                     _isHoldingObject = true;
                     _hitRigidbody.isKinematic = false;
                 }
@@ -82,7 +82,7 @@ namespace Game.Runtime
 
         private void ReleaseObject()
         {
-            Play(_hitObject.GetComponent<AudioSource>(), _audioKeyDrop);
+            Play(_hitObject.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyGrab"));
             _isHoldingObject = false;
             _hitRigidbody.isKinematic = false;
 
@@ -105,6 +105,8 @@ namespace Game.Runtime
         [Title("Data")]
         [SerializeField]
         private Blackboard _playerBlackboard;
+        [SerializeField]
+        private Blackboard _audioBlackboard;
 
         [Title("Inputs")]
         [SerializeField]
@@ -112,9 +114,7 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
-        private AudioClip _audioKeyHold;
-        [SerializeField]
-        private AudioClip _audioKeyDrop;
+        private AudioSource _audioManager;
 
         [Title("Privates")]
         private Camera _camera;
