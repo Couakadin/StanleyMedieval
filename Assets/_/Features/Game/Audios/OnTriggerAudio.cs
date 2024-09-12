@@ -14,6 +14,7 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == LayerMask.GetMask("Player") && !_wasPlayed)
             {
+                _audio.clip = _clip;
                 _audio.Play();
                 _wasPlayed = true;
             }
@@ -31,6 +32,8 @@ namespace Game.Runtime
 
         #region Privates
 
+        [SerializeField]
+        private AudioClip _clip;
         [SerializeField]
         private AudioSource _audio;
 
