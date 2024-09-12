@@ -101,6 +101,11 @@ namespace Game.Runtime
                 transform.position = _playerBlackboard.GetValue<Vector3>("InitialPosition");
         }
 
+        public void GoToThisPosition(Vector3 position)
+        {
+            transform.position = position;
+        }
+
         #endregion
 
         #region Utils

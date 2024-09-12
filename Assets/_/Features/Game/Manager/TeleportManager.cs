@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class GuardManager : MonoBehaviour
+    public class TeleportManager : MonoBehaviour
     {
         #region Publics
 
@@ -15,40 +15,37 @@ namespace Game.Runtime
 
         private void Awake()
         {
-            _counterBlackboard.SetValue<int>("GuardCount", 0);
+            _counterBlackboard.SetValue<int>("TeleportCount", 0);
             _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
-                OnGuardTrigger();
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void OnGuardTrigger()
-        {
-            if (_counterBlackboard.GetValue<int>("GuardCount") < _audioList.Count)
+            if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
+            
+            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count)
             {
                 for (int i = 0; i < _audioList.Count; i++)
-                    if (i == _counterBlackboard.GetValue<int>("GuardCount"))
+                    if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
                     {
                         _audioSource.clip = _audioList[i];
                         _audioSource.Play();
                     }
             }
             else
-            {
-                _audioRemoveGuard.Play();
-                _guardGameObject.SetActive(false);
-            }
+                _wallToEnable.SetActive(true);
+
+            _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
+
+            IncrementTeleportCount();
         }
 
-        public void IncrementGuardCount() =>
-            _counterBlackboard.SetValue<int>("GuardCount", _counterBlackboard.GetValue<int>("GuardCount") + 1);
+        #endregion
+
+        #region Methods
+
+        public void IncrementTeleportCount() =>
+            _counterBlackboard.SetValue<int>("TeleportCount", _counterBlackboard.GetValue<int>("TeleportCount") + 1);
 
         #endregion
 
@@ -62,15 +59,17 @@ namespace Game.Runtime
         [SerializeField]
         private Blackboard _counterBlackboard;
 
-        [Title("Guard to interact")]
+        [Title("GameObjects")]
+        [SerializeField] 
+        private PlayerController _playerController;
         [SerializeField]
-        private GameObject _guardGameObject;
+        private GameObject _wallToEnable;
+        [SerializeField]
+        private GameObject _positionToTeleport;
 
         [Title("Audios")]
         [SerializeField]
         private AudioSource _audioSource;
-        [SerializeField]
-        private AudioSource _audioRemoveGuard;
         [SerializeField]
         private List<AudioClip> _audioList;
 
