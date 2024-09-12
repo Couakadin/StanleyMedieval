@@ -9654,6 +9654,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 436275429}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437161563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437161565}
+  - component: {fileID: 437161564}
+  m_Layer: 0
+  m_Name: OnLoopTriggerAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &437161564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437161563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb8bc195b130404783b500b7f115a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blackboard: {fileID: 0}
+  _index: 
+  _audioSource: {fileID: 0}
+  _audioList: []
+--- !u!4 &437161565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437161563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &443036818
 GameObject:
   m_ObjectHideFlags: 0
@@ -27511,6 +27559,12 @@ PrefabInstance:
       objectReference: {fileID: 1304798347}
     - target: {fileID: 366365073491023996, guid: 78fc20ca08392684dac409e8b8d39e2f,
         type: 3}
+      propertyPath: _onAudioScriptEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 22208a7c17f0b714fbc3bee83694cd1d,
+        type: 2}
+    - target: {fileID: 366365073491023996, guid: 78fc20ca08392684dac409e8b8d39e2f,
+        type: 3}
       propertyPath: _audioList.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -27665,6 +27719,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8404384763008713299, guid: 78fc20ca08392684dac409e8b8d39e2f,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1304798348}
+    - targetCorrespondingSourceObject: {fileID: 8404384763008713299, guid: 78fc20ca08392684dac409e8b8d39e2f,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1304798347}
   m_SourcePrefab: {fileID: 100100000, guid: 78fc20ca08392684dac409e8b8d39e2f, type: 3}
 --- !u!4 &1304798344 stripped
@@ -27803,6 +27861,46 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1304798348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304798345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 437161564}
+        m_TargetAssemblyTypeName: Game.Runtime.OnLoopTriggerAudio, Game.Runtime
+        m_MethodName: ResetWasPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1532043158}
+        m_TargetAssemblyTypeName: Game.Runtime.OnRandomTriggerAudio, Game.Runtime
+        m_MethodName: ResetWasPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: 22208a7c17f0b714fbc3bee83694cd1d, type: 2}
 --- !u!1001 &1306711437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32661,6 +32759,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1325233477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1532043157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532043159}
+  - component: {fileID: 1532043158}
+  m_Layer: 0
+  m_Name: OnRandomTriggerAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1532043158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532043157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a294d633d4db14aa4e00d553b2dd82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blackboard: {fileID: 0}
+  _index: 
+  _audioSource: {fileID: 0}
+  _audioListRandom: []
+--- !u!4 &1532043159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532043157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1543397988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44886,3 +45032,5 @@ SceneRoots:
   - {fileID: 213774185}
   - {fileID: 328809066}
   - {fileID: 914792501}
+  - {fileID: 437161565}
+  - {fileID: 1532043159}

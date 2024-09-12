@@ -37,12 +37,13 @@ namespace Game.Runtime
             else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioSource.clip = _audioList[rand];
+                _audioSource.clip = _audioListRandom[rand];
                 _audioSource.Play();
             }
 
             _resetGameEvent.Raise();
             _guardEvent.Raise();
+            _onAudioScriptEvent.Raise();
             _DeadCounterEvent.Raise();
         }
 
@@ -65,6 +66,8 @@ namespace Game.Runtime
         private VoidScriptableEvent _guardEvent;
         [SerializeField]
         private VoidScriptableEvent _DeadCounterEvent;
+        [SerializeField]
+        private VoidScriptableEvent _onAudioScriptEvent;
 
         [Title("Audios")]
         [SerializeField]
