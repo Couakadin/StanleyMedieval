@@ -23,7 +23,7 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
             
-            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count)
+            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count - 1)
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
