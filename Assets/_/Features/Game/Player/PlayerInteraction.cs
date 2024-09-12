@@ -36,7 +36,7 @@ namespace Game.Runtime
             {
                 HoldObject();
             }
-            else if (IsInteracting())
+            else
             {
                 TryInteract();
             }
@@ -60,14 +60,17 @@ namespace Game.Runtime
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
             {
+                _textInteract.SetActive(true);
                 _hitObject = hit.collider.gameObject;
-                if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody))
+                if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody) && IsInteracting())
                 {
                     Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
                     _isHoldingObject = true;
                     _hitRigidbody.isKinematic = false;
+                    _textInteract.SetActive(false);
                 }
             }
+            else _textInteract.SetActive(false);
         }
 
         private void HoldObject()
@@ -116,6 +119,10 @@ namespace Game.Runtime
         [Title("Audios")]
         [SerializeField]
         private AudioSource _audioManager;
+
+        [Title("Gameobjects")]
+        [SerializeField]
+        private GameObject _textInteract;
 
         [Title("Privates")]
         private Camera _camera;
