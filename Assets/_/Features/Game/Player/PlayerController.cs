@@ -88,8 +88,11 @@ namespace Game.Runtime
             MoveAction();
         }
 
-        private void LateUpdate() =>
+        private void LateUpdate()
+        {
             _playerBlackboard.SetValue<Vector3>("Position", transform.position);
+            _playerBlackboard.SetValue<Vector3>("Forward", _viewTransform.forward);
+        }
 
         #endregion
 

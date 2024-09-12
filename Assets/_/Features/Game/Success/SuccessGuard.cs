@@ -1,3 +1,4 @@
+using Data.Runtime;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -16,7 +17,7 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
-            Debug.Log("Success");
+            gameObject.SetActive(false);
         }
 
         protected override void OnFailure()
