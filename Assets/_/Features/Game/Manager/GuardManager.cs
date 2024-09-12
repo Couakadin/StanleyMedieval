@@ -47,6 +47,14 @@ namespace Game.Runtime
             }
         }
 
+        public void GuardRespawn()
+        {
+            if (_counterBlackboard.GetValue<int>("GuardCount") < _audioList.Count)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
         public void IncrementGuardCount() =>
             _counterBlackboard.SetValue<int>("GuardCount", _counterBlackboard.GetValue<int>("GuardCount") + 1);
 

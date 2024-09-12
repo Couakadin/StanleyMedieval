@@ -1,3 +1,4 @@
+using Data.Runtime;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -16,7 +17,7 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
-            Debug.Log("Success");
+            _guardEvent.Raise();
         }
 
         protected override void OnFailure()
@@ -35,6 +36,9 @@ namespace Game.Runtime
 
         [SerializeField]
         private GuardManager _guardManager;
+
+        [SerializeField]
+        private VoidScriptableEvent _guardEvent;
 
         #endregion
     }
