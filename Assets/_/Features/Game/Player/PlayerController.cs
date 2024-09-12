@@ -21,8 +21,9 @@ namespace Game.Runtime
             _cameraTransform = Camera.main.transform;
             _groundLayer = LayerMask.GetMask("Ground");
             _audioSource = GetComponent<AudioSource>();
-            _standHeight = 2f;
-            _crouchHeight = 1f;
+            _initialStandHeight = 2f;
+            _standHeight = _initialStandHeight;
+            _crouchHeight = .9f;
 
             if (_playerBlackboard.ContainsKey("WalkSpeed"))
                 _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
@@ -58,6 +59,9 @@ namespace Game.Runtime
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Water")) _isTunnel = true;
+            if (_isTunnel && collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _isTunnel = false;
+
             if (collision.gameObject.layer == LayerMask.NameToLayer("PrisonDoor"))
             {
                 if (collision.gameObject.TryGetComponent<LockManager>(out LockManager lockManager))
@@ -76,6 +80,8 @@ namespace Game.Runtime
                 }
             }
         }
+
+        
 
         private void FixedUpdate()
         {
@@ -144,6 +150,7 @@ namespace Game.Runtime
         private void CrouchAction()
         {
             float previousHeight = _capsuleCollider.height;
+
             _capsuleCollider.height = IsCrouching() ? _crouchHeight : _standHeight;
             _capsuleCollider.radius = .3f;
             float heightDifference = previousHeight - _capsuleCollider.height;
@@ -169,7 +176,11 @@ namespace Game.Runtime
             else _movementSpeed = _walkSpeed;
         }
 
-        private bool IsCrouching() => _crouchAction.IsPressed();
+        private bool IsCrouching() 
+        {
+            if (_crouchAction.IsPressed() || _isTunnel) return true;
+            return false;
+        }
         
         private bool IsJumping() => _jumpAction.IsPressed();
         
@@ -232,11 +243,11 @@ namespace Game.Runtime
         private Transform _cameraTransform;
         private AudioSource _audioSource;
 
-        private bool _isGrounded;
+        private bool _isGrounded, _isTunnel;
 
         private float _jumpForce;
         private float _horizontal, _vertical;
-        private float _crouchHeight, _standHeight;
+        private float _crouchHeight, _standHeight, _initialStandHeight;
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
 
