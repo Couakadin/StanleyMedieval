@@ -31,6 +31,7 @@ namespace Game.Runtime
 
         #region Privates
 
+        [SerializeField]
         private AudioSource _audio;
 
         private bool _wasPlayed;
