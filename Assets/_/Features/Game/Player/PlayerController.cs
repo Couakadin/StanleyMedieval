@@ -89,7 +89,7 @@ namespace Game.Runtime
 
             ViewAction();
             SpeedAction();
-            CrouchAction();
+            if (!IsJumping() && IsGrounded()) CrouchAction();
             if (IsGrounded() && IsJumping()) JumpAction();
             MoveAction();
         }
