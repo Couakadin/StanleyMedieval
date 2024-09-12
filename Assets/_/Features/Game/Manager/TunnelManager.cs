@@ -16,23 +16,29 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("TunnelCount", 0);
+            _audioSource = GetComponent<AudioSource>();
         }
 
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer != LayerMask.GetMask("Player")) return;
+            if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
 
             if (_counterBlackboard.GetValue<int>("TunnelCount") < _audioList.Count)
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TunnelCount"))
-                        _audioList[i].Play();
+                    {
+                        _audioSource.clip = _audioList[i];
+                        _audioSource.Play();
+                    }
+
             }
             else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioList[rand].Play();
+                _audioSource.clip = _audioList[rand];
+                _audioSource.Play();
             }
 
             IncrementTunnelCount();
@@ -59,9 +65,11 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
-        private List<AudioSource> _audioList;
+        private AudioSource _audioSource;
         [SerializeField]
-        private List<AudioSource> _audioListRandom;
+        private List<AudioClip> _audioList;
+        [SerializeField]
+        private List<AudioClip> _audioListRandom;
 
         #endregion
     }
