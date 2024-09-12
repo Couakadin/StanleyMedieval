@@ -42,6 +42,7 @@ namespace Game.Runtime
             }
 
             _resetGameEvent.Raise();
+            _guardEvent.Raise();
             _DeadCounterEvent.Raise();
         }
 
@@ -60,6 +61,8 @@ namespace Game.Runtime
         [Title("Events")]
         [SerializeField]
         private VoidScriptableEvent _resetGameEvent;
+        [SerializeField]
+        private VoidScriptableEvent _guardEvent;
         [SerializeField]
         private VoidScriptableEvent _DeadCounterEvent;
 

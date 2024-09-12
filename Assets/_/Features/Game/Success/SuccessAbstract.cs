@@ -47,7 +47,7 @@ namespace Game.Runtime
 
             if (dotProduct > 0.6f) return true;
 
-            return false;
+            return true;
         }
 
         protected void TextToShow() => _textCanvas.text = _textToShow;

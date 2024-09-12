@@ -17,7 +17,7 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
-            _guardEvent.Raise();
+            gameObject.SetActive(false);
         }
 
         protected override void OnFailure()
@@ -36,9 +36,6 @@ namespace Game.Runtime
 
         [SerializeField]
         private GuardManager _guardManager;
-
-        [SerializeField]
-        private VoidScriptableEvent _guardEvent;
 
         #endregion
     }
