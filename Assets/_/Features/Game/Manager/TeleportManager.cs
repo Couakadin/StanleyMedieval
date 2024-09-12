@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class TunnelManager : MonoBehaviour
+    public class TeleportManager : MonoBehaviour
     {
         #region Publics
 
@@ -15,25 +15,23 @@ namespace Game.Runtime
 
         private void Awake()
         {
-            _counterBlackboard.SetValue<int>("TunnelCount", 0);
+            _counterBlackboard.SetValue<int>("TeleportCount", 0);
         }
-
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
-
-            if (_counterBlackboard.GetValue<int>("TunnelCount") < _audioList.Count)
+            
+            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count)
             {
                 for (int i = 0; i < _audioList.Count; i++)
-                    if (i == _counterBlackboard.GetValue<int>("TunnelCount"))
+                    if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
                         _audioList[i].Play();
             }
             else
-            {
-                int rand = Random.Range(0, _audioListRandom.Count);
-                _audioList[rand].Play();
-            }
+                _wallToEnable.SetActive(true);
+
+            _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
 
             IncrementTunnelCount();
         }
@@ -43,7 +41,7 @@ namespace Game.Runtime
         #region Methods
 
         public void IncrementTunnelCount() =>
-            _counterBlackboard.SetValue<int>("TunnelCount", _counterBlackboard.GetValue<int>("TunnelCount") + 1);
+            _counterBlackboard.SetValue<int>("TeleportCount", _counterBlackboard.GetValue<int>("TeleportCount") + 1);
 
         #endregion
 
@@ -57,11 +55,17 @@ namespace Game.Runtime
         [SerializeField]
         private Blackboard _counterBlackboard;
 
+        [Title("GameObjects")]
+        [SerializeField] 
+        private PlayerController _playerController;
+        [SerializeField]
+        private GameObject _wallToEnable;
+        [SerializeField]
+        private GameObject _positionToTeleport;
+
         [Title("Audios")]
         [SerializeField]
         private List<AudioSource> _audioList;
-        [SerializeField]
-        private List<AudioSource> _audioListRandom;
 
         #endregion
     }
