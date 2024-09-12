@@ -12,7 +12,7 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.GetMask("Player") && !_wasPlayed)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed)
             {
                 _audio.clip = _clip;
                 _audio.Play();
