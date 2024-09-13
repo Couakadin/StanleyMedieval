@@ -41,7 +41,6 @@ namespace Game.Runtime
 
         protected override void OnFailure()
         {
-            _audioFailure.Play();
             _deathEvent.Raise();
         }
 
@@ -60,8 +59,6 @@ namespace Game.Runtime
         private GameObject _text;
         [SerializeField]
         private AudioSource _audioSuccess;
-        [SerializeField]
-        private AudioSource _audioFailure;
 
         #endregion
     }
