@@ -17,6 +17,17 @@ namespace Game.Runtime
             _boxCollider = GetComponent<BoxCollider>();
         }
 
+        protected void Update()
+        {
+            if (IsPlayerNear())
+            {
+                _text.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                    ArchetypeCheck();
+            }
+            else _text.SetActive(false);
+        }
+
         #endregion
 
         #region Methods
@@ -42,6 +53,9 @@ namespace Game.Runtime
 
         private Animator _animator;
         private BoxCollider _boxCollider;
+
+        [SerializeField]
+        private GameObject _text;
 
         #endregion
     }
