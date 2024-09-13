@@ -81,8 +81,6 @@ namespace Game.Runtime
             }
         }
 
-        
-
         private void FixedUpdate()
         {
             if (_playerBlackboard.GetValue<bool>("IsDead")) return;
@@ -157,16 +155,30 @@ namespace Game.Runtime
             _viewTransform.position += new Vector3(0, -heightDifference / 2, 0);
         }
 
+        public float rotationSmoothTime = 0.1f;  // Temps pour lisser la rotation
+        private Quaternion _currentRotation;
+        private Quaternion _targetRotation;
+
         private void ViewAction()
         {
+            // Récupération de la rotation de la caméra (avec Cinemachine)
             Quaternion cameraRotation = _cameraTransform.rotation;
 
+            // Calcul des axes vers l'avant et sur les côtés en fonction de la caméra
             _forward = cameraRotation * Vector3.forward;
             _right = cameraRotation * Vector3.right;
+
+            // Conversion de la rotation de la caméra en angles d'Euler
             Vector3 cameraAngle = cameraRotation.eulerAngles;
-            
-            Quaternion rotation = Quaternion.Euler(0, cameraAngle.y, 0);
-            _rigidbody.MoveRotation(rotation);
+
+            // Calcul de la rotation cible du joueur sur l'axe Y (ne pas inclure X et Z)
+            _targetRotation = Quaternion.Euler(0, cameraAngle.y, 0);
+
+            // Lissage de la rotation du joueur avec Quaternion.Lerp
+            _currentRotation = Quaternion.Lerp(_rigidbody.rotation, _targetRotation, Time.deltaTime / rotationSmoothTime);
+
+            // Appliquer la rotation lissée au Rigidbody
+            _rigidbody.MoveRotation(_currentRotation);
         }
 
         private void SpeedAction()

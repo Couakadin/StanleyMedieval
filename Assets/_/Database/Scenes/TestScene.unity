@@ -7786,6 +7786,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 257061922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &259953273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259953274}
+  - component: {fileID: 259953275}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259953274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259953273}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339955356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259953275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259953273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fa9391393eb914cb88a3a93d44cee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &260619018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10577,6 +10621,7 @@ Transform:
   - {fileID: 854853907}
   - {fileID: 1630046271}
   - {fileID: 1304798344}
+  - {fileID: 259953274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &348357958 stripped
@@ -33891,7 +33936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1054394788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35051,6 +35096,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 3682354561857831094, guid: 978b3a8604a0dc84d82145bd53100b4b,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4554689735580071743, guid: 978b3a8604a0dc84d82145bd53100b4b,
         type: 3}
       propertyPath: m_Type
@@ -35313,6 +35363,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 978b3a8604a0dc84d82145bd53100b4b, type: 3}
+--- !u!225 &1101311247 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3682354561857831094, guid: 978b3a8604a0dc84d82145bd53100b4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1101311246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1106161055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41224,6 +41280,9 @@ PrefabInstance:
       objectReference: {fileID: 1304798347}
     - target: {fileID: 366365073491023996, guid: 78fc20ca08392684dac409e8b8d39e2f,
         type: 3}
+      propertyPath: _canvasArchetype
+      value: 
+      objectReference: {fileID: 1101311247}
       propertyPath: _wallAnimator
       value: 
       objectReference: {fileID: 1974791255}
@@ -56034,7 +56093,7 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 200
+    m_MaxSpeed: 150
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -56058,7 +56117,7 @@ MonoBehaviour:
   m_HorizontalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 200
+    m_MaxSpeed: 150
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
