@@ -34,12 +34,14 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
+            _audioSuccess.Play();
             _animator.SetBool("Fall", true);
             _boxCollider.enabled = false;
         }
 
         protected override void OnFailure()
         {
+            _audioFailure.Play();
             _deathEvent.Raise();
         }
 
@@ -56,6 +58,10 @@ namespace Game.Runtime
 
         [SerializeField]
         private GameObject _text;
+        [SerializeField]
+        private AudioSource _audioSuccess;
+        [SerializeField]
+        private AudioSource _audioFailure;
 
         #endregion
     }

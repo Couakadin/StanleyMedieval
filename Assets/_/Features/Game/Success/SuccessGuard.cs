@@ -28,11 +28,13 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
+            _audioSuccess.Play();
             gameObject.SetActive(false);
         }
 
         protected override void OnFailure()
         {
+            _audioFailure.Play();
             _guardManager.IncrementGuardCount();
             _deathEvent.Raise();
         }
@@ -50,6 +52,10 @@ namespace Game.Runtime
 
         [SerializeField]
         private GameObject _text;
+        [SerializeField]
+        private AudioSource _audioSuccess;
+        [SerializeField]
+        private AudioSource _audioFailure;
 
         #endregion
     }
