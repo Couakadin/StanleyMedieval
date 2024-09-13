@@ -49,6 +49,7 @@ namespace Game.Runtime
             _bridgeAnimator.SetBool("Fall", false);
             _wallAnimator.SetBool("Fall", false);
             _leverAnimator.SetBool("Pull", false);
+            _canvasArchetype.alpha = 1;
         }
 
         #endregion
@@ -72,6 +73,10 @@ namespace Game.Runtime
         private VoidScriptableEvent _DeadCounterEvent;
         [SerializeField]
         private VoidScriptableEvent _onAudioScriptEvent;
+
+        [Title("Components")]
+        [SerializeField]
+        private CanvasGroup _canvasArchetype;
 
         [Title("Audios")]
         [SerializeField]

@@ -35111,6 +35111,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 3682354561857831094, guid: 978b3a8604a0dc84d82145bd53100b4b,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4554689735580071743, guid: 978b3a8604a0dc84d82145bd53100b4b,
         type: 3}
       propertyPath: m_Type
@@ -35373,6 +35378,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 978b3a8604a0dc84d82145bd53100b4b, type: 3}
+--- !u!225 &1101311247 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3682354561857831094, guid: 978b3a8604a0dc84d82145bd53100b4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1101311246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1106161055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41282,6 +41293,11 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 1304798347}
+    - target: {fileID: 366365073491023996, guid: 78fc20ca08392684dac409e8b8d39e2f,
+        type: 3}
+      propertyPath: _canvasArchetype
+      value: 
+      objectReference: {fileID: 1101311247}
     - target: {fileID: 366365073491023996, guid: 78fc20ca08392684dac409e8b8d39e2f,
         type: 3}
       propertyPath: _onAudioScriptEvent
@@ -67814,7 +67830,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _guardGameObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 965204354}
     - target: {fileID: 7403200766162698395, guid: ea988c1472be9914b82e0b4f877bbd1c,
         type: 3}
       propertyPath: _audioRemoveGuard
