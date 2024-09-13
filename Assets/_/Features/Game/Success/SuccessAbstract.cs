@@ -13,7 +13,16 @@ namespace Game.Runtime
 
         #region Unity
 
-        
+        protected virtual void Update()
+        {
+            if (IsPlayerNear())
+            {
+                TextToShow();
+                if (Input.GetKeyDown(KeyCode.E))
+                    ArchetypeCheck();
+            }
+            else _textCanvas.text = string.Empty;
+        }
 
         #endregion
 
@@ -29,7 +38,7 @@ namespace Game.Runtime
             Vector3 directionToObject = transform.position - playerPosition;
 
             float distanceSqr = directionToObject.sqrMagnitude;
-            if (distanceSqr > 5f * 5f) return false;
+            if (distanceSqr > 2f * 2f) return false;
 
             Vector3 playerForward = _playerBlackboard.GetValue<Vector3>("Forward");
 
