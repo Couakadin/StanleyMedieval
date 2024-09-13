@@ -13,17 +13,6 @@ namespace Game.Runtime
 
         #region Unity
 
-        protected virtual void Update()
-        {
-            if (IsPlayerNear())
-            {
-                TextToShow();
-                if (Input.GetKeyDown(KeyCode.E))
-                    ArchetypeCheck();
-            }
-            else _textCanvas.text = string.Empty;
-        }
-
         #endregion
 
         #region Methods

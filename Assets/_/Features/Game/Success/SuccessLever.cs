@@ -16,6 +16,17 @@ namespace Game.Runtime
             _bridgeAnimator = _bridgeToInteract.GetComponent<Animator>();
         }
 
+        protected void Update()
+        {
+            if (IsPlayerNear())
+            {
+                _text.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                    ArchetypeCheck();
+            }
+            else _text.SetActive(false);
+        }
+
         #endregion
 
         #region Methods
@@ -44,6 +55,9 @@ namespace Game.Runtime
 
         private Animator _animator;
         private Animator _bridgeAnimator;
+
+        [SerializeField]
+        private GameObject _text;
 
         #endregion
     }
