@@ -6,9 +6,6 @@ namespace Game.Runtime
 {
     public class LockManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -49,18 +46,14 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _audioBlackboard;
 
         [Title("Key")]
-        [SerializeField]
-        private GameObject _key;
-        [SerializeField]
-        private bool _locked;
+        [SerializeField] private GameObject _key;
+        [SerializeField] private bool _locked;
 
         [Title("Audios")]
-        [SerializeField]
-        private AudioSource _audioManager;
+        [SerializeField] private AudioSource _audioManager;
 
         [Title("Private")]
         private Rigidbody _rigidbody;

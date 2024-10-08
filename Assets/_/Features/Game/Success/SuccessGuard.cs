@@ -35,7 +35,6 @@ namespace Game.Runtime
         protected override void OnFailure()
         {
             _guardManager.IncrementGuardCount();
-            _deathEvent.Raise();
         }
 
         #endregion

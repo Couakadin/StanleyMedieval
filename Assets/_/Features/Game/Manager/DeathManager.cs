@@ -7,10 +7,6 @@ namespace Game.Runtime
 {
     public class DeathManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
-
         #region Unity
 
         private void Awake()
@@ -51,10 +47,6 @@ namespace Game.Runtime
             _leverAnimator.SetBool("Pull", false);
             _canvasArchetype.alpha = 1;
         }
-
-        #endregion
-
-        #region Utils
 
         #endregion
 

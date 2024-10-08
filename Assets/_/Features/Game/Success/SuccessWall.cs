@@ -5,9 +5,6 @@ namespace Game.Runtime
     [RequireComponent(typeof(Animator), typeof(BoxCollider))]
     public class SuccessWall : SuccessAbstract
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -41,14 +38,11 @@ namespace Game.Runtime
 
         protected override void OnFailure()
         {
-            _deathEvent.Raise();
+            
         }
 
         #endregion
 
-        #region Utils
-
-        #endregion
 
         #region Privates
 

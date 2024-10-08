@@ -1,6 +1,3 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -8,7 +5,6 @@ public class CameraController : MonoBehaviour
 
     public Transform player;
     public float mouseSensitivity = 2f;
-    float cameraVerticalRotation = 1f;
 
     void Start()
     {
@@ -27,13 +23,18 @@ public class CameraController : MonoBehaviour
 
         // --------------------------------------------- Rotate the Camera around its local X axis
 
-        cameraVerticalRotation -= inputY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+        _cameraVerticalRotation -= inputY;
+        print(_cameraVerticalRotation);
+        _cameraVerticalRotation = Mathf.Clamp(_cameraVerticalRotation, -80f, 80f);
+        transform.localEulerAngles = Vector3.right * _cameraVerticalRotation;
 
 
         // -------------------------------- Rotate the Player Object and the Camera around its Y axis
 
         player.Rotate(Vector3.up * inputX);
     }
+
+
+
+    private float _cameraVerticalRotation = 1f;
 }

@@ -40,7 +40,7 @@ namespace Game.Runtime
 
         protected override void OnFailure()
         {
-            _deathEvent.Raise();
+            
         }
 
         #endregion
