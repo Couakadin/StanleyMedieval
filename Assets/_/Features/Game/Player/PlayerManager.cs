@@ -6,9 +6,6 @@ namespace Game.Runtime
 {
     public class PlayerManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -27,10 +24,6 @@ namespace Game.Runtime
 
         public void IncrementDeadCount() =>
             _playerBlackboard.SetValue<int>("DeadCount", _playerBlackboard.GetValue<int>("DeadCount") + 1);
-
-        #endregion
-
-        #region Utils
 
         #endregion
 

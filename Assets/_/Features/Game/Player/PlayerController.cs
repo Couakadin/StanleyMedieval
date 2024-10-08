@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 namespace Game.Runtime
 {
@@ -87,7 +88,8 @@ namespace Game.Runtime
 
             ViewAction();
             SpeedAction();
-            if (!IsJumping() && IsGrounded()) CrouchAction();
+            if (!IsJumping() && IsGrounded() && _crouchAction.IsPressed()) CrouchAction();
+            else if (!_crouchAction.IsPressed() && !_isTunnel) GetUpAction();
             if (IsGrounded() && IsJumping()) JumpAction();
             MoveAction();
         }
@@ -97,6 +99,8 @@ namespace Game.Runtime
             _playerBlackboard.SetValue<Vector3>("Position", transform.position);
             _playerBlackboard.SetValue<Vector3>("Forward", _viewTransform.forward);
         }
+
+        
 
         #endregion
 
@@ -147,12 +151,17 @@ namespace Game.Runtime
 
         private void CrouchAction()
         {
-            float previousHeight = _capsuleCollider.height;
-
-            _capsuleCollider.height = IsCrouching() ? _crouchHeight : _standHeight;
-            _capsuleCollider.radius = .3f;
-            float heightDifference = previousHeight - _capsuleCollider.height;
-            _viewTransform.position += new Vector3(0, -heightDifference / 2, 0);
+            print("Crouching");
+            if (_capsuleCollider.enabled == true) _capsuleCollider.enabled = false;
+            if (_capsuleColliderCrouch.enabled == false) _capsuleColliderCrouch.enabled = true;
+            _cameraStanding.Priority = 0;
+        }
+        private void GetUpAction()
+        {
+            print("Getting Up");
+            if (_capsuleColliderCrouch.enabled == true) _capsuleColliderCrouch.enabled = false;
+            if (_capsuleCollider.enabled == false) _capsuleCollider.enabled = true;
+            _cameraStanding.Priority = 2;
         }
 
         public float rotationSmoothTime = 0.1f;  // Temps pour lisser la rotation
@@ -167,7 +176,7 @@ namespace Game.Runtime
             // Calcul des axes vers l'avant et sur les côtés en fonction de la caméra
             _forward = cameraRotation * Vector3.forward;
             _right = cameraRotation * Vector3.right;
-
+/*
             // Conversion de la rotation de la caméra en angles d'Euler
             Vector3 cameraAngle = cameraRotation.eulerAngles;
 
@@ -178,7 +187,7 @@ namespace Game.Runtime
             _currentRotation = Quaternion.Lerp(_rigidbody.rotation, _targetRotation, Time.deltaTime / rotationSmoothTime);
 
             // Appliquer la rotation lissée au Rigidbody
-            _rigidbody.MoveRotation(_currentRotation);
+            _rigidbody.MoveRotation(_currentRotation);*/
         }
 
         private void SpeedAction()
@@ -193,7 +202,7 @@ namespace Game.Runtime
             if (_crouchAction.IsPressed() || _isTunnel) return true;
             return false;
         }
-        
+
         private bool IsJumping() => _jumpAction.IsPressed();
         
         private bool IsRunning() => _runAction.IsPressed();
@@ -227,6 +236,8 @@ namespace Game.Runtime
         [SerializeField]
         private CapsuleCollider _capsuleCollider;
         [SerializeField]
+        private CapsuleCollider _capsuleColliderCrouch;
+        [SerializeField]
         private Transform _viewTransform;
 
         [Title("Audios")]
@@ -246,6 +257,10 @@ namespace Game.Runtime
         [Title("Audio")]
         [SerializeField]
         private List<AudioClip> _stepfoot;
+
+        [Header("Cameras")]
+        [SerializeField] private CinemachineVirtualCamera _cameraStanding;
+
 
         [Title("Privates")]
         private Vector3 _movement;
