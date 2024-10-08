@@ -5,10 +5,6 @@ namespace Game.Runtime
 {
     public class GameManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
-
         #region Unity
 
         private void Update()
@@ -21,18 +17,6 @@ namespace Game.Runtime
                 SceneManager.LoadScene(scene.name);
             }
         }
-
-        #endregion
-
-        #region Methods
-
-        #endregion
-
-        #region Utils
-
-        #endregion
-
-        #region Privates
 
         #endregion
     }

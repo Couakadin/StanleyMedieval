@@ -7,9 +7,6 @@ namespace Game.Runtime
 {
     public class TunnelManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -53,23 +50,16 @@ namespace Game.Runtime
 
         #endregion
 
-        #region Utils
-
-        #endregion
 
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _counterBlackboard;
+        [SerializeField] private Blackboard _counterBlackboard;
 
         [Title("Audios")]
-        [SerializeField]
-        private AudioSource _audioSource;
-        [SerializeField]
-        private List<AudioClip> _audioList;
-        [SerializeField]
-        private List<AudioClip> _audioListRandom;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private List<AudioClip> _audioList;
+        [SerializeField] private List<AudioClip> _audioListRandom;
 
         #endregion
     }

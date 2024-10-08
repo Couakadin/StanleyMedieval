@@ -4,10 +4,6 @@ namespace Game.Runtime
 {
     public class Interactable : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
-
         #region Unity
 
         private void Awake()
@@ -25,13 +21,6 @@ namespace Game.Runtime
 
         #endregion
 
-        #region Methods
-
-        #endregion
-
-        #region Utils
-
-        #endregion
 
         #region Privates
 

@@ -10,11 +10,7 @@ namespace Game.Runtime
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
-
-        #region Unity
+        #region Unity API
 
         private void Awake()
         {
@@ -28,10 +24,13 @@ namespace Game.Runtime
 
             if (_playerBlackboard.ContainsKey("WalkSpeed"))
                 _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
+
             if (_playerBlackboard.ContainsKey("RunSpeed"))
                 _runSpeed = _playerBlackboard.GetValue<float>("RunSpeed");
+
             if (_playerBlackboard.ContainsKey("CrouchSpeed"))
                 _crouchSpeed = _playerBlackboard.GetValue<float>("CrouchSpeed");
+
             if (_playerBlackboard.ContainsKey("JumpForce"))
                 _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
 
@@ -49,7 +48,6 @@ namespace Game.Runtime
             _jumpAction.Enable();
             _crouchAction.Enable();
         }
-
         private void OnDisable()
         {
             _runAction.Disable();
@@ -155,6 +153,7 @@ namespace Game.Runtime
             if (_capsuleColliderCrouch.enabled == false) _capsuleColliderCrouch.enabled = true;
             _cameraStanding.Priority = 0;
         }
+
         private void GetUpAction()
         {
             if (_capsuleColliderCrouch.enabled) _capsuleColliderCrouch.enabled = false;
@@ -225,36 +224,25 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _playerBlackboard;
-        [SerializeField]
-        private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _audioBlackboard;
 
         [Title("Components")]
-        [SerializeField]
-        private CapsuleCollider _capsuleCollider;
-        [SerializeField]
-        private CapsuleCollider _capsuleColliderCrouch;
-        [SerializeField]
-        private Transform _viewTransform;
+        [SerializeField] private CapsuleCollider _capsuleCollider;
+        [SerializeField] private CapsuleCollider _capsuleColliderCrouch;
+        [SerializeField] private Transform _viewTransform;
 
         [Title("Audios")]
-        [SerializeField]
-        private AudioSource _audioManager;
+        [SerializeField] private AudioSource _audioManager;
 
         [Title("Inputs")]
-        [SerializeField]
-        private InputAction _moveAction;
-        [SerializeField]
-        private InputAction _crouchAction;
-        [SerializeField]
-        private InputAction _jumpAction;
-        [SerializeField]
-        private InputAction _runAction;
+        [SerializeField] private InputAction _moveAction;
+        [SerializeField] private InputAction _crouchAction;
+        [SerializeField] private InputAction _jumpAction;
+        [SerializeField] private InputAction _runAction;
 
         [Title("Audio")]
-        [SerializeField]
-        private List<AudioClip> _stepfoot;
+        [SerializeField] private List<AudioClip> _stepfoot;
 
         [Header("Cameras")]
         [SerializeField] private CinemachineVirtualCamera _cameraStanding;
