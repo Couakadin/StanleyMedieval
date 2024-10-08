@@ -24,7 +24,7 @@ namespace Game.Runtime
             _audioSource = GetComponent<AudioSource>();
             _initialStandHeight = 2f;
             _standHeight = _initialStandHeight;
-            _crouchHeight = .9f;
+
 
             if (_playerBlackboard.ContainsKey("WalkSpeed"))
                 _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
@@ -151,15 +151,13 @@ namespace Game.Runtime
 
         private void CrouchAction()
         {
-            print("Crouching");
-            if (_capsuleCollider.enabled == true) _capsuleCollider.enabled = false;
+            if (_capsuleCollider.enabled) _capsuleCollider.enabled = false;
             if (_capsuleColliderCrouch.enabled == false) _capsuleColliderCrouch.enabled = true;
             _cameraStanding.Priority = 0;
         }
         private void GetUpAction()
         {
-            print("Getting Up");
-            if (_capsuleColliderCrouch.enabled == true) _capsuleColliderCrouch.enabled = false;
+            if (_capsuleColliderCrouch.enabled) _capsuleColliderCrouch.enabled = false;
             if (_capsuleCollider.enabled == false) _capsuleCollider.enabled = true;
             _cameraStanding.Priority = 2;
         }
@@ -274,7 +272,7 @@ namespace Game.Runtime
 
         private float _jumpForce;
         private float _horizontal, _vertical;
-        private float _crouchHeight, _standHeight, _initialStandHeight;
+        private float _standHeight, _initialStandHeight;
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
 
