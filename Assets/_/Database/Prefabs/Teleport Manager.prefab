@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1792367602984441570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4336539107739433830}
+  m_Layer: 0
+  m_Name: Teleport Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4336539107739433830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792367602984441570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.101, y: 0, z: 2.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8850251522045732735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6019725377311668623
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,9 +60,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 7.0697, z: 5.2532}
+  m_LocalScale: {x: 4, y: 4, z: 3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4336539107739433830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7029256766578732790
@@ -49,11 +81,13 @@ MonoBehaviour:
   _counterBlackboard: {fileID: 11400000, guid: 530da5e97d361fc44a82ae0f8582f984, type: 2}
   _playerController: {fileID: 0}
   _wallToEnable: {fileID: 0}
-  _positionToTeleport: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _positionToTeleport: {fileID: 1792367602984441570}
+  _audioSource: {fileID: 4397618305126209872}
   _audioList:
-  - {fileID: 4397618305126209872}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e045d03bcdbd48044ba440ed2c4fa20e, type: 2}
+  - {fileID: 11400000, guid: b5cd7ac4a6c15404ba24c4452b72ff06, type: 2}
+  - {fileID: 11400000, guid: 33f7b533cb44fc64eb1047d27e1dd70f, type: 2}
+  _tmp: {fileID: 0}
 --- !u!65 &450264296781563497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,8 +119,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 58b9aed659d1e1944a6d6fee02fa88ae, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 4c39ab0565510f343bd0e4f3d1b18762, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

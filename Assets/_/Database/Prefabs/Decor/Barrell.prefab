@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3947785606076238724, guid: fdfb128c27a32ba4e9d288e5b5050ea2,
         type: 3}
       propertyPath: m_Name
-      value: LP_Tonneau
+      value: Barrell
       objectReference: {fileID: 0}
     - target: {fileID: 4432257519873904958, guid: fdfb128c27a32ba4e9d288e5b5050ea2,
         type: 3}
@@ -66,5 +66,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3947785606076238724, guid: fdfb128c27a32ba4e9d288e5b5050ea2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1844437823096960125}
   m_SourcePrefab: {fileID: 100100000, guid: fdfb128c27a32ba4e9d288e5b5050ea2, type: 3}
+--- !u!1 &480655511880210091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3947785606076238724, guid: fdfb128c27a32ba4e9d288e5b5050ea2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3486625810430237999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1844437823096960125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480655511880210091}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.3613093, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
