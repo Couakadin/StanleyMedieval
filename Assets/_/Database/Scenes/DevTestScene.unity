@@ -18380,6 +18380,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key
       objectReference: {fileID: 0}
+    - target: {fileID: 2495033033655194629, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3020776254632775359, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25107,6 +25112,26 @@ PrefabInstance:
       propertyPath: _textInteract
       value: 
       objectReference: {fileID: 424308479}
+    - target: {fileID: 4039858143019483710, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: _inventorySlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039858143019483710, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: _inventorySlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1689509855}
+    - target: {fileID: 4039858143019483710, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: _inventorySlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1330907584}
+    - target: {fileID: 4039858143019483710, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: _inventorySlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1562217743}
     - target: {fileID: 5148276536473721138, guid: 56afd6cbf516229428cb14a16f0650de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31033,13 +31058,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7189261240883952837, guid: da4ad62573781414f9cce94b88e6379a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189261240883952837, guid: da4ad62573781414f9cce94b88e6379a,
+        type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 854853908}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8686315143839379109, guid: da4ad62573781414f9cce94b88e6379a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1391602724}
   m_SourcePrefab: {fileID: 100100000, guid: da4ad62573781414f9cce94b88e6379a, type: 3}
 --- !u!4 &920670443 stripped
 Transform:
@@ -31872,10 +31906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -44507,6 +44541,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af556f0f2ade624e8de2deabc3762b6, type: 3}
+--- !u!114 &1330907584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1350763770991293272, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 766162246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1332774065
 GameObject:
   m_ObjectHideFlags: 0
@@ -46370,6 +46416,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1391594248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1391602716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8686315143839379109, guid: da4ad62573781414f9cce94b88e6379a,
+    type: 3}
+  m_PrefabInstance: {fileID: 920179806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1391602724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391602716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278f7d3bc8af6f3478f8ab8b9126e7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requiredItem: {fileID: 11400000, guid: c1a6836270f99a644ba35b91b400a716, type: 2}
 --- !u!1001 &1391783920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52592,6 +52657,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4030b8881c9a3864da057b46e961735c, type: 3}
+--- !u!114 &1562217743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8345684328196823955, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 766162246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1564753491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56843,6 +56920,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a989e7a979fbc3440be649197054724c, type: 3}
+--- !u!114 &1689509855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9003890236422426194, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 766162246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1691577250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4437803907338644274, guid: e1688a621c16cc942b403dcd10ade33f,
@@ -59165,6 +59254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_items: []
+  _inventorySlots: []
 --- !u!4 &1764334818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 198786820006553637, guid: b7f33fb25736c364d80b832bc3b171d0,
