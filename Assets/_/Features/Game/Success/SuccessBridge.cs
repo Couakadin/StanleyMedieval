@@ -1,3 +1,5 @@
+using Data.Runtime;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -29,7 +31,11 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
+            _audioSuccess.clip = _clip.m_audio;
             _audioSuccess.Play();
+            _tmp.GetComponent<TextCleaner>().m_resetTimer = _clip.m_audio.length + 0.5f;
+            _tmp.text = _clip.m_text;
+
             _bridgeAnimator.SetBool("Fall", true);
             _bridgeColliderUp.enabled = false;
             _bridgeColliderDown.enabled = true;
@@ -51,6 +57,10 @@ namespace Game.Runtime
         [SerializeField] private AudioSource _audioSuccess;
         [SerializeField] private Collider _bridgeColliderUp;
         [SerializeField] private Collider _bridgeColliderDown;
+
+        [Header("-- Text --")]
+        [SerializeField] private DialogueScriptableObject _clip;
+        [SerializeField] private TMP_Text _tmp;
 
         #endregion
     }

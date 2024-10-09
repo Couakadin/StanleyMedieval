@@ -1,4 +1,5 @@
 using Data.Runtime;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -28,7 +29,10 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
+            _audioSuccess.clip = _clip.m_audio;
             _audioSuccess.Play();
+            _tmp.GetComponent<TextCleaner>().m_resetTimer = _clip.m_audio.length + 0.5f;
+            _tmp.text = _clip.m_text;
             gameObject.SetActive(false);
         }
 
@@ -52,6 +56,10 @@ namespace Game.Runtime
         private GameObject _text;
         [SerializeField]
         private AudioSource _audioSuccess;
+
+        [Header("-- Text --")]
+        [SerializeField] private DialogueScriptableObject _clip;
+        [SerializeField] private TMP_Text _tmp;
 
         #endregion
     }
