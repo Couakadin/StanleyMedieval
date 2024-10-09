@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &25435485513783666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7003832973441705507}
+  m_Layer: 0
+  m_Name: Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7003832973441705507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25435485513783666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6395073612817641561}
+  - {fileID: 2726924745948789351}
+  m_Father: {fileID: 5346777749410447636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3293724098165021968
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +204,112 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8427212411995248409}
   m_maskType: 0
+--- !u!1 &3719191304952059837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6395073612817641561}
+  - component: {fileID: 8191872279860903606}
+  m_Layer: 0
+  m_Name: Bridge up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6395073612817641561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719191304952059837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 1.849, z: -1.568}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7003832973441705507}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!65 &8191872279860903606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719191304952059837}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.9910657, y: 3.9748487, z: 0.09750578}
+  m_Center: {x: 0, y: 0.1605199, z: 0.048761595}
+--- !u!1 &8414882079475958177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2726924745948789351}
+  - component: {fileID: 5172783508294710383}
+  m_Layer: 0
+  m_Name: Bridge down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2726924745948789351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414882079475958177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7003832973441705507}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5172783508294710383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414882079475958177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 4.00047, y: 0.067667186, z: 4.0785694}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2059527096914315741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +378,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6244094593647511753, guid: 7e137669f6f158c4893c7eeeed1f5753,
         type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 7003832973441705507}
+    - targetCorrespondingSourceObject: {fileID: 6244094593647511753, guid: 7e137669f6f158c4893c7eeeed1f5753,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: 8419176686498797143}
     m_AddedComponents:
@@ -262,10 +405,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2690212806014346345}
-    - targetCorrespondingSourceObject: {fileID: 5620609188853203069, guid: 7e137669f6f158c4893c7eeeed1f5753,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7191285466621235376}
     - targetCorrespondingSourceObject: {fileID: 6646930293208549208, guid: 7e137669f6f158c4893c7eeeed1f5753,
         type: 3}
       insertIndex: -1
@@ -405,6 +544,8 @@ MonoBehaviour:
   _textToShow: E - Hit
   _text: {fileID: 3293724098165021968}
   _audioSuccess: {fileID: 1358853116699342663}
+  _bridgeColliderUp: {fileID: 0}
+  _bridgeColliderDown: {fileID: 0}
 --- !u!82 &1358853116699342663
 AudioSource:
   m_ObjectHideFlags: 0
@@ -603,31 +744,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2059527096914315741}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5950524754618927520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5620609188853203069, guid: 7e137669f6f158c4893c7eeeed1f5753,
-    type: 3}
-  m_PrefabInstance: {fileID: 2059527096914315741}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &7191285466621235376
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5950524754618927520}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2319847675186317861, guid: fcf717566aca85e4594ae75b63f9c6f2, type: 3}
