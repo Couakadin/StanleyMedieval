@@ -24,7 +24,6 @@ public class CameraController : MonoBehaviour
         // --------------------------------------------- Rotate the Camera around its local X axis
 
         _cameraVerticalRotation -= inputY;
-        print(_cameraVerticalRotation);
         _cameraVerticalRotation = Mathf.Clamp(_cameraVerticalRotation, -80f, 80f);
         transform.localEulerAngles = Vector3.right * _cameraVerticalRotation;
 
