@@ -1,6 +1,7 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -26,15 +27,19 @@ namespace Game.Runtime
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _playerBlackboard.GetValue<int>("DeadCount"))
                     {
-                        _audioSource.clip = _audioList[i];
+                        _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[i].m_audio.length + 0.5f;
+                        _audioSource.clip = _audioList[i].m_audio;
                         _audioSource.Play();
+                        _tmp.text = _audioList[i].m_text;
                     }
             }
             else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioSource.clip = _audioListRandom[rand];
+                _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[rand].m_audio.length + 0.5f;
+                _audioSource.clip = _audioListRandom[rand].m_audio;
                 _audioSource.Play();
+                _tmp.text = _audioList[rand].m_text;
             }
 
             _resetGameEvent.Raise();
@@ -74,9 +79,12 @@ namespace Game.Runtime
         [SerializeField]
         private AudioSource _audioSource;
         [SerializeField]
-        private List<AudioClip> _audioList;
+        private List<DialogueScriptableObject> _audioList;
         [SerializeField]
-        private List<AudioClip> _audioListRandom;
+        private List<DialogueScriptableObject> _audioListRandom;
+
+        [Title("TextMeshPro")]
+        [SerializeField] private TMP_Text _tmp;
 
         [Title("Animators")]
         [SerializeField]

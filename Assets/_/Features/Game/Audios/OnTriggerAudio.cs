@@ -1,3 +1,4 @@
+using Data.Runtime;
 using TMPro;
 using UnityEngine;
 
@@ -11,25 +12,33 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed)
             {
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _textStayDuration;
-                _audio.clip = _clip;
-                _audio.Play();
-                _tmp.text = _audioText;
-                _wasPlayed = true;
+                AudioPlay();
             }
         }
 
         #endregion
 
+    #region Methods
+
+        public void AudioPlay()
+        {
+            _tmp.GetComponent<TextCleaner>().m_resetTimer = _clip.m_audio.length + 0.5f;
+            _audio.clip = _clip.m_audio;
+            _audio.Play();
+            _tmp.text = _clip.m_text;
+            _wasPlayed = true;
+        }
+
+    #endregion
+
+
         #region Privates
 
         [Header ("-- Audio --")]
-        [SerializeField] private AudioClip _clip;
+        [SerializeField] private DialogueScriptableObject _clip;
         [SerializeField] private AudioSource _audio;
 
         [Header("-- Text --")]
-        [SerializeField] private int _textStayDuration;
-        [SerializeField] private string _audioText;
         [SerializeField] private TMP_Text _tmp;
 
         private bool _wasPlayed;

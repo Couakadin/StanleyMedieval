@@ -1,15 +1,13 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
 {
     public class TeleportManager : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -28,8 +26,10 @@ namespace Game.Runtime
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
                     {
-                        _audioSource.clip = _audioList[i];
+                        _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[i].m_audio.length + 0.5f;
+                        _audioSource.clip = _audioList[i].m_audio;
                         _audioSource.Play();
+                        _tmp.text = _audioList[i].m_text;
                     }
             }
             else
@@ -49,9 +49,6 @@ namespace Game.Runtime
 
         #endregion
 
-        #region Utils
-
-        #endregion
 
         #region Privates
 
@@ -71,7 +68,10 @@ namespace Game.Runtime
         [SerializeField]
         private AudioSource _audioSource;
         [SerializeField]
-        private List<AudioClip> _audioList;
+        private List<DialogueScriptableObject> _audioList;
+
+        [Header("-- Text --")]
+        [SerializeField] private TMP_Text _tmp;
 
         #endregion
     }

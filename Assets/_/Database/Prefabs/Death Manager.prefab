@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2272726065438653448}
   - component: {fileID: 1176022717192414467}
   - component: {fileID: 2778558645264274096}
+  - component: {fileID: 8949956061639331980}
+  - component: {fileID: 8935692334912034154}
+  - component: {fileID: 1008144646255926965}
   m_Layer: 0
   m_Name: Death Manager
   m_TagString: Untagged
@@ -49,9 +52,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
   _resetGameEvent: {fileID: 11400000, guid: d1485725e07b3af44a43cec68ee9558b, type: 2}
+  _guardEvent: {fileID: 11400000, guid: 4132ed735b26b654da772d34fec0a032, type: 2}
   _DeadCounterEvent: {fileID: 11400000, guid: 33650c5427222a145bd3b69ec10ef1e9, type: 2}
-  _audioList: []
-  _audioListRandom: []
+  _onAudioScriptEvent: {fileID: 11400000, guid: 22208a7c17f0b714fbc3bee83694cd1d,
+    type: 2}
+  _canvasArchetype: {fileID: 0}
+  _audioSource: {fileID: 1008144646255926965}
+  _audioList:
+  - {fileID: 11400000, guid: 6a20b73a6a087d2409063c62cdb9a416, type: 2}
+  - {fileID: 11400000, guid: cf4e1555a41e08c46a84e19f0feef311, type: 2}
+  _audioListRandom:
+  - {fileID: 11400000, guid: a9bd1c2a667b3c84b9c7981b9fd2516e, type: 2}
+  - {fileID: 11400000, guid: e3b2d929781cbdb4c92e22bd92c2a460, type: 2}
+  - {fileID: 11400000, guid: 1d240f7e6e32ebb40bb01f4bd6235793, type: 2}
+  - {fileID: 11400000, guid: ada8e1b3bd933ce4c9267133a1483062, type: 2}
+  _tmp: {fileID: 0}
+  _bridgeAnimator: {fileID: 0}
+  _leverAnimator: {fileID: 0}
+  _wallAnimator: {fileID: 0}
 --- !u!114 &2272726065438653448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +190,167 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_listener: {fileID: 11400000, guid: 33650c5427222a145bd3b69ec10ef1e9, type: 2}
+--- !u!114 &8949956061639331980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404384763008713299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Runtime.GuardManager, Game.Runtime
+        m_MethodName: GuardRespawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: 4132ed735b26b654da772d34fec0a032, type: 2}
+--- !u!114 &8935692334912034154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404384763008713299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Runtime.OnLoopTriggerAudio, Game.Runtime
+        m_MethodName: ResetWasPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Runtime.OnRandomTriggerAudio, Game.Runtime
+        m_MethodName: ResetWasPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: 22208a7c17f0b714fbc3bee83694cd1d, type: 2}
+--- !u!82 &1008144646255926965
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404384763008713299}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
