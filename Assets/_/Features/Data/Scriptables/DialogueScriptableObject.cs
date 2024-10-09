@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Data.Runtime
@@ -8,6 +6,6 @@ namespace Data.Runtime
     public class DialogueScriptableObject : ScriptableObject
     {
         public AudioClip m_audio;
-        public string m_text;
+        [TextArea] public string m_text;
     }
 }
