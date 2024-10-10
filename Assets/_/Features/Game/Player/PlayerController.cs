@@ -43,17 +43,11 @@ namespace Game.Runtime
 
         private void OnEnable()
         {
-            _runAction.Enable();
-            _moveAction.Enable();
-            _jumpAction.Enable();
-            _crouchAction.Enable();
+            UnfreezePlayer();
         }
         private void OnDisable()
         {
-            _runAction.Disable();
-            _moveAction.Disable();
-            _jumpAction.Disable();
-            _crouchAction.Disable();
+            FreezePlayer();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -113,6 +107,21 @@ namespace Game.Runtime
         public void GoToThisPosition(Vector3 position)
         {
             transform.position = position;
+        }
+        public void FreezePlayer()
+        {
+            _runAction.Disable();
+            _moveAction.Disable();
+            _jumpAction.Disable();
+            _crouchAction.Disable();
+        }
+
+        public void UnfreezePlayer() 
+        {
+            _runAction.Enable();
+            _moveAction.Enable();
+            _jumpAction.Enable();
+            _crouchAction.Enable();
         }
 
         #endregion
