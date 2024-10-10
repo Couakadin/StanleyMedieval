@@ -14,14 +14,13 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("TeleportCount", 0);
-            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
-            
-            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count)
+
+            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count - 1)
             {
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
@@ -33,9 +32,15 @@ namespace Game.Runtime
                     }
             }
             else
+            {
                 _wallToEnable.SetActive(true);
+                _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[_audioList.Count - 1].m_audio.length + 0.5f;
+                _audioSource.clip = _audioList[_audioList.Count - 1].m_audio;
+                _audioSource.Play();
+                _tmp.text = _audioList[_audioList.Count - 1].m_text;
+            }
 
-            _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
+                _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
 
             IncrementTeleportCount();
         }
