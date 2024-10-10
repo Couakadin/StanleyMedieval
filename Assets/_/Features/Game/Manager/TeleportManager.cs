@@ -14,7 +14,6 @@ namespace Game.Runtime
         private void Awake()
         {
             _counterBlackboard.SetValue<int>("TeleportCount", 0);
-            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)

@@ -13,7 +13,6 @@ namespace Game.Runtime
         private void Awake()
         {
             _playerBlackboard.SetValue<int>("DeadCount", 0);
-            _audioSource = GetComponent<AudioSource>();
         }
 
         #endregion
@@ -35,7 +34,7 @@ namespace Game.Runtime
             }
             else
             {
-                int rand = Random.Range(0, _audioListRandom.Count);
+                int rand = Random.Range(1, _audioListRandom.Count);
                 _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[rand].m_audio.length + 0.5f;
                 _audioSource.clip = _audioListRandom[rand].m_audio;
                 _audioSource.Play();
