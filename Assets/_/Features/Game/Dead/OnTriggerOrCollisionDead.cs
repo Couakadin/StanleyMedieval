@@ -5,9 +5,6 @@ namespace Game.Runtime
 {
     public class OnTriggerOrCollisionDead : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -26,13 +23,6 @@ namespace Game.Runtime
 
         #endregion
 
-        #region Methods
-
-        #endregion
-
-        #region Utils
-
-        #endregion
 
         #region Privates
 

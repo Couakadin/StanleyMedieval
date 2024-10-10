@@ -11,7 +11,6 @@ namespace Game.Runtime
 
         private void Start()
         {
-            _playerBlackboard.SetValue<int>("DeadCount", 0);
             _playerBlackboard.SetValue<bool>("IsDead", false);
         }
 

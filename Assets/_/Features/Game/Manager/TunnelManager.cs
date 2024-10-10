@@ -1,6 +1,7 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -26,17 +27,21 @@ namespace Game.Runtime
                 for (int i = 0; i < _audioList.Count; i++)
                     if (i == _counterBlackboard.GetValue<int>("TunnelCount"))
                     {
-                        _audioSource.clip = _audioList[i];
+                        _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[i].m_audio.length + 0.5f;
+                        _audioSource.clip = _audioList[i].m_audio;
                         _audioSource.Play();
+                        _tmp.text = _audioList[i].m_text;
                     }
 
             }
-            else
+            /*else
             {
                 int rand = Random.Range(0, _audioListRandom.Count);
-                _audioSource.clip = _audioList[rand];
+                _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioListRandom[rand].m_audio.length + 0.5f;
+                _audioSource.clip = _audioListRandom[rand].m_audio;
                 _audioSource.Play();
-            }
+                _tmp.text = _audioListRandom[rand].m_text;
+            }*/
 
             IncrementTunnelCount();
         }
@@ -58,8 +63,11 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private List<AudioClip> _audioList;
-        [SerializeField] private List<AudioClip> _audioListRandom;
+        [SerializeField] private List<DialogueScriptableObject> _audioList;
+        [SerializeField] private List<DialogueScriptableObject> _audioListRandom;
+
+        [Title("TextMeshPro")]
+        [SerializeField] private TMP_Text _tmp;
 
         #endregion
     }
