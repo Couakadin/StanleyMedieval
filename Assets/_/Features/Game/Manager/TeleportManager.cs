@@ -40,7 +40,8 @@ namespace Game.Runtime
                 _tmp.text = _audioList[_audioList.Count - 1].m_text;
             }
 
-                _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
+            _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
+            _playerController.transform.rotation = _positionToTeleport.transform.rotation;
 
             IncrementTeleportCount();
         }
