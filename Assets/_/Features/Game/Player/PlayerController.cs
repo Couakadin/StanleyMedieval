@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Game.Runtime
 {
@@ -76,13 +77,26 @@ namespace Game.Runtime
 
         private void FixedUpdate()
         {
+            _atkDuration -= Time.deltaTime;
+
             if (_playerBlackboard.GetValue<bool>("IsDead")) return;
 
             ViewAction();
             SpeedAction();
-            if (!IsJumping() && IsGrounded() && _crouchAction.IsPressed()) CrouchAction();
-            else if (!_crouchAction.IsPressed() && !_isTunnel) GetUpAction();
-            if (IsGrounded() && IsJumping()) JumpAction();
+
+            if (_crouchAction.IsPressed() && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.ROGUE))
+                CrouchAction();
+            else if (!_crouchAction.IsPressed() && !_isTunnel)
+                GetUpAction();
+
+            if (IsGrounded() && IsJumping())
+                JumpAction();
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.BARBARIAN))
+                HitAction();
+            else if (_atkDuration < 0)
+                _hitCollider.gameObject.SetActive(false);
+
             MoveAction();
         }
 
@@ -170,6 +184,12 @@ namespace Game.Runtime
             _cameraStanding.Priority = 2;
         }
 
+        private void HitAction()
+        {
+            _atkDuration = 0.6f;
+            _hitCollider.gameObject.SetActive(true);
+        }
+
         public float rotationSmoothTime = 0.1f;  // Temps pour lisser la rotation
         private Quaternion _currentRotation;
         private Quaternion _targetRotation;
@@ -239,6 +259,7 @@ namespace Game.Runtime
         [Title("Components")]
         [SerializeField] private CapsuleCollider _capsuleCollider;
         [SerializeField] private CapsuleCollider _capsuleColliderCrouch;
+        [SerializeField] private Collider _hitCollider;
         [SerializeField] private Transform _viewTransform;
 
         [Title("Audios")]
@@ -249,6 +270,7 @@ namespace Game.Runtime
         [SerializeField] private InputAction _crouchAction;
         [SerializeField] private InputAction _jumpAction;
         [SerializeField] private InputAction _runAction;
+        [SerializeField] private InputAction _hitAction;
 
         [Title("Audio")]
         [SerializeField] private List<AudioClip> _stepfoot;
@@ -272,6 +294,7 @@ namespace Game.Runtime
         private float _standHeight, _initialStandHeight;
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
+        private float _atkDuration;
 
         #endregion
     }
