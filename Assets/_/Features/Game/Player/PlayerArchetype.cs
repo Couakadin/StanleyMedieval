@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Game.Runtime
@@ -41,9 +42,13 @@ namespace Game.Runtime
 
             _distanceInteract = 2f;
             _interactableLayer = LayerMask.GetMask("Archetype");
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                _playerBlackboard.SetValue("Archetype", Archetype.NONE);
+            }
         }
 
-        private void Start() => m_archetype = Archetype.NONE;
+        private void Start() => m_archetype = _playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype");
 
         private void Update()
         {
