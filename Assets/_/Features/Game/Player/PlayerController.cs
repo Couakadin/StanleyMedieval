@@ -84,7 +84,7 @@ namespace Game.Runtime
             ViewAction();
             SpeedAction();
 
-            if (_crouchAction.IsPressed() && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.ROGUE))
+            if (_crouchAction.IsPressed() /*&& (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.ROGUE)*/)
                 CrouchAction();
             else if (!_crouchAction.IsPressed() && !_isTunnel)
                 GetUpAction();
@@ -92,7 +92,7 @@ namespace Game.Runtime
             if (IsGrounded() && IsJumping())
                 JumpAction();
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.BARBARIAN))
+            if (Input.GetKeyDown(KeyCode.Mouse0)/* && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.BARBARIAN)*/)
                 HitAction();
             else if (_atkDuration < 0)
                 _hitCollider.gameObject.SetActive(false);

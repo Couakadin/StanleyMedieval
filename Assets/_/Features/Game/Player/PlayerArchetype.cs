@@ -46,6 +46,7 @@ namespace Game.Runtime
 
             _distanceInteract = 2f;
             _interactableLayer = LayerMask.GetMask("Archetype");
+            _uiLayer = LayerMask.GetMask("InteractUI");
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 _playerBlackboard.SetValue("Archetype", Archetype.NONE);
@@ -63,7 +64,7 @@ namespace Game.Runtime
 
         private void Update()
         {
-            if (IsArchetypeNone() && Input.GetMouseButtonDown(0)) OnChangeArchetype();
+            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.E)) OnChangeArchetype();
         }
 
         #endregion
@@ -88,6 +89,11 @@ namespace Game.Runtime
                 hit.collider.gameObject.TryGetComponent<Button>(out Button archetypeButton);
                 archetypeButton.onClick.Invoke();
             }
+            else if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _uiLayer))
+            {
+                hit2.collider.gameObject.TryGetComponent<Button>(out Button statButton);
+                statButton.onClick.Invoke();
+            }
         }
 
         private bool IsArchetypeNone() => _archetype == Archetype.NONE;
@@ -104,6 +110,7 @@ namespace Game.Runtime
         private Archetype _archetype;
         private Camera _camera;
         private LayerMask _interactableLayer;
+        private LayerMask _uiLayer;
         private Vector2Control _mouseCurrentPosition;
 
         private float _distanceInteract;
