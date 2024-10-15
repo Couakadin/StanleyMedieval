@@ -46641,6 +46641,7 @@ MonoBehaviour:
   _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
   _deathEvent: {fileID: 11400000, guid: dfe739ded7c876b429befbcbeaa0ca1f, type: 2}
   _archetypeSuccess: 2
+  _statSuccess: 0
   _textCanvas: {fileID: 1389228586}
   _textToShow: E - Kill
   _guardManager: {fileID: 7403200766162698395, guid: ea988c1472be9914b82e0b4f877bbd1c,
@@ -50826,6 +50827,7 @@ MonoBehaviour:
   _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
   _deathEvent: {fileID: 11400000, guid: dfe739ded7c876b429befbcbeaa0ca1f, type: 2}
   _archetypeSuccess: 2
+  _statSuccess: 0
   _textCanvas: {fileID: 1389228586}
   _textToShow: E - pull
   _bridgeToInteract: {fileID: 615460063}
@@ -67237,6 +67239,11 @@ PrefabInstance:
       objectReference: {fileID: 1389228586}
     - target: {fileID: 2242187194228408108, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
         type: 3}
+      propertyPath: _statSuccess
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242187194228408108, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
       propertyPath: _audioSuccess
       value: 
       objectReference: {fileID: 395441254}
@@ -67250,6 +67257,11 @@ PrefabInstance:
       propertyPath: _bridgeColliderDown
       value: 
       objectReference: {fileID: 1245735130}
+    - target: {fileID: 3293724098165021968, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3719191304952059837, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
         type: 3}
       propertyPath: m_IsActive
@@ -67315,6 +67327,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110464558644494212, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_text
+      value: 'Strength Needed : 1
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110464558644494212, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110464558644494212, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6395073612817641561, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -67364,6 +67393,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419176686498797143, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.029
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419176686498797143, guid: 5eeb3ea6e21093c4c855b674b5b22bb0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.203
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7191285466621235376, guid: 5eeb3ea6e21093c4c855b674b5b22bb0, type: 3}
