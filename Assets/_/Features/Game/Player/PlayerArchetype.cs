@@ -31,6 +31,10 @@ namespace Game.Runtime
             }
         }
 
+        [Header("-- STATISTICS --")]
+        public int m_strength;
+        public int m_agility;
+
         #endregion
 
         #region Unity
@@ -45,10 +49,17 @@ namespace Game.Runtime
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 _playerBlackboard.SetValue("Archetype", Archetype.NONE);
+                _playerBlackboard.SetValue("Strength", 0);
+                _playerBlackboard.SetValue("Agility", 0);
             }
         }
 
-        private void Start() => m_archetype = _playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype");
+        private void Start() 
+        { 
+            m_archetype = _playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype");
+            m_strength = _playerBlackboard.GetValue<int>("Strength");
+            m_agility = _playerBlackboard.GetValue<int>("Agility");
+        }
 
         private void Update()
         {
