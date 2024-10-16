@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +9,8 @@ namespace Game.Runtime
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && !_gamePaused) PauseGame();
-            else if (Input.GetKeyDown(KeyCode.Escape) && _gamePaused) ResumeGame();
+            if (Input.GetKeyDown(KeyCode.Escape) && !_gamePaused) PauseGame(); // Open the pause menu when pressing "escape"
+            else if (Input.GetKeyDown(KeyCode.Escape) && _gamePaused) ResumeGame(); // Close the pause menu when pressing "escape"
         }
 
         #endregion
@@ -20,12 +18,14 @@ namespace Game.Runtime
 
         #region MAIN METHODS
 
-        public void PauseGame()
+        public void PauseGame() // ------------ Open the pause menu
         {
             _pauseMenu.SetActive(true);
+
             Time.timeScale = 0;
-            _gamePaused = true;
             Cursor.lockState = CursorLockMode.None;
+
+            _gamePaused = true;
 
             _standingCameraController.enabled = false;
             _crouchingCameraController.enabled = false;
@@ -34,9 +34,11 @@ namespace Game.Runtime
         public void ResumeGame()
         {
             _pauseMenu.SetActive(false);
+
             Time.timeScale = 1;
-            _gamePaused = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            _gamePaused = false;
 
             _standingCameraController.enabled = true;
             _crouchingCameraController.enabled = true;
@@ -61,6 +63,7 @@ namespace Game.Runtime
         [SerializeField] private GameObject _aimCursor;
         [SerializeField] private PlayerCamera _standingCameraController;
         [SerializeField] private PlayerCamera _crouchingCameraController;
+
         private bool _gamePaused;
 
         #endregion

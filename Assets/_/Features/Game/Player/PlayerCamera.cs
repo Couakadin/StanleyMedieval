@@ -1,28 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Runtime
 {
     public class PlayerCamera : MonoBehaviour
     {
-        public Transform m_player;
-        public float m_mouseSensitivity = 1f;
+        #region UNITY API
 
-        void Start()
+        void Awake()
         {
             // ------------------------- Hiding the Cursor
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-
         void Update()
         {
             // ------------------------------------------------------- We define our mouse movement values
 
-            float inputX = Input.GetAxis("Mouse X") * m_mouseSensitivity;
-            float inputY = Input.GetAxis("Mouse Y") * m_mouseSensitivity;
+            float inputX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+            float inputY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
             // --------------------------------------------- Rotate the Camera around its local X axis
 
@@ -33,9 +29,21 @@ namespace Game.Runtime
 
             // -------------------------------- Rotate the Player Object and the Camera around its Y axis
 
-            m_player.Rotate(Vector3.up * inputX);
+            _player.Rotate(Vector3.up * inputX);
         }
 
-        private float _cameraVerticalRotation = 1f;
+        #endregion
+
+
+        #region PRIVATE AND PROTECTED
+
+        [Header("-- Player Ref --")]
+        [SerializeField] private Transform _player;
+
+        [Header("-- Camera Settings --")]
+        [SerializeField] private float _mouseSensitivity = 1f;
+        [SerializeField] private float _cameraVerticalRotation = 1f;
+
+        #endregion
     }
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
-using UnityEngine.InputSystem.LowLevel;
 
 namespace Game.Runtime
 {

@@ -103,8 +103,7 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _playerBlackboard;
 
         [Title("Privates")]
         private Archetype _archetype;
