@@ -123,6 +123,36 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7575544999539406406, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387651228616124466, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596409604367575575, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0332147
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0332147
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0590451
+      objectReference: {fileID: 0}
     - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.031
       objectReference: {fileID: 0}
     - target: {fileID: 8937187103824261293, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
         type: 3}
@@ -198,7 +228,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -226,7 +256,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -313,8 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a8caa68bb45874dad48e9db9efd68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioBlackboard: {fileID: 0}
   _key: {fileID: 0}
   _locked: 0
+  _audioManager: {fileID: 0}
 --- !u!1 &6596649998964361518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7575544999539406406, guid: c6f9cb6e9b0a29748a4dc6b725548b67,
@@ -334,7 +366,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -421,5 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a8caa68bb45874dad48e9db9efd68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioBlackboard: {fileID: 0}
   _key: {fileID: 0}
   _locked: 0
+  _audioManager: {fileID: 0}

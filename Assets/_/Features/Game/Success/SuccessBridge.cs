@@ -20,9 +20,17 @@ namespace Game.Runtime
             {
                 _text.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
-                    ArchetypeCheck();
+                    StatCheck("Strength");
             }
             else _text.SetActive(false);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == 16)
+            {
+                OnSuccess();
+            }
         }
 
         #endregion

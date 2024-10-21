@@ -22,6 +22,13 @@ namespace Game.Runtime
             }
             else _text.SetActive(false);
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == 16)
+            {
+                OnSuccess();
+            }
+        }
 
         #endregion
 

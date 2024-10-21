@@ -21,7 +21,10 @@ namespace Game.Runtime
             _distanceInteract = _playerBlackboard.GetValue<float>("DistanceInteract");
             _interactableLayer = LayerMask.GetMask("Interactable");
             _pickableLayer = LayerMask.GetMask("Pickable");
+            _uiLayer = LayerMask.GetMask("InteractUI");
             _playerInventory = GetComponent<PlayerInventory>();
+
+
         }
 
         private void OnEnable() => _interactAction.Enable();
@@ -138,6 +141,7 @@ namespace Game.Runtime
         private Transform _cameraTransform;
         private LayerMask _interactableLayer;
         private LayerMask _pickableLayer;
+        private LayerMask _uiLayer;
         private Vector2Control _mouseCurrentPosition;
         private GameObject _hitObject;
         private Rigidbody _hitRigidbody;

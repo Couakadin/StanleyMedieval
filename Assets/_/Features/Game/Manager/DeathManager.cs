@@ -35,7 +35,6 @@ namespace Game.Runtime
             }
             else
             {
-                print("Now random");
                 int rand = Random.Range(0, _audioListRandom.Count);
                 _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioListRandom[rand].m_audio.length + 0.5f;
                 _audioSource.clip = _audioListRandom[rand].m_audio;
@@ -43,6 +42,8 @@ namespace Game.Runtime
                 _tmp.text = _audioListRandom[rand].m_text;
             }
 
+            _playerFadeUI.SuddenBlack();
+            
             _DeadCounterEvent.Raise();
             _resetGameEvent.Raise();
             _guardEvent.Raise();
@@ -75,8 +76,9 @@ namespace Game.Runtime
         [SerializeField] private List<DialogueScriptableObject> _audioList;
         [SerializeField] private List<DialogueScriptableObject> _audioListRandom;
 
-        [Title("TextMeshPro")]
+        [Title("UI")]
         [SerializeField] private TMP_Text _tmp;
+        [SerializeField] private PlayerFadeUI _playerFadeUI;
 
         [Title("Animators")]
         [SerializeField] private Animator _bridgeAnimator;
