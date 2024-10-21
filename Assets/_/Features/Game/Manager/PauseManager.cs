@@ -46,6 +46,7 @@ namespace Game.Runtime
         }
         public void RestartLevel()
         {
+            Time.timeScale = 1;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
