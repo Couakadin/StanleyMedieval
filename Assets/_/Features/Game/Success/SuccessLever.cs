@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class SuccessLever : SuccessAbstract
+    public class SuccesLever : SuccessAbstract
     {
         #region Publics
 

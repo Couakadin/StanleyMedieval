@@ -2,6 +2,7 @@ using Data.Runtime;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static Codice.Client.Common.EventTracking.TrackFeatureUseEvent.Features.DesktopGUI.Filters;
 
 namespace Game.Runtime
 {
@@ -32,21 +33,7 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count == 0)
-            {
-                _startedPlaying = true;
-            }
-            else if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count > 0)
-            {
-                print(m_clipIndex);
-                AudioPlay(m_clipIndex);
-                m_clipIndex += 1;
-
-                foreach (OnTriggerAudioList otherAudio in _sharedIndex)
-                    otherAudio.m_clipIndex = m_clipIndex;
-
-                _wasPlayed = true;
-            }
+            AudioTypeCheck(other.gameObject);
         }
 
         #endregion
@@ -65,6 +52,25 @@ namespace Game.Runtime
             _audio.Play();
             _tmp.text = _clips[clip].m_text;
             _isPlaying = true;
+        }
+
+        public void AudioTypeCheck(GameObject go)
+        {
+            if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count == 0)
+            {
+                _startedPlaying = true;
+            }
+            else if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count > 0)
+            {
+                print(m_clipIndex);
+                AudioPlay(m_clipIndex);
+                m_clipIndex += 1;
+
+                foreach (OnTriggerAudioList otherAudio in _sharedIndex)
+                    otherAudio.m_clipIndex = m_clipIndex;
+
+                _wasPlayed = true;
+            }
         }
 
         #endregion
