@@ -44,7 +44,11 @@ namespace Game.Runtime
 
         public void AudioPlay(int clip)
         {
-            _audioLength = _clips[clip].m_audio.length + 0.5f;
+            if (_clips[clip].m_audio != null)
+                _audioLength = _clips[clip].m_audio.length + 0.5f;
+            else
+                _audioLength = 7.5f;
+
             _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioLength;
             _audio.clip = _clips[clip].m_audio;
             _audio.Play();
@@ -63,6 +67,10 @@ namespace Game.Runtime
 
         [Header("-- Text --")]
         [SerializeField] private TMP_Text _tmp;
+
+        [Header("-- Activations (optional) --")]
+        [SerializeField] private GameObject _toActivate;
+        [SerializeField] private GameObject _toDeactivate;
 
         private bool _wasPlayed;
         private bool _startedPlaying;
