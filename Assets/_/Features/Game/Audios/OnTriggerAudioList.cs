@@ -24,7 +24,7 @@ namespace Game.Runtime
                     _wasPlayed = true;
             }
 
-            if (_audioLength < 0)
+            if (_audioLength <= 0)
                 _isPlaying = false;
 
             _audioLength -= Time.deltaTime;
@@ -32,11 +32,11 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex == null)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count == 0)
             {
                 _startedPlaying = true;
             }
-            else if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex != null)
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count > 0)
             {
                 print(m_clipIndex);
                 AudioPlay(m_clipIndex);

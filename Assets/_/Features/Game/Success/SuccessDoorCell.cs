@@ -1,4 +1,5 @@
 using Data.Runtime;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,12 +7,32 @@ namespace Game.Runtime
 {
     public class SuccessDoorCell : SuccessAbstract
     {
-
         #region Unity
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+        }
+
+        private void Update()
+        {
+            if (_opening)
+            {
+                _audioLength -= Time.deltaTime;
+
+                if (_audioLength <= 0 ) 
+                {
+                    if (_clipIndex < _clipFail.Count && _failed)
+                    {
+                        OnFailure(_clipIndex);
+                    }
+                    else if (_clipIndex < _clipSuccess.Count && _succeeded)
+                    {
+                        OnSuccess(_clipIndex);
+                    }
+                        _rb.isKinematic = false;
+                }
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -22,7 +43,10 @@ namespace Game.Runtime
                 {
                     if (item == _requiredItem)
                     {
-                        OnSuccess();
+                        OnSuccess(_clipIndex);
+                        _succeeded = true;
+                        _rb.isKinematic = false;
+                        _isOpen = true;
                     }
                 }
             }
@@ -32,64 +56,85 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == 16 && !_isOpen)
             {
-                OnFailure();
+                OnFailure(_clipIndex);
+                _failed = true;
+                _opening = true;
+                _isOpen = true;
             }
         }
 
         #endregion
+
 
         #region Methods
 
-        protected override void OnSuccess()
+        public void OnSuccess(int i)
         {
-            _rb.isKinematic = false;
-            _isOpen = true;
 
-            if (_clipSuccess.m_audio != null)
-            { 
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipSuccess.m_audio.length + 0.5f;
-                _audioSource.clip = _clipSuccess.m_audio;
+            if (_clipSuccess[i].m_audio != null)
+            {
+                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipSuccess[i].m_audio.length + 0.5f;
+                _audioSource.clip = _clipSuccess[i].m_audio;
                 _audioSource.Play();
             }
             else
+            { 
                 _tmp.GetComponent<TextCleaner>().m_resetTimer = 7.5f;
+                _audioLength = 7.5f;
+            }
 
-            _tmp.text = _clipSuccess.m_text;
-
-            _rb.isKinematic = false;
+            _tmp.text = _clipSuccess[i].m_text;
+            _clipIndex += 1;
         }
 
-        protected override void OnFailure()
+        public void OnFailure(int i)
         {
-            _rb.isKinematic = false;
-            _isOpen = true;
 
-            if (_clipFail.m_audio != null)
-            { 
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipFail.m_audio.length + 0.5f;
-                _audioSource.clip = _clipFail.m_audio;
+            if (_clipFail[i].m_audio != null)
+            {
+                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipFail[i].m_audio.length + 0.5f;
+                _audioLength = _clipFail[i].m_audio.length;
+                _audioSource.clip = _clipFail[i].m_audio;
                 _audioSource.Play();
             }
             else
+            { 
                 _tmp.GetComponent<TextCleaner>().m_resetTimer = 7.5f;
-            _tmp.text = _clipFail.m_text;
+                _audioLength = 7.5f;
+            }
+
+            if (_toActivate != null)
+                _toActivate.SetActive(true);
+            if (_toDeactivate != null)
+                _toDeactivate.SetActive(false);
+
+            _tmp.text = _clipFail[i].m_text;
+            _clipIndex += 1;
         }
 
         #endregion
+
 
         #region Privates
 
         private bool _isOpen;
+        private bool _opening;
+        private bool _succeeded;
+        private bool _failed;
+        private float _audioLength = 5;
+        private int _clipIndex;
 
         [SerializeField] private AudioSource _audioSource;
 
         [Header("-- Text --")]
-        [SerializeField] private DialogueScriptableObject _clipSuccess;
-        [SerializeField] private DialogueScriptableObject _clipFail;
+        [SerializeField] private List<DialogueScriptableObject> _clipSuccess;
+        [SerializeField] private List<DialogueScriptableObject> _clipFail;
         [SerializeField] private TMP_Text _tmp;
 
         [Header("-- Refs --")]
         [SerializeField] private ItemData _requiredItem;
+        [SerializeField] private GameObject _toActivate;
+        [SerializeField] private GameObject _toDeactivate;
         private Rigidbody _rb;
 
         #endregion

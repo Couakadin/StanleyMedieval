@@ -10,6 +10,7 @@ namespace Game.Runtime
     {
         #region PUBLICS
 
+        public ItemData m_activeItem;
         public List<ItemData> m_items;
 
         #endregion

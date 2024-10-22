@@ -20,7 +20,9 @@ namespace Game.Runtime
             {
                 _text.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
-                    StatCheck("Strength");
+                {
+
+                }
             }
             else _text.SetActive(false);
         }
