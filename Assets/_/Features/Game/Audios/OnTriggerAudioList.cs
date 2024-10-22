@@ -13,14 +13,14 @@ namespace Game.Runtime
         {
             if (!_wasPlayed)
             {
-                if (_startedPlaying && !_isPlaying && _clipIndex < _clips.Count && _audioLength <= 0)
+                if (_startedPlaying && !_isPlaying && m_clipIndex < _clips.Count && _audioLength <= 0)
                 {
-                    print(_clipIndex);
-                    AudioPlay(_clipIndex);
-                    _clipIndex += 1;
+                    print(m_clipIndex);
+                    AudioPlay(m_clipIndex);
+                    m_clipIndex += 1;
                 }
 
-                if (_clipIndex == _clips.Count)
+                if (m_clipIndex == _clips.Count)
                     _wasPlayed = true;
             }
 
@@ -32,9 +32,20 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex == null)
             {
                 _startedPlaying = true;
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex != null)
+            {
+                print(m_clipIndex);
+                AudioPlay(m_clipIndex);
+                m_clipIndex += 1;
+
+                foreach (OnTriggerAudioList otherAudio in _sharedIndex)
+                    otherAudio.m_clipIndex = m_clipIndex;
+
+                _wasPlayed = true;
             }
         }
 
@@ -68,14 +79,15 @@ namespace Game.Runtime
         [Header("-- Text --")]
         [SerializeField] private TMP_Text _tmp;
 
-        [Header("-- Activations (optional) --")]
+        [Header("-- Other Parameters (optional) --")]
+        [SerializeField] private List<OnTriggerAudioList> _sharedIndex;
         [SerializeField] private GameObject _toActivate;
         [SerializeField] private GameObject _toDeactivate;
 
+        [HideInInspector] public int m_clipIndex;
         private bool _wasPlayed;
         private bool _startedPlaying;
         private bool _isPlaying;
-        private int _clipIndex;
         private float _audioLength;
 
         #endregion
