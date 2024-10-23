@@ -6,5 +6,6 @@ namespace Game.Runtime
     public class Pickable : MonoBehaviour
     {
         public ItemData m_itemData;
+        public DialogueScriptableObject m_pickupDialogue;
     }
 }

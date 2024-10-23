@@ -1,5 +1,6 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -76,7 +77,12 @@ namespace Game.Runtime
 
                 if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody) && IsInteracting())
                 {
-                    Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
+                    //Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
+                    Play(_audioManager, _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_audio);
+
+                    _tmp.GetComponent<TextCleaner>().m_resetTimer = _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_audio.length;
+                    _tmp.text = _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_text;
+
                     _playerInventory.m_items.Add(_hitObject.GetComponent<Pickable>().m_itemData);
                     _hitObject.SetActive(false);
                     _textInteract.SetActive(false);
@@ -131,6 +137,8 @@ namespace Game.Runtime
         [Title("Audios")]
         [SerializeField]
         private AudioSource _audioManager;
+        [SerializeField]
+        private TMP_Text _tmp;
 
         [Title("Gameobjects")]
         [SerializeField]

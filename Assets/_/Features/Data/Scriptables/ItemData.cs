@@ -9,6 +9,5 @@ namespace Data.Runtime
     {
         public string m_name;
         public Sprite m_sprite;
-        public DialogueScriptableObject m_pickupDialogue;
     }
 }

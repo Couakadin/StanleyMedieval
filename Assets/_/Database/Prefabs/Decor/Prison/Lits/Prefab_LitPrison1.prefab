@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 32f3721c765f22942ae2f13488ff8f22,
         type: 3}
       propertyPath: m_Name
-      value: Lit Prison_LP
+      value: Prefab_LitPrison1
       objectReference: {fileID: 0}
     - target: {fileID: 5443880418575993825, guid: 32f3721c765f22942ae2f13488ff8f22,
         type: 3}
@@ -86,5 +86,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3719669961211532425, guid: 32f3721c765f22942ae2f13488ff8f22,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5697719265289010919}
   m_SourcePrefab: {fileID: 100100000, guid: 32f3721c765f22942ae2f13488ff8f22, type: 3}
+--- !u!1 &541591635841706364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3719669961211532425, guid: 32f3721c765f22942ae2f13488ff8f22,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754580034482781685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5697719265289010919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541591635841706364}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

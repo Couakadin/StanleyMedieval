@@ -14,6 +14,7 @@ namespace Game.Runtime
 
         private void Awake()
         {
+            _playerBlackboard.SetValue<GameObject>("Player", gameObject);
             _rigidbody = GetComponent<Rigidbody>();
             _cameraTransform = Camera.main.transform;
             _groundLayer = LayerMask.GetMask("Ground");

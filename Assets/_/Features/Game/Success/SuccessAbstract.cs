@@ -48,13 +48,6 @@ namespace Game.Runtime
             else OnFailure();
         }
 
-        protected void StatCheck(string stat)
-        {
-            if (_playerBlackboard.GetValue<int>(stat) == (int)_statSuccess)
-                OnSuccess();
-            else OnFailure();
-        }
-
         protected virtual void OnSuccess() { }
 
         protected virtual void OnFailure() { }
@@ -74,8 +67,6 @@ namespace Game.Runtime
         [Title("Values")]
         [SerializeField]
         protected int _archetypeSuccess;
-        [SerializeField]
-        protected int _statSuccess;
         [SerializeField]
         protected TextMeshProUGUI _textCanvas;
         [SerializeField]
