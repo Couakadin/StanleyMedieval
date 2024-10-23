@@ -2,7 +2,6 @@ using Data.Runtime;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static Codice.Client.Common.EventTracking.TrackFeatureUseEvent.Features.DesktopGUI.Filters;
 
 namespace Game.Runtime
 {
