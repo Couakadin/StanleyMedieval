@@ -71,7 +71,7 @@ namespace Game.Runtime
         public void OnSuccess(int i)
         {
 
-            if (_clipSuccess[i].m_audio != null)
+            if (_clipSuccess[i].m_audio.length > 0)
             {
                 _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipSuccess[i].m_audio.length + 0.5f;
                 _audioSource.clip = _clipSuccess[i].m_audio;
