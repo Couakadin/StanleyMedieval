@@ -1,9 +1,10 @@
 using Data.Runtime;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class InteractIDecor : SuccessAbstract
+    public class InteractDecor : SuccessAbstract
     {
 
         #region Unity
@@ -36,7 +37,13 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
-            _triggerAudioList.AudioTypeCheck(_playerBlackboard.GetValue<GameObject>("Player"));
+            if (_clipIndex < _clips.Count && _multipleTimes)
+            {
+                _audioReader.AudioPlay(_clips[_clipIndex]);
+                _clipIndex++;
+            }
+            else
+                _audioReader.AudioSet(_clips);
 
             if (_itemGained != null)
                 _playerBlackboard.GetValue<GameObject>("Player").GetComponent<PlayerInventory>().m_items.Add(_itemGained);
@@ -48,8 +55,15 @@ namespace Game.Runtime
         #region Privates
 
         [SerializeField] private GameObject _text;
-        [SerializeField] private OnTriggerAudioList _triggerAudioList;
+
+        [Header("-- Audio --")]
+        [SerializeField] private AudioReader _audioReader;
+        [SerializeField] private bool _multipleTimes;
+        [SerializeField] private List<DialogueScriptableObject> _clips;
+
         [SerializeField] private ItemData _itemGained;
+
+        private int _clipIndex;
 
         #endregion
     }

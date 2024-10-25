@@ -1,6 +1,5 @@
 using Data.Runtime;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -14,27 +13,6 @@ namespace Game.Runtime
             _rb = GetComponent<Rigidbody>();
         }
 
-        private void Update()
-        {
-            if (_opening)
-            {
-                _audioLength -= Time.deltaTime;
-
-                if (_audioLength <= 0 ) 
-                {
-                    if (_clipIndex < _clipFail.Count && _failed)
-                    {
-                        OnFailure(_clipIndex);
-                    }
-                    else if (_clipIndex < _clipSuccess.Count && _succeeded)
-                    {
-                        OnSuccess(_clipIndex);
-                    }
-                        _rb.isKinematic = false;
-                }
-            }
-        }
-
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.layer == 3 && !_isOpen)
@@ -43,8 +21,7 @@ namespace Game.Runtime
                 {
                     if (item == _requiredItem)
                     {
-                        OnSuccess(_clipIndex);
-                        _succeeded = true;
+                        OnSuccess();
                         _rb.isKinematic = false;
                         _isOpen = true;
                     }
@@ -56,10 +33,9 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == 16 && !_isOpen)
             {
-                OnFailure(_clipIndex);
-                _failed = true;
-                _opening = true;
+                OnFailure();
                 _isOpen = true;
+                _rb.isKinematic = false;
             }
         }
 
@@ -68,48 +44,21 @@ namespace Game.Runtime
 
         #region Methods
 
-        public void OnSuccess(int i)
+        public void OnSuccess()
         {
 
-            if (_clipSuccess[i].m_audio.length > 0)
-            {
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipSuccess[i].m_audio.length + 0.5f;
-                _audioSource.clip = _clipSuccess[i].m_audio;
-                _audioSource.Play();
-            }
-            else
-            { 
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = 7.5f;
-                _audioLength = 7.5f;
-            }
-
-            _tmp.text = _clipSuccess[i].m_text;
-            _clipIndex += 1;
+            _audioReader.AudioSet(_clipSuccess);
         }
 
-        public void OnFailure(int i)
+        public void OnFailure()
         {
 
-            if (_clipFail[i].m_audio != null)
-            {
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _clipFail[i].m_audio.length + 0.5f;
-                _audioLength = _clipFail[i].m_audio.length;
-                _audioSource.clip = _clipFail[i].m_audio;
-                _audioSource.Play();
-            }
-            else
-            { 
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = 7.5f;
-                _audioLength = 7.5f;
-            }
+            _audioReader.AudioSet(_clipFail);
 
             if (_toActivate != null)
                 _toActivate.SetActive(true);
             if (_toDeactivate != null)
                 _toDeactivate.SetActive(false);
-
-            _tmp.text = _clipFail[i].m_text;
-            _clipIndex += 1;
         }
 
         #endregion
@@ -118,18 +67,12 @@ namespace Game.Runtime
         #region Privates
 
         private bool _isOpen;
-        private bool _opening;
-        private bool _succeeded;
-        private bool _failed;
-        private float _audioLength = 5;
-        private int _clipIndex;
 
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioReader _audioReader;
 
         [Header("-- Text --")]
         [SerializeField] private List<DialogueScriptableObject> _clipSuccess;
         [SerializeField] private List<DialogueScriptableObject> _clipFail;
-        [SerializeField] private TMP_Text _tmp;
 
         [Header("-- Refs --")]
         [SerializeField] private ItemData _requiredItem;
