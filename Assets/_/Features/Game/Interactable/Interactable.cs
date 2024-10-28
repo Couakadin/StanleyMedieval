@@ -1,4 +1,5 @@
 using Data.Runtime;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -7,7 +8,7 @@ namespace Game.Runtime
     {
         #region Publics
 
-        public ItemData m_itemRequired;
+        public List<ItemData> m_itemRequired;
 
         #endregion
     }

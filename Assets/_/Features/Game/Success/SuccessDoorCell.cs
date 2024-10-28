@@ -18,7 +18,7 @@ namespace Game.Runtime
         {
             if (IsPlayerNear())
             {
-                if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _interactable.m_itemRequired && !_isOpen)
+                if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _itemRequired && !_isOpen)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -26,7 +26,7 @@ namespace Game.Runtime
                         _rb.isKinematic = false;
                         _isOpen = true;
                         _itemBlackboard.RemoveKey("ActiveItem");
-                        _itemBlackboard.RemoveKey(_interactable.m_itemRequired.m_name);
+                        _itemBlackboard.RemoveKey(_itemRequired.m_name);
                         _inventoryUpdateEvent.Raise();
                     }
                 }
@@ -71,6 +71,7 @@ namespace Game.Runtime
 
         private bool _isOpen;
 
+        [SerializeField] private ItemData _itemRequired;
         [SerializeField] private AudioReader _audioReader;
 
         [SerializeField] private GameObject _text;
