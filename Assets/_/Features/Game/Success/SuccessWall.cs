@@ -22,7 +22,7 @@ namespace Game.Runtime
             {
                 _text.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
-                    ArchetypeCheck();
+                    OnSuccess();
             }
             else _text.SetActive(false);
         }

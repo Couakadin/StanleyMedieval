@@ -20,7 +20,7 @@ namespace Game.Runtime
                         OnSuccess();
                     }
                 }
-                else if (_itemBlackboard.ContainsKey(_itemRequired.m_name))
+                else if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _itemRequired)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {

@@ -7,17 +7,6 @@ namespace Game.Runtime
 {
     public abstract class SuccessAbstract : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
-
-        #region Unity
-
-        #endregion
-
-        #region Methods
-
-        #endregion
 
         #region Utils
 
@@ -39,15 +28,6 @@ namespace Game.Runtime
             return true;
         }
 
-        protected void TextToShow() => _textCanvas.text = _textToShow;
-
-        protected void ArchetypeCheck()
-        {
-            if (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == (PlayerArchetype.Archetype)_archetypeSuccess)
-                OnSuccess();
-            else OnFailure();
-        }
-
         protected virtual void OnSuccess() { }
 
         protected virtual void OnFailure() { }
@@ -59,18 +39,6 @@ namespace Game.Runtime
         [Title("Data")]
         [SerializeField]
         protected Blackboard _playerBlackboard;
-
-        [Title("Events")]
-        [SerializeField]
-        protected VoidScriptableEvent _deathEvent;
-
-        [Title("Values")]
-        [SerializeField]
-        protected int _archetypeSuccess;
-        [SerializeField]
-        protected TextMeshProUGUI _textCanvas;
-        [SerializeField]
-        protected string _textToShow;
 
         #endregion
     }

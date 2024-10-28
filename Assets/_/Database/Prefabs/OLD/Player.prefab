@@ -1385,6 +1385,7 @@ GameObject:
   - component: {fileID: 4657894286573033219}
   - component: {fileID: 4039858143019483710}
   - component: {fileID: 8524097473729064097}
+  - component: {fileID: 2932657151538762771}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1600,7 +1601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
   _audioBlackboard: {fileID: 11400000, guid: b5380fe2b9de9044084298a9c72653cf, type: 2}
-  _itemBlackboard: {fileID: 0}
+  _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _interactAction:
     m_Name: Interact
     m_Type: 0
@@ -1634,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBlackboard: {fileID: 11400000, guid: def643e193413c449bd8d53a5b2b7981, type: 2}
-  _itemBlackboard: {fileID: 0}
+  _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
 --- !u!114 &4039858143019483710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,7 +1654,10 @@ MonoBehaviour:
   - {fileID: 9003890236422426194}
   - {fileID: 1350763770991293272}
   - {fileID: 8345684328196823955}
-  _itemBlackboard: {fileID: 0}
+  _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
+    type: 2}
+  _inventoryUpdateListener: {fileID: 2932657151538762771}
+  _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
 --- !u!82 &8524097473729064097
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1750,6 +1754,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2932657151538762771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134330694788526304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4039858143019483710}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerInventory, Game.Runtime
+        m_MethodName: InventoryUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3, type: 2}
 --- !u!1 &7607598608165848260
 GameObject:
   m_ObjectHideFlags: 0
