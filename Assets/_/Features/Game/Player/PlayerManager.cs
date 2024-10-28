@@ -12,6 +12,7 @@ namespace Game.Runtime
         private void Start()
         {
             _playerBlackboard.SetValue<bool>("IsDead", false);
+            _itemBlackboard.Clear();
         }
 
         #endregion
@@ -29,8 +30,8 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _itemBlackboard;
 
         #endregion
     }

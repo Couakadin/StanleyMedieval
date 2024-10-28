@@ -1,5 +1,6 @@
 using Data.Runtime;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -13,17 +14,20 @@ namespace Game.Runtime
             _rb = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void Update()
         {
-            if (collision.gameObject.layer == 3 && !_isOpen)
+            if (IsPlayerNear())
             {
-                foreach (ItemData item in collision.gameObject.GetComponent<PlayerInventory>().m_items)
+                if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _interactable.m_itemRequired && !_isOpen)
                 {
-                    if (item == _requiredItem)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         OnSuccess();
                         _rb.isKinematic = false;
                         _isOpen = true;
+                        _itemBlackboard.RemoveKey("ActiveItem");
+                        _itemBlackboard.RemoveKey(_interactable.m_itemRequired.m_name);
+                        _inventoryUpdateEvent.Raise();
                     }
                 }
             }
@@ -46,7 +50,6 @@ namespace Game.Runtime
 
         public void OnSuccess()
         {
-
             _audioReader.AudioSet(_clipSuccess);
         }
 
@@ -70,14 +73,17 @@ namespace Game.Runtime
 
         [SerializeField] private AudioReader _audioReader;
 
-        [Header("-- Text --")]
+        [SerializeField] private GameObject _text;
+        [Header("-- Audio --")]
         [SerializeField] private List<DialogueScriptableObject> _clipSuccess;
         [SerializeField] private List<DialogueScriptableObject> _clipFail;
 
         [Header("-- Refs --")]
-        [SerializeField] private ItemData _requiredItem;
+        [SerializeField] private Interactable _interactable;
         [SerializeField] private GameObject _toActivate;
         [SerializeField] private GameObject _toDeactivate;
+        [SerializeField] private Blackboard _itemBlackboard;
+        [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
         private Rigidbody _rb;
 
         #endregion

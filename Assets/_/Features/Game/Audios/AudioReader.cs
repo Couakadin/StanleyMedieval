@@ -1,5 +1,4 @@
 using Data.Runtime;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,7 +7,7 @@ namespace Game.Runtime
 {
     public class AudioReader : MonoBehaviour
     {
-        #region Publics
+        #region PUBLICS
 
         public float m_audioLength;
         public TMP_Text m_tmp;
@@ -18,7 +17,8 @@ namespace Game.Runtime
 
         #endregion
 
-        #region
+
+        #region UNITY API
 
         private void Update()
         {
@@ -41,6 +41,7 @@ namespace Game.Runtime
         }
 
         #endregion
+
 
         #region MAIN METHODS
 
@@ -65,9 +66,11 @@ namespace Game.Runtime
             if (clips.Count > 0)
                 AudioPlay(m_clipsToRead[0]);
         }
+
         #endregion
 
-        #region PIVATES
+
+        #region PRIVATES
 
         private int _clipIndex;
 

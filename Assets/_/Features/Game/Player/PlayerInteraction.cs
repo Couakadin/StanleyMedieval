@@ -58,16 +58,10 @@ namespace Game.Runtime
 
             if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
             {
-                _textInteract.SetActive(true);
                 _hitObject = hit.collider.gameObject;
 
-                /*if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody) && IsInteracting())
-                {
-                    Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
-                    _isHoldingObject = true;
-                    _hitRigidbody.isKinematic = false;
-                    _textInteract.SetActive(false);
-                }*/
+                if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _hitObject.GetComponent<Interactable>().m_itemRequired || _hitObject.GetComponent<Interactable>() == null)
+                    _textInteract.SetActive(true);
             }
             else if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))
             {
@@ -87,7 +81,8 @@ namespace Game.Runtime
                     else
                         _audioReader.AudioSet(pickedItem.m_pickupDialogue);
 
-                    _playerInventory.m_items.Add(pickedItem.m_itemData);
+                    _itemBlackboard.SetValue<ItemData>(pickedItem.m_itemData.m_name, pickedItem.m_itemData);
+                    _playerInventory.InventoryUpdate();
                     _hitObject.SetActive(false);
                     _textPickup.SetActive(false);
                 }
@@ -133,10 +128,9 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _playerBlackboard;
-        [SerializeField]
-        private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _itemBlackboard;
 
         [Title("Inputs")]
         [SerializeField]

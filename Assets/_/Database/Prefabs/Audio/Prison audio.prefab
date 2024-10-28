@@ -68,12 +68,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 11400000, guid: 89ea209b54a3d094dbf1ef5523c5d433, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex: []
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!1 &1363437405040393370
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,10 +103,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1560349469296247177}
-  - {fileID: 8126327564207133778}
-  - {fileID: 1052200166976978098}
-  - {fileID: 995841082524371112}
-  - {fileID: 5995794368082397044}
+  - {fileID: 598309532190810814}
   - {fileID: 3561769383128628651}
   - {fileID: 379060944454801009}
   m_Father: {fileID: 0}
@@ -181,12 +177,11 @@ MonoBehaviour:
   _clips:
   - {fileID: 11400000, guid: 0ab2860a114df5c4e8e880bc36bfeb76, type: 2}
   - {fileID: 11400000, guid: 4bf19a07fb669914289bdadd61fc4556, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex: []
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!1 &3442566113005253694
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1166305442524486955}
+  m_Father: {fileID: 598309532190810814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4396577916192773000
 BoxCollider:
@@ -258,15 +253,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74c25cb98a7ff034082735953de3a103, type: 2}
   - {fileID: 11400000, guid: 5ca1396d6ff454f4f83e02177ddb846a, type: 2}
   - {fileID: 11400000, guid: 09a87ed4eb34da1468391a8ef114fa6c, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex:
   - {fileID: 4052087291244498493}
+  - {fileID: 5109724343329273396}
   - {fileID: 6543264457470039522}
   - {fileID: 5774509851616460298}
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!1 &4624769876011107484
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1166305442524486955}
+  m_Father: {fileID: 598309532190810814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6671734127363250429
 BoxCollider:
@@ -338,15 +333,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74c25cb98a7ff034082735953de3a103, type: 2}
   - {fileID: 11400000, guid: 5ca1396d6ff454f4f83e02177ddb846a, type: 2}
   - {fileID: 11400000, guid: 09a87ed4eb34da1468391a8ef114fa6c, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex:
   - {fileID: 4052087291244498493}
   - {fileID: 5109724343329273396}
   - {fileID: 6543264457470039522}
+  - {fileID: 5774509851616460298}
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!1 &7146288155592547273
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1166305442524486955}
+  m_Father: {fileID: 598309532190810814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4506015820691563272
 BoxCollider:
@@ -418,15 +413,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74c25cb98a7ff034082735953de3a103, type: 2}
   - {fileID: 11400000, guid: 5ca1396d6ff454f4f83e02177ddb846a, type: 2}
   - {fileID: 11400000, guid: 09a87ed4eb34da1468391a8ef114fa6c, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex:
   - {fileID: 4052087291244498493}
   - {fileID: 5109724343329273396}
+  - {fileID: 6543264457470039522}
   - {fileID: 5774509851616460298}
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!1 &7205009081478117543
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,12 +491,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 11400000, guid: 35975c762d5a4584daeb42b4d3216829, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex: []
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
 --- !u!114 &6757021988158477663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1166305442524486955}
+  m_Father: {fileID: 598309532190810814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1441794369146801118
 BoxCollider:
@@ -587,12 +581,47 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74c25cb98a7ff034082735953de3a103, type: 2}
   - {fileID: 11400000, guid: 5ca1396d6ff454f4f83e02177ddb846a, type: 2}
   - {fileID: 11400000, guid: 09a87ed4eb34da1468391a8ef114fa6c, type: 2}
-  _audio: {fileID: 0}
-  _tmp: {fileID: 0}
+  _audioReader: {fileID: 0}
   _sharedIndex:
+  - {fileID: 4052087291244498493}
   - {fileID: 5109724343329273396}
   - {fileID: 6543264457470039522}
   - {fileID: 5774509851616460298}
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
-  m_clipIndex: 0
+  _clipIndex: 0
+--- !u!1 &8850559669608630071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598309532190810814}
+  m_Layer: 0
+  m_Name: Cell Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &598309532190810814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8850559669608630071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8126327564207133778}
+  - {fileID: 1052200166976978098}
+  - {fileID: 995841082524371112}
+  - {fileID: 5995794368082397044}
+  m_Father: {fileID: 1166305442524486955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -13,13 +13,21 @@ namespace Game.Runtime
         {
             if (IsPlayerNear())
             {
-                _text.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (_itemRequired == null)
                 {
-                    OnSuccess();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        OnSuccess();
+                    }
+                }
+                else if (_itemBlackboard.ContainsKey(_itemRequired.m_name))
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        OnSuccess();
+                    }
                 }
             }
-            else _text.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -46,7 +54,7 @@ namespace Game.Runtime
                 _audioReader.AudioSet(_clips);
 
             if (_itemGained != null)
-                _playerBlackboard.GetValue<GameObject>("Player").GetComponent<PlayerInventory>().m_items.Add(_itemGained);
+                _playerBlackboard.SetValue(_itemGained.m_name, _itemGained);
         }
 
         #endregion
@@ -54,6 +62,10 @@ namespace Game.Runtime
 
         #region Privates
 
+        [Header("-- Needs Item --")]
+        [SerializeField] private ItemData _itemRequired;
+
+        [Header("-- Text to show --")]
         [SerializeField] private GameObject _text;
 
         [Header("-- Audio --")]
@@ -61,6 +73,8 @@ namespace Game.Runtime
         [SerializeField] private bool _multipleTimes;
         [SerializeField] private List<DialogueScriptableObject> _clips;
 
+        [Header("-- Items --")]
+        [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private ItemData _itemGained;
 
         private int _clipIndex;
