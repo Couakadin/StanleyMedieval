@@ -9,64 +9,30 @@ namespace Game.Runtime
     {
         #region Unity
 
-        private void Update()
-        {
-            if (!_wasPlayed)
-            {
-                if (_startedPlaying && !_isPlaying && m_clipIndex < _clips.Count && _audioLength <= 0)
-                {
-                    print(m_clipIndex);
-                    AudioPlay(m_clipIndex);
-                    m_clipIndex += 1;
-                }
-
-                if (m_clipIndex == _clips.Count)
-                    _wasPlayed = true;
-            }
-
-            if (_audioLength <= 0)
-                _isPlaying = false;
-
-            _audioLength -= Time.deltaTime;
-        }
-
         private void OnTriggerEnter(Collider other)
         {
-            AudioTypeCheck(other.gameObject);
+            if (other.gameObject.layer == 3 && !_wasPlayed)
+                AudioTypeCheck(other.gameObject);
         }
 
         #endregion
 
         #region Methods
 
-        public void AudioPlay(int clip)
-        {
-            if (_clips[clip].m_audio != null)
-                _audioLength = _clips[clip].m_audio.length + 0.5f;
-            else
-                _audioLength = 7.5f;
-
-            _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioLength;
-            _audio.clip = _clips[clip].m_audio;
-            _audio.Play();
-            _tmp.text = _clips[clip].m_text;
-            _isPlaying = true;
-        }
-
         public void AudioTypeCheck(GameObject go)
         {
             if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count == 0)
             {
-                _startedPlaying = true;
+                _audioReader.AudioSet(_clips);
+                _wasPlayed = true;
             }
             else if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count > 0)
             {
-                print(m_clipIndex);
-                AudioPlay(m_clipIndex);
-                m_clipIndex += 1;
+                _audioReader.AudioPlay(_clips[_clipIndex]);
+                _clipIndex += 1;
 
                 foreach (OnTriggerAudioList otherAudio in _sharedIndex)
-                    otherAudio.m_clipIndex = m_clipIndex;
+                    otherAudio._clipIndex = _clipIndex;
 
                 _wasPlayed = true;
             }
@@ -79,21 +45,15 @@ namespace Game.Runtime
 
         [Header ("-- Audio --")]
         [SerializeField] private List<DialogueScriptableObject> _clips;
-        [SerializeField] private AudioSource _audio;
-
-        [Header("-- Text --")]
-        [SerializeField] private TMP_Text _tmp;
+        [SerializeField] private AudioReader _audioReader;
 
         [Header("-- Other Parameters (optional) --")]
         [SerializeField] private List<OnTriggerAudioList> _sharedIndex;
         [SerializeField] private GameObject _toActivate;
         [SerializeField] private GameObject _toDeactivate;
 
-        [HideInInspector] public int m_clipIndex;
+        [HideInInspector] public int _clipIndex;
         private bool _wasPlayed;
-        private bool _startedPlaying;
-        private bool _isPlaying;
-        private float _audioLength;
 
         #endregion
     }

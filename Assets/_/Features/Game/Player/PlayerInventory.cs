@@ -1,5 +1,4 @@
 using Data.Runtime;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,13 +19,36 @@ namespace Game.Runtime
 
         private void Awake()
         {
+            _inventoryUpdateEvent.Subscribe(_inventoryUpdateListener);
             for (int i = 0; i < _inventorySlots.Count; i++)
             {
                 _inventorySlots[i].gameObject.SetActive(false);
             }
         }
-        private void Update()
+
+        #endregion
+
+
+        #region METHODS
+
+        public void InventoryUpdate()
         {
+            print("item changed");
+            m_items = new List<ItemData>();
+
+            foreach (KeyValuePair<string, object> kvp in _itemBlackboard._data)
+            {
+                if (kvp.Value is ItemData)
+                {
+                    m_items.Add(kvp.Value as ItemData);
+                }
+            }
+
+            foreach (Image slot in _inventorySlots)
+            {
+                slot.gameObject.SetActive(false);
+            }
+
             for (int i = 0; i < _inventorySlots.Count; i++)
             {
                 if (m_items.Count != 0 && i < m_items.Count)
@@ -43,13 +65,20 @@ namespace Game.Runtime
                 }
             }
         }
+        public void ActiveItemChange(int i)
+        {
+            m_activeItem = m_items[i];
+            _itemBlackboard.SetValue("ActiveItem", m_activeItem);
+        }
 
         #endregion
-
 
         #region PRIVATE AND PROTECTED
 
         [SerializeField] private List<Image> _inventorySlots;
+        [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
+        [SerializeField] private VoidScriptableEventistener _inventoryUpdateListener;
+        [SerializeField] private Blackboard _itemBlackboard;
 
         #endregion
     }

@@ -1,6 +1,5 @@
 using Data.Runtime;
 using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -59,36 +58,43 @@ namespace Game.Runtime
 
             if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
             {
-                _textInteract.SetActive(true);
                 _hitObject = hit.collider.gameObject;
 
-                if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody) && IsInteracting())
-                {
-                    Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
-                    _isHoldingObject = true;
-                    _hitRigidbody.isKinematic = false;
-                    _textInteract.SetActive(false);
+                foreach (ItemData item in _hitObject.GetComponent<Interactable>().m_itemRequired)
+                { 
+                    if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == item || _hitObject.GetComponent<Interactable>() == null)
+                        _textInteract.SetActive(true);
                 }
             }
             else if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))
             {
-                _textInteract.SetActive(true);
+                _textPickup.SetActive(true);
                 _hitObject = hit2.collider.gameObject;
 
                 if (_hitObject.TryGetComponent<Rigidbody>(out _hitRigidbody) && IsInteracting())
                 {
-                    //Play(_hitObject?.GetComponent<AudioSource>(), _audioBlackboard.GetValue<AudioClip>("KeyDrop"));
-                    Play(_audioManager, _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_audio);
+                    Pickable pickedItem = _hitObject.GetComponent<Pickable>();
+                    if (pickedItem.m_sharedAudio.Count > 0)
+                    {
+                        _audioReader.AudioPlay(pickedItem.m_pickupDialogue[pickedItem._clipIndex]);
 
-                    _tmp.GetComponent<TextCleaner>().m_resetTimer = _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_audio.length;
-                    _tmp.text = _hitObject.GetComponent<Pickable>().m_pickupDialogue.m_text;
+                        foreach (Pickable otherAudio in pickedItem.m_sharedAudio)
+                            otherAudio._clipIndex += 1;
+                    }
+                    else
+                        _audioReader.AudioSet(pickedItem.m_pickupDialogue);
 
-                    _playerInventory.m_items.Add(_hitObject.GetComponent<Pickable>().m_itemData);
+                    _itemBlackboard.SetValue<ItemData>(pickedItem.m_itemData.m_name, pickedItem.m_itemData);
+                    _playerInventory.InventoryUpdate();
                     _hitObject.SetActive(false);
-                    _textInteract.SetActive(false);
+                    _textPickup.SetActive(false);
                 }
             }
-            else _textInteract.SetActive(false);
+            else 
+            { 
+                _textInteract.SetActive(false); 
+                _textPickup.SetActive(false);
+            }
         }
 
         private void HoldObject()
@@ -125,10 +131,9 @@ namespace Game.Runtime
         #region Privates
 
         [Title("Data")]
-        [SerializeField]
-        private Blackboard _playerBlackboard;
-        [SerializeField]
-        private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _audioBlackboard;
+        [SerializeField] private Blackboard _itemBlackboard;
 
         [Title("Inputs")]
         [SerializeField]
@@ -136,13 +141,13 @@ namespace Game.Runtime
 
         [Title("Audios")]
         [SerializeField]
-        private AudioSource _audioManager;
-        [SerializeField]
-        private TMP_Text _tmp;
+        private AudioReader _audioReader;
 
         [Title("Gameobjects")]
         [SerializeField]
         private GameObject _textInteract;
+        [SerializeField]
+        private GameObject _textPickup;
 
         [Title("Privates")]
         private Camera _camera;

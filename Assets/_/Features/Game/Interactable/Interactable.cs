@@ -1,30 +1,14 @@
+using Data.Runtime;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Runtime
 {
     public class Interactable : MonoBehaviour
     {
-        #region Unity
+        #region Publics
 
-        private void Awake()
-        {
-            _position = transform.position;
-        }
-
-        private void Update()
-        {
-            Vector3 direction = _position - transform.position;
-            float distance = direction.sqrMagnitude;
-
-            if (distance > 20f * 20f) transform.position = _position;
-        }
-
-        #endregion
-
-
-        #region Privates
-
-        private Vector3 _position;
+        public List<ItemData> m_itemRequired;
 
         #endregion
     }
