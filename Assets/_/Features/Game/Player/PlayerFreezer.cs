@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Data.Runtime;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -13,7 +12,13 @@ namespace Game.Runtime
                 _frozenDuration -= Time.deltaTime;
 
                 if (_frozenDuration < 0)
+                {
                     _controller.UnfreezePlayer();
+                    if (_eventAtEnd != null)
+                    {
+                        _eventAtEnd.Raise();
+                    }
+                }
             }
         }
 
@@ -33,6 +38,7 @@ namespace Game.Runtime
 
         [SerializeField] private PlayerController _controller;
         [SerializeField] private float _frozenDuration;
+        [SerializeField] private VoidScriptableEvent _eventAtEnd;
 
         private bool _wasFrozen;
     }

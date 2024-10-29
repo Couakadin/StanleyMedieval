@@ -60,10 +60,17 @@ namespace Game.Runtime
             {
                 _hitObject = hit.collider.gameObject;
 
-                foreach (ItemData item in _hitObject.GetComponent<Interactable>().m_itemRequired)
-                { 
-                    if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == item || _hitObject.GetComponent<Interactable>() == null)
-                        _textInteract.SetActive(true);
+                if (_hitObject.GetComponent<Interactable>() == null)
+                {
+                    _textInteract.SetActive(true);
+                }
+                else
+                {
+                    foreach (ItemData item in _hitObject.GetComponent<Interactable>().m_itemRequired)
+                    {
+                        if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == item)
+                            _textInteract.SetActive(true);
+                    }
                 }
             }
             else if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))

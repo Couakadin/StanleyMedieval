@@ -19,7 +19,6 @@ namespace Game.Runtime
 
         private void Awake()
         {
-            _inventoryUpdateEvent.Subscribe(_inventoryUpdateListener);
             for (int i = 0; i < _inventorySlots.Count; i++)
             {
                 _inventorySlots[i].gameObject.SetActive(false);
@@ -30,7 +29,7 @@ namespace Game.Runtime
         {
             if (m_items.Count > 1)
             {
-                if (Input.GetAxisRaw("Mouse ScrollWheel") > 0.1 && _activeItemId < _inventorySlots.Count-1)
+                if (Input.GetAxisRaw("Mouse ScrollWheel") > 0.1 && _activeItemId < m_items.Count-1)
                 {
                     _activeItemId += 1;
                     ActiveItemChange(_activeItemId);

@@ -1,3 +1,4 @@
+using Data.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,6 @@ namespace Game.Runtime
         private void Awake()
         {
             _opacityValue = 1;
-            m_fadingIn = true;
         }
         void Update()
         {
@@ -75,6 +75,8 @@ namespace Game.Runtime
 
         [SerializeField] private float _opacityValue;
         [SerializeField] private RawImage _image;
+        [SerializeField] private VoidScriptableEvent _fadeInEvent;
+        [SerializeField] private VoidScriptableEventistener _fadeInListener;
         private float _blackTimer;
     }
 }

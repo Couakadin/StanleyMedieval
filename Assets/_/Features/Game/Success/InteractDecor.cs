@@ -54,7 +54,10 @@ namespace Game.Runtime
                 _audioReader.AudioSet(_clips);
 
             if (_itemGained != null)
-                _playerBlackboard.SetValue(_itemGained.m_name, _itemGained);
+            {
+                _itemBlackboard.SetValue(_itemGained.m_name, _itemGained);
+                _inventoryUpdateEvent.Raise();
+            }
         }
 
         #endregion
@@ -76,6 +79,7 @@ namespace Game.Runtime
         [Header("-- Items --")]
         [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private ItemData _itemGained;
+        [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
 
         private int _clipIndex;
 
