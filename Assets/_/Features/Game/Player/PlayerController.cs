@@ -75,27 +75,31 @@ namespace Game.Runtime
             }
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             _atkDuration -= Time.deltaTime;
+
+            if (Input.GetMouseButtonDown(0))
+                HitAction();
+            else if (_atkDuration < 0)
+                _hitCollider.gameObject.SetActive(false);
+        }
+
+        private void FixedUpdate()
+        {
 
             if (_playerBlackboard.GetValue<bool>("IsDead")) return;
 
             ViewAction();
             SpeedAction();
 
-            if (_crouchAction.IsPressed() /*&& (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.ROGUE)*/)
+            if (_crouchAction.IsPressed())
                 CrouchAction();
             else if (!_crouchAction.IsPressed() && !_isTunnel)
                 GetUpAction();
 
             if (IsGrounded() && IsJumping())
                 JumpAction();
-
-            if (Input.GetKeyDown(KeyCode.Mouse0)/* && (_playerBlackboard.GetValue<PlayerArchetype.Archetype>("Archetype") == PlayerArchetype.Archetype.BARBARIAN)*/)
-                HitAction();
-            else if (_atkDuration < 0)
-                _hitCollider.gameObject.SetActive(false);
 
             MoveAction();
         }
