@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.InputSystem.Controls;
 
 namespace Game.Runtime
 {
@@ -80,7 +81,17 @@ namespace Game.Runtime
             _atkDuration -= Time.deltaTime;
 
             if (Input.GetMouseButtonDown(0))
+            {
                 HitAction();
+                Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+                if (Physics.Raycast(ray, out RaycastHit hit, _distancePunch, _interactableLayer))
+                {
+                    _punchFx.transform.position = hit.point;
+                    _punchFx.transform.forward = hit.normal;
+                    _punchFx.Play();
+                }
+            }
             else if (_atkDuration < 0)
                 _hitCollider.gameObject.SetActive(false);
         }
@@ -265,6 +276,7 @@ namespace Game.Runtime
         [SerializeField] private CapsuleCollider _capsuleColliderCrouch;
         [SerializeField] private Collider _hitCollider;
         [SerializeField] private Transform _viewTransform;
+        [SerializeField] private ParticleSystem _punchFx;
 
         [Title("Audios")]
         [SerializeField] private AudioSource _audioManager;
@@ -299,6 +311,8 @@ namespace Game.Runtime
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
         private float _atkDuration;
+        private float _distancePunch = 1.8f;
+        [SerializeField] private LayerMask _interactableLayer;
 
         #endregion
     }
