@@ -58,10 +58,22 @@ namespace Game.Runtime
 
             _audioReader.AudioSet(_clipFail);
 
-            if (_toActivate != null)
-                _toActivate.SetActive(true);
-            if (_toDeactivate != null)
-                _toDeactivate.SetActive(false);
+            if (_toActivate.Count > 0)
+            {
+                for (int i = 0; i < _toActivate.Count; i++)
+                {
+                    print("activating");
+                    _toActivate[i].SetActive(true);
+                }
+            }
+            if (_toDeactivate.Count > 0)
+            {
+                for (int i = 0; i < _toDeactivate.Count; i++)
+                {
+                    print("deactivating");
+                    _toDeactivate[i].SetActive(false);
+                }
+            }
         }
 
         #endregion
@@ -81,8 +93,8 @@ namespace Game.Runtime
 
         [Header("-- Refs --")]
         [SerializeField] private Interactable _interactable;
-        [SerializeField] private GameObject _toActivate;
-        [SerializeField] private GameObject _toDeactivate;
+        [SerializeField] private List<GameObject> _toActivate;
+        [SerializeField] private List<GameObject> _toDeactivate;
         [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
         private Rigidbody _rb;
