@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &403881352553441039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2343353595159835132}
+  - component: {fileID: 978627591829316734}
+  - component: {fileID: 1221413059660573255}
+  - component: {fileID: 8281145349456511462}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2343353595159835132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403881352553441039}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.84, y: 107.59, z: -68.88}
+  m_LocalScale: {x: 23.653908, y: 2.0377, z: 11.098192}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5121777762060738350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &978627591829316734
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403881352553441039}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1221413059660573255
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403881352553441039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8281145349456511462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403881352553441039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098a36ece50d9c47a6a9c4904991079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 11400000, guid: 842d3df20c568dd4eaba74a2d3c2a730, type: 2}
+  - {fileID: 11400000, guid: 071fef954ee9d7147a42c25288994e79, type: 2}
+  - {fileID: 11400000, guid: a4f3bfb5a0b97344f9d05c1ebe0d38e5, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 5ae10d1b26ed99c48bc34a1dee173f69, type: 2}
+  - {fileID: 11400000, guid: 60bb521d19ecaca409d363b0304b1ce9, type: 2}
+  _audioReader: {fileID: 0}
+  _sharedIndex: []
+  _toActivate: {fileID: 0}
+  _toDeactivate: {fileID: 0}
+  _clipIndex: 0
+--- !u!1 &8282443002113084324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5121777762060738350}
+  m_Layer: 0
+  m_Name: Crossway_audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5121777762060738350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8282443002113084324}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 84.22701, y: -105.09764, z: 76.79639}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2343353595159835132}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
