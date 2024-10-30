@@ -7,9 +7,6 @@ namespace Game.Runtime
 {
     public class OnLoopTriggerAudio : MonoBehaviour
     {
-        #region Publics
-
-        #endregion
 
         #region Unity
 
@@ -33,10 +30,6 @@ namespace Game.Runtime
         #region Methods
 
         public void ResetWasPlayed() => _wasPlayed = false;
-
-        #endregion
-
-        #region Utils
 
         #endregion
 

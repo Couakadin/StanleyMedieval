@@ -11,8 +11,12 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == 3 && !_wasPlayed)
+            if (other.gameObject.layer == 3)
+            { 
                 AudioTypeCheck(other.gameObject);
+                
+            }
+
         }
 
         #endregion
@@ -21,12 +25,11 @@ namespace Game.Runtime
 
         public void AudioTypeCheck(GameObject go)
         {
-            if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count == 0)
+            if (go.layer == LayerMask.NameToLayer("Player") && _sharedIndex.Count == 0)
             {
                 _audioReader.AudioSet(_clips);
-                _wasPlayed = true;
             }
-            else if (go.layer == LayerMask.NameToLayer("Player") && !_wasPlayed && _sharedIndex.Count > 0)
+            else if (go.layer == LayerMask.NameToLayer("Player") && _sharedIndex.Count > 0)
             {
                 _audioReader.AudioPlay(_clips[_clipIndex]);
                 _clipIndex += 1;
@@ -34,7 +37,7 @@ namespace Game.Runtime
                 foreach (OnTriggerAudioList otherAudio in _sharedIndex)
                     otherAudio._clipIndex = _clipIndex;
 
-                _wasPlayed = true;
+                gameObject.SetActive(false);
             }
         }
 
@@ -53,7 +56,6 @@ namespace Game.Runtime
         [SerializeField] private GameObject _toDeactivate;
 
         [HideInInspector] public int _clipIndex;
-        private bool _wasPlayed;
 
         #endregion
     }
