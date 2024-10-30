@@ -10,7 +10,7 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_wasPlayed)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player") )
             {
                 AudioPlay();
             }
@@ -26,7 +26,7 @@ namespace Game.Runtime
             _audio.clip = _clip.m_audio;
             _audio.Play();
             _tmp.text = _clip.m_text;
-            _wasPlayed = true;
+            gameObject.SetActive(false);
         }
 
     #endregion
@@ -40,8 +40,6 @@ namespace Game.Runtime
 
         [Header("-- Text --")]
         [SerializeField] private TMP_Text _tmp;
-
-        private bool _wasPlayed;
 
         #endregion
     }
