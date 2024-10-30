@@ -56,24 +56,8 @@ namespace Game.Runtime
         {
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
 
-            if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
-            {
-                _hitObject = hit.collider.gameObject;
-
-                if (_hitObject.GetComponent<Interactable>() == null)
-                {
-                    _textInteract.SetActive(true);
-                }
-                else
-                {
-                    foreach (ItemData item in _hitObject.GetComponent<Interactable>().m_itemRequired)
-                    {
-                        if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == item)
-                            _textInteract.SetActive(true);
-                    }
-                }
-            }
-            else if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))
+            
+            if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))
             {
                 _textPickup.SetActive(true);
                 _hitObject = hit2.collider.gameObject;
@@ -95,6 +79,23 @@ namespace Game.Runtime
                     _playerInventory.InventoryUpdate();
                     _hitObject.SetActive(false);
                     _textPickup.SetActive(false);
+                }
+            }
+            else if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
+            {
+                _hitObject = hit.collider.gameObject;
+
+                if (_hitObject.GetComponent<Interactable>() == null)
+                {
+                    _textInteract.SetActive(true);
+                }
+                else
+                {
+                    foreach (ItemData item in _hitObject.GetComponent<Interactable>().m_itemRequired)
+                    {
+                        if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == item)
+                            _textInteract.SetActive(true);
+                    }
                 }
             }
             else 

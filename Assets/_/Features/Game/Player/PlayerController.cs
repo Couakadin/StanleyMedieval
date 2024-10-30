@@ -94,6 +94,11 @@ namespace Game.Runtime
             }
             else if (_atkDuration < 0)
                 _hitCollider.gameObject.SetActive(false);
+
+            ViewAction();
+            SpeedAction();
+
+            MoveAction();
         }
 
         private void FixedUpdate()
@@ -101,8 +106,6 @@ namespace Game.Runtime
 
             if (_playerBlackboard.GetValue<bool>("IsDead")) return;
 
-            ViewAction();
-            SpeedAction();
 
             if (_crouchAction.IsPressed())
                 CrouchAction();
@@ -111,8 +114,6 @@ namespace Game.Runtime
 
             if (IsGrounded() && IsJumping())
                 JumpAction();
-
-            MoveAction();
         }
 
         private void LateUpdate()

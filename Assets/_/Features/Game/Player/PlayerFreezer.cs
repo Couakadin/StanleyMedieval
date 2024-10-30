@@ -34,11 +34,17 @@ namespace Game.Runtime
         public void FreezePlayerMovement()
         {
             _controller.FreezePlayer();
+
+            if (_eventAtStart != null)
+            {
+                _eventAtStart.Raise();
+            }
         }
 
         [SerializeField] private PlayerController _controller;
         [SerializeField] private float _frozenDuration;
         [SerializeField] private VoidScriptableEvent _eventAtEnd;
+        [SerializeField] private VoidScriptableEvent _eventAtStart;
 
         private bool _wasFrozen;
     }

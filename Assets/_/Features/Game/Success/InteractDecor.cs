@@ -30,14 +30,6 @@ namespace Game.Runtime
             }
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.layer == 16)
-            {
-                OnSuccess();
-            }
-        }
-
         #endregion
 
 
@@ -57,6 +49,23 @@ namespace Game.Runtime
             {
                 _itemBlackboard.SetValue(_itemGained.m_name, _itemGained);
                 _inventoryUpdateEvent.Raise();
+            }
+
+            if (_toActivate.Count > 0)
+            {
+                for (int i = 0; i < _toActivate.Count; i++)
+                {
+                    print("activating");
+                    _toActivate[i].SetActive(true);
+                }
+            }
+            if (_toDeactivate.Count > 0)
+            {
+                for (int i = 0; i < _toDeactivate.Count; i++)
+                {
+                    print("deactivating");
+                    _toDeactivate[i].SetActive(false);
+                }
             }
         }
 
@@ -80,6 +89,10 @@ namespace Game.Runtime
         [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private ItemData _itemGained;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
+
+        [Header("-- GameObjects to activate / deactivate --")]
+        [SerializeField] private List<GameObject> _toActivate;
+        [SerializeField] private List<GameObject> _toDeactivate;
 
         private int _clipIndex;
 

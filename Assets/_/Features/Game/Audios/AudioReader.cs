@@ -63,6 +63,7 @@ namespace Game.Runtime
         public void AudioSet(List<DialogueScriptableObject> clips)
         {
             m_clipsToRead = clips;
+            _clipIndex = 0;
             if (clips.Count > 0)
                 AudioPlay(m_clipsToRead[0]);
         }
