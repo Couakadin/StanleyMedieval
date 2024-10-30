@@ -16,7 +16,7 @@ namespace Game.Runtime
             Vector3 directionToObject = transform.position - playerPosition;
 
             float distanceSqr = directionToObject.sqrMagnitude;
-            if (distanceSqr > 4f * 4f) return false;
+            if (distanceSqr > 2f * 2f) return false;
 
             Vector3 playerForward = _playerBlackboard.GetValue<Vector3>("Forward");
 

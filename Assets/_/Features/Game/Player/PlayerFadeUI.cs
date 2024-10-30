@@ -1,6 +1,4 @@
 using Data.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,10 +71,21 @@ namespace Game.Runtime
             _blackTimer = 1f;
         }
 
+        public void EnableCinematic()
+        {
+            _cinematicBars.SetActive(true);
+        }
+
+        public void DisableCinematic()
+        {
+            _cinematicBars.SetActive(false);
+        }
+
         [SerializeField] private float _opacityValue;
         [SerializeField] private RawImage _image;
         [SerializeField] private VoidScriptableEvent _fadeInEvent;
         [SerializeField] private VoidScriptableEventistener _fadeInListener;
+        [SerializeField] private GameObject _cinematicBars;
         private float _blackTimer;
     }
 }
