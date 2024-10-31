@@ -50,7 +50,7 @@ namespace Game.Runtime
             if (clip.m_audio != null)
                 m_audioLength = clip.m_audio.length + 0.5f;
             else
-                m_audioLength = 7.5f;
+                m_audioLength = 5f;
 
             m_tmp.GetComponent<TextCleaner>().m_resetTimer = m_audioLength;
             m_audioSource.clip = clip.m_audio;
