@@ -7931,6 +7931,8 @@ MonoBehaviour:
   _itemGained: {fileID: 11400000, guid: 6af1c54d4b3241c44847199601d03112, type: 2}
   _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
     type: 2}
+  _toActivate: []
+  _toDeactivate: []
 --- !u!65 &225565551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42381,6 +42383,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 865e18ac5f91f2e4eb9f08eec94a2f0c, type: 2}
+    - target: {fileID: 3077525106154746948, guid: bdb6acb1d13e7424aa97fcf7899bb189,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 865e18ac5f91f2e4eb9f08eec94a2f0c, type: 2}
+    - target: {fileID: 5069774632472000173, guid: bdb6acb1d13e7424aa97fcf7899bb189,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d9c094404844324fb34928bd091fca9, type: 2}
     - target: {fileID: 7360329264554973854, guid: bdb6acb1d13e7424aa97fcf7899bb189,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42439,11 +42451,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1695834885832776774, guid: bdb6acb1d13e7424aa97fcf7899bb189,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1675005827}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdb6acb1d13e7424aa97fcf7899bb189, type: 3}
 --- !u!4 &1253424440 stripped
 Transform:
@@ -56401,34 +56409,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 797166004}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1675005825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1695834885832776774, guid: bdb6acb1d13e7424aa97fcf7899bb189,
-    type: 3}
-  m_PrefabInstance: {fileID: 1250670742}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1675005827
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675005825}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7387706064836869012, guid: 4f96bf147e8256c43b60cafc56243652, type: 3}
 --- !u!4 &1676006176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3567141589314925781, guid: 81f18bf542fcf2a46abf7afe92948bd1,
@@ -62023,6 +62003,8 @@ MonoBehaviour:
   _itemGained: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
     type: 2}
+  _toActivate: []
+  _toDeactivate: []
 --- !u!114 &1863986496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62046,6 +62028,8 @@ MonoBehaviour:
   _itemGained: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
     type: 2}
+  _toActivate: []
+  _toDeactivate: []
 --- !u!65 &1863986497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62797,6 +62781,8 @@ MonoBehaviour:
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
+  _toActivate: []
+  _toDeactivate: []
 --- !u!65 &1886797738
 BoxCollider:
   m_ObjectHideFlags: 0
