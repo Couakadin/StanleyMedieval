@@ -1182,6 +1182,8 @@ GameObject:
   - component: {fileID: 443038216533474953}
   - component: {fileID: 606570234943730934}
   - component: {fileID: 1204359145035857245}
+  - component: {fileID: 6567991018526793885}
+  - component: {fileID: 3484599219828644517}
   m_Layer: 3
   m_Name: Player Canvas
   m_TagString: Untagged
@@ -1296,7 +1298,7 @@ MonoBehaviour:
   _image: {fileID: 582349083319485373}
   _fadeInEvent: {fileID: 11400000, guid: a6cad35cb693eaa41a0943e0d81805d1, type: 2}
   _fadeInListener: {fileID: 1204359145035857245}
-  _cinematicBars: {fileID: 0}
+  _cinematicBars: {fileID: 7394125105608412108}
 --- !u!114 &1204359145035857245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,6 +1327,62 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_listener: {fileID: 11400000, guid: a6cad35cb693eaa41a0943e0d81805d1, type: 2}
+--- !u!114 &6567991018526793885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737730938739088057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 606570234943730934}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerFadeUI, Game.Runtime
+        m_MethodName: EnableCinematic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: 759addaa31bbe634f8e158839a3130d8, type: 2}
+--- !u!114 &3484599219828644517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737730938739088057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 606570234943730934}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerFadeUI, Game.Runtime
+        m_MethodName: DisableCinematic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: dd1b5229727fc0941aeab08d3a331f20, type: 2}
 --- !u!1 &5956550438975624417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +2020,7 @@ MonoBehaviour:
   _audioBlackboard: {fileID: 11400000, guid: b5380fe2b9de9044084298a9c72653cf, type: 2}
   _capsuleCollider: {fileID: 2175127680621163094}
   _capsuleColliderCrouch: {fileID: 1343841041325776908}
-  _hitCollider: {fileID: 0}
+  _hitCollider: {fileID: 5683841321021949962}
   _viewTransform: {fileID: 3805804882477136902}
   _punchFx: {fileID: 4140040775361934201}
   _audioManager: {fileID: 0}
@@ -2740,8 +2798,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -953.1378, y: -528.91077, z: 15.462131}
-  m_LocalScale: {x: 2.3733006, y: 2.3733006, z: 2.3733006}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6963309351282185424}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -4012,7 +4070,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -4021,7 +4079,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4045,7 +4103,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:

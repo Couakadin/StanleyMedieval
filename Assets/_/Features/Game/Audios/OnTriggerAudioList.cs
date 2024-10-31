@@ -14,7 +14,14 @@ namespace Game.Runtime
             if (other.gameObject.layer == 3)
             { 
                 AudioTypeCheck(other.gameObject);
-                
+                if (_toDeactivate != null)
+                {
+                    _toDeactivate.SetActive(false);
+                }
+                if (_toActivate != null)
+                {
+                    _toActivate.SetActive(true);
+                }
             }
 
         }
