@@ -22,6 +22,7 @@ namespace Game.Runtime
                 {
                     _toActivate.SetActive(true);
                 }
+                gameObject.GetComponent<OnTriggerAudioList>().enabled = false;
             }
 
         }
