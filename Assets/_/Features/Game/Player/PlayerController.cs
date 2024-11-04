@@ -164,20 +164,10 @@ namespace Game.Runtime
 
         public void StrongCameraShake()
         {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 5;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 5;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 5;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 5;
-
-            _isShaking = true;
-        }
-
-        public void SmallCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
+            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = _shakeIntensity;
+            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = _shakeIntensity;
+            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = _shakeIntensity;
+            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = _shakeIntensity;
 
             _isShaking = true;
         }
@@ -315,7 +305,9 @@ namespace Game.Runtime
         [SerializeField] private List<AudioClip> _stepfoot;
 
         [Header("Cameras")]
-        [SerializeField] private CinemachineVirtualCamera _cameraStanding, _cameraCrouch;
+        [SerializeField] private CinemachineVirtualCamera _cameraStanding;
+        [SerializeField] private CinemachineVirtualCamera _cameraCrouch;
+        [SerializeField] private float _shakeIntensity;
 
 
         [Title("Privates")]
