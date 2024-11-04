@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
-using UnityEngine.InputSystem.Controls;
 
 namespace Game.Runtime
 {
@@ -78,9 +77,9 @@ namespace Game.Runtime
 
         private void Update()
         {
-            _atkDuration -= Time.deltaTime;
+            _hitCoolDown -= Time.deltaTime;
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && _hitCoolDown <= 0)
             {
                 HitAction();
                 Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -92,7 +91,7 @@ namespace Game.Runtime
                     _punchFx.Play();
                 }
             }
-            else if (_atkDuration < 0)
+            else if (_hitCoolDown < 0)
                 _hitCollider.gameObject.SetActive(false);
 
             ViewAction();
@@ -144,6 +143,7 @@ namespace Game.Runtime
             _moveAction.Disable();
             _jumpAction.Disable();
             _crouchAction.Disable();
+            _hitAction.Disable();
         }
 
         public void UnfreezePlayer() 
@@ -152,6 +152,7 @@ namespace Game.Runtime
             _moveAction.Enable();
             _jumpAction.Enable();
             _crouchAction.Enable();
+            _hitAction.Enable();
         }
 
         #endregion
@@ -181,7 +182,7 @@ namespace Game.Runtime
                 _movement.z * _movementSpeed * Time.fixedDeltaTime);
 
             if (_rigidbody.velocity.magnitude > 0.5f && Time.time - _lastPlayTime > .7f && !IsJumping())
-                Play();
+                PlayStepsSounds();
         }
 
         private void JumpAction() => _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
@@ -202,13 +203,11 @@ namespace Game.Runtime
 
         private void HitAction()
         {
-            _atkDuration = 0.6f;
+            _hitCoolDown = 0.6f;
             _hitCollider.gameObject.SetActive(true);
         }
 
         public float rotationSmoothTime = 0.1f;  // Temps pour lisser la rotation
-        private Quaternion _currentRotation;
-        private Quaternion _targetRotation;
 
         private void ViewAction()
         {
@@ -218,18 +217,6 @@ namespace Game.Runtime
             // Calcul des axes vers l'avant et sur les côtés en fonction de la caméra
             _forward = cameraRotation * Vector3.forward;
             _right = cameraRotation * Vector3.right;
-/*
-            // Conversion de la rotation de la caméra en angles d'Euler
-            Vector3 cameraAngle = cameraRotation.eulerAngles;
-
-            // Calcul de la rotation cible du joueur sur l'axe Y (ne pas inclure X et Z)
-            _targetRotation = Quaternion.Euler(0, cameraAngle.y, 0);
-
-            // Lissage de la rotation du joueur avec Quaternion.Lerp
-            _currentRotation = Quaternion.Lerp(_rigidbody.rotation, _targetRotation, Time.deltaTime / rotationSmoothTime);
-
-            // Appliquer la rotation lissée au Rigidbody
-            _rigidbody.MoveRotation(_currentRotation);*/
         }
 
         private void SpeedAction()
@@ -256,7 +243,7 @@ namespace Game.Runtime
                     _capsuleCollider.bounds.min.y, 
                     _capsuleCollider.bounds.center.z), 0.1f, _groundLayer);
 
-        private void Play()
+        private void PlayStepsSounds()
         {
             _lastPlayTime = Time.time;
             AudioClip clipToPlay = _stepfoot[Random.Range(0, _stepfoot.Count)];
@@ -311,7 +298,8 @@ namespace Game.Runtime
         private float _standHeight, _initialStandHeight;
         private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
-        private float _atkDuration;
+        private float _hitCoolDown = 0.4f;
+        private float _hitTimer;
         private float _distancePunch = 1.8f;
         [SerializeField] private LayerMask _interactableLayer;
 

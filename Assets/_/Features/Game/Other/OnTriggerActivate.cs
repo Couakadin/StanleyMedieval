@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +5,7 @@ namespace Game.Runtime
 {
     public class OnTriggerActivate : MonoBehaviour
     {
+        #region Unity API
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer == 3)
@@ -19,7 +19,13 @@ namespace Game.Runtime
             }
 
         }
+        #endregion
+
+
+        #region Private and Protected
 
         [SerializeField] private List<GameObject> _toActivate;
+
+        #endregion
     }
 }

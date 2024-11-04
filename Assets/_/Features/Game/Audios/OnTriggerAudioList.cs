@@ -1,6 +1,6 @@
 using Data.Runtime;
 using System.Collections.Generic;
-using TMPro;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -11,23 +11,23 @@ namespace Game.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == 3)
+            if (other.gameObject.layer == 3 && !_wasPlayed)
             { 
                 AudioTypeCheck(other.gameObject);
                 if (_toDeactivate != null)
-                {
                     _toDeactivate.SetActive(false);
-                }
+
                 if (_toActivate != null)
-                {
                     _toActivate.SetActive(true);
-                }
+
                 gameObject.GetComponent<OnTriggerAudioList>().enabled = false;
+                _wasPlayed = true;
             }
 
         }
 
         #endregion
+
 
         #region Methods
 
@@ -59,11 +59,13 @@ namespace Game.Runtime
         [SerializeField] private AudioReader _audioReader;
 
         [Header("-- Other Parameters (optional) --")]
+        [Description ("Other Items that share the same clip Index")]
         [SerializeField] private List<OnTriggerAudioList> _sharedIndex;
         [SerializeField] private GameObject _toActivate;
         [SerializeField] private GameObject _toDeactivate;
 
         [HideInInspector] public int _clipIndex;
+        private bool _wasPlayed;
 
         #endregion
     }
