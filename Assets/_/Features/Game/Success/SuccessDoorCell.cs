@@ -57,6 +57,7 @@ namespace Game.Runtime
         {
 
             _audioReader.AudioSet(_clipFail);
+            _cameraShakeEvent.Raise();
 
             if (_toActivate.Count > 0)
             {
@@ -97,6 +98,7 @@ namespace Game.Runtime
         [SerializeField] private List<GameObject> _toDeactivate;
         [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
+        [SerializeField] private VoidScriptableEvent _cameraShakeEvent;
         private Rigidbody _rb;
 
         #endregion
