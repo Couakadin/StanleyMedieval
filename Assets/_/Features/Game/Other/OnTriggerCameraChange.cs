@@ -21,13 +21,21 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == 3 && !_wasUsed)
             {
-                _newActiveCamera.Priority = 50;
-                _wasUsed = true;
+                ChangeCamera();
             }
         }
 
         #endregion
 
+        #region Methods
+
+        public void ChangeCamera()
+        {
+            _newActiveCamera.Priority = 50;
+            _wasUsed = true;
+        }
+
+        #endregion
 
         #region Private and Protected
 
