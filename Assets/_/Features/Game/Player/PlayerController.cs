@@ -94,13 +94,6 @@ namespace Game.Runtime
             else if (_hitCoolDown < 0)
                 _hitCollider.gameObject.SetActive(false);
 
-            if (_cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain >= 0 && _isShaking)
-                ResetCameraShake();
-            else if (_isShaking && _shakeDuration < 0)
-                _isShaking = false;
-            else if (_isShaking)
-                _shakeDuration -= Time.deltaTime;
-
             ViewAction();
             SpeedAction();
 
@@ -162,23 +155,6 @@ namespace Game.Runtime
             _hitAction.Enable();
         }
 
-        public void StrongCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = _shakeIntensity;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = _shakeIntensity;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = _shakeIntensity;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = _shakeIntensity;
-
-            _isShaking = true;
-        }
-
-        public void ResetCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain -= Time.deltaTime;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain -= Time.deltaTime;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain -= Time.deltaTime;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain -= Time.deltaTime;
-        }
 
         #endregion
 
@@ -278,6 +254,7 @@ namespace Game.Runtime
 
         #endregion
 
+
         #region Privates
 
         [Title("Data")]
@@ -306,8 +283,6 @@ namespace Game.Runtime
 
         [Header("Cameras")]
         [SerializeField] private CinemachineVirtualCamera _cameraStanding;
-        [SerializeField] private CinemachineVirtualCamera _cameraCrouch;
-        [SerializeField] private float _shakeIntensity;
 
 
         [Title("Privates")]
@@ -318,9 +293,8 @@ namespace Game.Runtime
         private Transform _cameraTransform;
         private AudioSource _audioSource;
 
-        private bool _isGrounded, _isTunnel, _isShaking;
+        private bool _isGrounded, _isTunnel;
 
-        private float _shakeDuration;
         private float _jumpForce;
         private float _horizontal, _vertical;
         private float _standHeight, _initialStandHeight;

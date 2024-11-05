@@ -404,10 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.2
-  m_FrequencyGain: 0.2
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &2219146954224567215
 GameObject:
@@ -1749,10 +1749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.1
-  m_FrequencyGain: 0.1
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
   mNoiseOffsets: {x: 160.70593, y: 248.03772, z: -942.59314}
 --- !u!1 &6409427987403383932
 GameObject:
@@ -2060,8 +2060,10 @@ GameObject:
   - component: {fileID: 4657894286573033219}
   - component: {fileID: 4039858143019483710}
   - component: {fileID: 8524097473729064097}
+  - component: {fileID: 9041149897187835441}
   - component: {fileID: 2932657151538762771}
   - component: {fileID: 5450867268945015218}
+  - component: {fileID: 3096590780671716733}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2264,8 +2266,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04c38e1e58e09764d97559fe64be8c55, type: 3}
   - {fileID: 8300000, guid: fcefca0729da1434cb7152894514d7ad, type: 3}
   _cameraStanding: {fileID: 4774577421392408519}
-  _cameraCrouch: {fileID: 4504193166208985318}
-  _shakeIntensity: 4
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 63441
@@ -2441,6 +2441,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9041149897187835441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134330694788526304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c578c272f180fd64b8dd509d804c5608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraStanding: {fileID: 4774577421392408519}
+  _cameraCrouch: {fileID: 4504193166208985318}
+  _shakeIntensity: 2
+  _shakeDuration: 0
 --- !u!114 &2932657151538762771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,8 +2500,8 @@ MonoBehaviour:
   m_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662120083026047727}
-        m_TargetAssemblyTypeName: Game.Runtime.PlayerController, Game.Runtime
+      - m_Target: {fileID: 9041149897187835441}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerCameraShake, Game.Runtime
         m_MethodName: StrongCameraShake
         m_Mode: 1
         m_Arguments:
@@ -2497,6 +2513,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_listener: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422, type: 2}
+--- !u!114 &3096590780671716733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134330694788526304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9041149897187835441}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerCameraShake, Game.Runtime
+        m_MethodName: SmallCameraShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac, type: 2}
 --- !u!1 &7185244057695714381
 GameObject:
   m_ObjectHideFlags: 0

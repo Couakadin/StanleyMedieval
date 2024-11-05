@@ -3762,6 +3762,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Petit G\xE9ranium"
       objectReference: {fileID: 0}
+    - target: {fileID: 3672647530445688823, guid: 91a6ac7fc30b03c4bac8bfb401934f15,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761208551661814109, guid: 91a6ac7fc30b03c4bac8bfb401934f15,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5940873548432281747, guid: 91a6ac7fc30b03c4bac8bfb401934f15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3811,6 +3821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445748694817866509, guid: 91a6ac7fc30b03c4bac8bfb401934f15,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8756974797904785596, guid: 91a6ac7fc30b03c4bac8bfb401934f15,
         type: 3}
@@ -12018,6 +12033,12 @@ PrefabInstance:
       addedObject: {fileID: 5285876549542656360}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc474cf652f694243a49849ef1e547d3, type: 3}
+--- !u!1 &7639137168733416820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 220908496645338311, guid: dc474cf652f694243a49849ef1e547d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7571529386533296563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8736127042685846680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1166305442524486955, guid: dc474cf652f694243a49849ef1e547d3,
@@ -12233,9 +12254,11 @@ MonoBehaviour:
   - {fileID: 2087739723910477476}
   _toDeactivate:
   - {fileID: 4997016374391965345}
+  - {fileID: 7639137168733416820}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
     type: 2}
+  _cameraShakeEvent: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac, type: 2}
 --- !u!114 &6481847566224918272
 MonoBehaviour:
   m_ObjectHideFlags: 0

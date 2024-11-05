@@ -1,3 +1,4 @@
+using Data.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,16 @@ namespace Game.Runtime
                         _toDeactivate[i].SetActive(false);
                     }
                 }
+                if (_cameraShakeEvent != null)
+                {
+                    _cameraShakeEvent.Raise();
+                }
             }
         }
 
 
         [SerializeField] private List<GameObject> _toActivate;
         [SerializeField] private List<GameObject> _toDeactivate;
+        [SerializeField] private VoidScriptableEvent _cameraShakeEvent;
     }
 }

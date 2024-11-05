@@ -779,6 +779,18 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &320661903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4504193166208985318, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047457421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &340286883 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6754813082687809994, guid: e59ad484b35405542a5946fa6259bf56,
@@ -2857,6 +2869,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5450867268945015218, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2094593899}
+    - target: {fileID: 5450867268945015218, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StrongCameraShake
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450867268945015218, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Runtime.PlayerCameraShake, Game.Runtime
+      objectReference: {fileID: 0}
     - target: {fileID: 7134330694788526304, guid: 56afd6cbf516229428cb14a16f0650de,
         type: 3}
       propertyPath: m_Name
@@ -2867,10 +2894,23 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 340286883}
+    - target: {fileID: 7662120083026047727, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: _shakeIntensity
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7134330694788526304, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 2094593899}
+    - targetCorrespondingSourceObject: {fileID: 7134330694788526304, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094593900}
   m_SourcePrefab: {fileID: 100100000, guid: 56afd6cbf516229428cb14a16f0650de, type: 3}
 --- !u!4 &1073850965 stripped
 Transform:
@@ -2981,6 +3021,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guardroom
       objectReference: {fileID: 0}
+    - target: {fileID: 8783097021089091591, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: _cameraShakeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3400,6 +3446,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 53177320}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1300336230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7134330694788526304, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047457421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1339157204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +3789,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88c5267d415373541842bde760cea29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1437703047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4774577421392408519, guid: 56afd6cbf516229428cb14a16f0650de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047457421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1551052827
@@ -4367,6 +4431,47 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1771888674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8754993523995668084, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 144217220166311849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1771888678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771888674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed629b4706d79e348aece4070ee4ceee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventAtStart: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422, type: 2}
+  _eventAtTimerEnd: {fileID: 0}
+  _eventTimer: 0
+--- !u!114 &1771888679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771888674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098a36ece50d9c47a6a9c4904991079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 11400000, guid: f0758ed95a2f18645a939471d65dee2f, type: 2}
+  - {fileID: 11400000, guid: 16ff4b6a148dcb64eb6204a6799adf18, type: 2}
+  _audioReader: {fileID: 1430990571}
+  _sharedIndex: []
+  _toActivate: {fileID: 0}
+  _toDeactivate: {fileID: 0}
+  _clipIndex: 0
 --- !u!1 &1863986492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,12 +5118,56 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1047457421}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1300336230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48f20404e3b8d4042bd0ef18c92d7e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2094593899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300336230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c578c272f180fd64b8dd509d804c5608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraStanding: {fileID: 1437703047}
+  _cameraCrouch: {fileID: 320661903}
+  _shakeIntensity: 2
+  _shakeDuration: 0
+--- !u!114 &2094593900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300336230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2094593899}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerCameraShake, Game.Runtime
+        m_MethodName: SmallCameraShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac, type: 2}
 --- !u!1001 &2119873341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5570,6 +5719,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossway
       objectReference: {fileID: 0}
+    - target: {fileID: 4543070941439059024, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: _toActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4619076327028116132, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
         type: 3}
       propertyPath: _audioReader
@@ -5580,10 +5734,19 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4543070941439059024, guid: 6528d2ff90d1bd94689bdd28f19ca1fb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8754993523995668084, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771888679}
+    - targetCorrespondingSourceObject: {fileID: 8754993523995668084, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771888678}
   m_SourcePrefab: {fileID: 100100000, guid: 6528d2ff90d1bd94689bdd28f19ca1fb, type: 3}
 --- !u!1001 &6146482709963730078
 PrefabInstance:
@@ -5647,7 +5810,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _cameraShakeEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422,
+      objectReference: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac,
         type: 2}
     - target: {fileID: 5873981674294132908, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
