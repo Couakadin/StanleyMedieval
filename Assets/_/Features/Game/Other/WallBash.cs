@@ -15,7 +15,6 @@ namespace Game.Runtime
                 {
                     for (int i = 0; i < _toActivate.Count; i++)
                     {
-                        print("activating");
                         _toActivate[i].SetActive(true);
                     }
                 }
@@ -23,7 +22,6 @@ namespace Game.Runtime
                 {
                     for (int i = 0; i < _toDeactivate.Count; i++)
                     {
-                        print("deactivating");
                         _toDeactivate[i].SetActive(false);
                     }
                 }

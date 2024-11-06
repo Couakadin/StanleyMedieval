@@ -12,7 +12,6 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _toActivate.Count; i++)
                 {
-                    print("activating");
                     _toActivate[i].SetActive(true);
                 }
                 gameObject.SetActive(false);
