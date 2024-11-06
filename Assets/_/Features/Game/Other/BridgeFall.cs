@@ -1,3 +1,4 @@
+using Data.Runtime;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -10,7 +11,9 @@ namespace Game.Runtime
         {
             if (collision.gameObject.layer == 17) 
             {
-                BridgeDown();
+                print("Bridge Down");
+                //BridgeDown();
+                _event.Raise();
             }
         }
 
@@ -28,6 +31,7 @@ namespace Game.Runtime
         [SerializeField] private GameObject _bridpeUpCollider;
         [SerializeField] private GameObject _bridgeDownCollider;
         [SerializeField] private Animator _animator;
+        [SerializeField] private VoidScriptableEvent _event;
 
         #endregion
     }
