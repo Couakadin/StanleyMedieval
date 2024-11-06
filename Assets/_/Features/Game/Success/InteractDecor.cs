@@ -45,6 +45,14 @@ namespace Game.Runtime
             else
                 _audioReader.AudioSet(_clips);
 
+            if (_events.Count > 0)
+            {
+                for (int i = 0; i < _events.Count; i++)
+                {
+                    _events[i].Raise();
+                }
+            }
+
             if (_itemGained != null)
             {
                 _itemBlackboard.SetValue(_itemGained.m_name, _itemGained);
