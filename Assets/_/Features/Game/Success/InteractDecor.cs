@@ -63,7 +63,6 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _toActivate.Count; i++)
                 {
-                    print("activating");
                     _toActivate[i].SetActive(true);
                 }
             }
@@ -71,8 +70,15 @@ namespace Game.Runtime
             {
                 for (int i = 0; i < _toDeactivate.Count; i++)
                 {
-                    print("deactivating");
                     _toDeactivate[i].SetActive(false);
+                }
+            }
+
+            if (_events.Count > 0)
+            {
+                for (int i = 0; i < _toDeactivate.Count; i++)
+                {
+                    _events[i].Raise();
                 }
             }
         }
@@ -101,6 +107,9 @@ namespace Game.Runtime
         [Header("-- GameObjects to activate / deactivate --")]
         [SerializeField] private List<GameObject> _toActivate;
         [SerializeField] private List<GameObject> _toDeactivate;
+
+        [Header("-- Events to launch --")]
+        [SerializeField] private List<VoidScriptableEvent> _events;
 
         private int _clipIndex;
 

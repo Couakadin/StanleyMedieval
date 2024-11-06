@@ -94,13 +94,6 @@ namespace Game.Runtime
             else if (_hitCoolDown < 0)
                 _hitCollider.gameObject.SetActive(false);
 
-            if (_cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain >= 0 && _isShaking)
-                ResetCameraShake();
-            else if (_isShaking && _shakeDuration < 0)
-                _isShaking = false;
-            else if (_isShaking)
-                _shakeDuration -= Time.deltaTime;
-
             ViewAction();
             SpeedAction();
 
@@ -162,33 +155,6 @@ namespace Game.Runtime
             _hitAction.Enable();
         }
 
-        public void StrongCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 5;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 5;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 5;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 5;
-
-            _isShaking = true;
-        }
-
-        public void SmallCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
-
-            _isShaking = true;
-        }
-
-        public void ResetCameraShake()
-        {
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain -= Time.deltaTime;
-            _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain -= Time.deltaTime;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain -= Time.deltaTime;
-            _cameraCrouch.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain -= Time.deltaTime;
-        }
 
         #endregion
 
@@ -288,6 +254,7 @@ namespace Game.Runtime
 
         #endregion
 
+
         #region Privates
 
         [Title("Data")]
@@ -315,7 +282,7 @@ namespace Game.Runtime
         [SerializeField] private List<AudioClip> _stepfoot;
 
         [Header("Cameras")]
-        [SerializeField] private CinemachineVirtualCamera _cameraStanding, _cameraCrouch;
+        [SerializeField] private CinemachineVirtualCamera _cameraStanding;
 
 
         [Title("Privates")]
@@ -326,9 +293,8 @@ namespace Game.Runtime
         private Transform _cameraTransform;
         private AudioSource _audioSource;
 
-        private bool _isGrounded, _isTunnel, _isShaking;
+        private bool _isGrounded, _isTunnel;
 
-        private float _shakeDuration;
         private float _jumpForce;
         private float _horizontal, _vertical;
         private float _standHeight, _initialStandHeight;
