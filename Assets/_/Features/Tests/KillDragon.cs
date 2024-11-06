@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class KillDragon : MonoBehaviour
 {
-    private void Update()
+    public void TriggerDragonDeath()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            dragonAnim.SetBool("Dead", true);
-        }
+        print("Dragon is dead");
+        _dragonAnim.SetBool("Dead", true);
     }
 
-    public Animator dragonAnim;
+    [SerializeField] private Animator _dragonAnim;
 }
