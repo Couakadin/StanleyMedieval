@@ -11,6 +11,9 @@ namespace Game.Runtime
         {
             if (other.gameObject.layer == 16)
             {
+
+                _audioReader.AudioSet(_audioClips);
+
                 if (_toActivate.Count > 0)
                 {
                     for (int i = 0; i < _toActivate.Count; i++)
@@ -32,9 +35,13 @@ namespace Game.Runtime
             }
         }
 
-
+        [Header("-- Audio --")]
+        [SerializeField] private AudioReader _audioReader;
+        [SerializeField] private List<DialogueScriptableObject> _audioClips;
+        [Header("-- Stuff to Activate --")]
         [SerializeField] private List<GameObject> _toActivate;
         [SerializeField] private List<GameObject> _toDeactivate;
+        [Header("-- Camera --")]
         [SerializeField] private VoidScriptableEvent _cameraShakeEvent;
     }
 }
