@@ -11,33 +11,23 @@ namespace Game.Runtime
 
         #region Unity
 
-        private void Awake()
-        {
-            _counterBlackboard.SetValue<int>("TeleportCount", 0);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
 
-            if (_counterBlackboard.GetValue<int>("TeleportCount") < _audioList.Count - 1)
+            if (_teleportCounter < _audioList.Count - 1)
             {
                 for (int i = 0; i < _audioList.Count; i++)
-                    if (i == _counterBlackboard.GetValue<int>("TeleportCount"))
+                    if (i == _teleportCounter)
                     {
-                        _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[i].m_audio.length + 0.5f;
-                        _audioSource.clip = _audioList[i].m_audio;
-                        _audioSource.Play();
-                        _tmp.text = _audioList[i].m_text;
+                        _audioReader.AudioPlay(_audioList[i]);
                     }
             }
             else
             {
-                _wallToEnable.SetActive(true);
-                _tmp.GetComponent<TextCleaner>().m_resetTimer = _audioList[_audioList.Count - 1].m_audio.length + 0.5f;
-                _audioSource.clip = _audioList[_audioList.Count - 1].m_audio;
-                _audioSource.Play();
-                _tmp.text = _audioList[_audioList.Count - 1].m_text;
+                foreach (GameObject item in _objectsToEnable)
+                    item.SetActive(true);
+                _audioReader.AudioPlay(_audioList[_audioList.Count-1]);
             }
 
             _playerController?.GoToThisPosition(_positionToTeleport.transform.position);
@@ -51,33 +41,26 @@ namespace Game.Runtime
         #region Methods
 
         public void IncrementTeleportCount() =>
-            _counterBlackboard.SetValue<int>("TeleportCount", _counterBlackboard.GetValue<int>("TeleportCount") + 1);
+            _teleportCounter++;
 
         #endregion
 
 
         #region Privates
 
-        [Title("Data")]
-        [SerializeField]
-        private Blackboard _counterBlackboard;
-
         [Title("GameObjects")]
         [SerializeField] 
         private PlayerController _playerController;
         [SerializeField]
-        private GameObject _wallToEnable;
+        private List<GameObject> _objectsToEnable;
         [SerializeField]
         private GameObject _positionToTeleport;
 
         [Title("Audios")]
-        [SerializeField]
-        private AudioSource _audioSource;
-        [SerializeField]
-        private List<DialogueScriptableObject> _audioList;
+        [SerializeField] private AudioReader _audioReader;
+        [SerializeField] private List<DialogueScriptableObject> _audioList;
 
-        [Header("-- Text --")]
-        [SerializeField] private TMP_Text _tmp;
+        private int _teleportCounter;
 
         #endregion
     }
