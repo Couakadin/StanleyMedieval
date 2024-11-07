@@ -783,8 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f50c89878a79b84dbd55d7024a0f3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bridpeUpCollider: {fileID: 0}
-  _bridgeDownCollider: {fileID: 0}
+  _objectToActivate: {fileID: 0}
+  _objectToDeactivate: {fileID: 0}
   _animator: {fileID: 0}
   _event: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422, type: 2}
 --- !u!1 &295641885
@@ -6726,12 +6726,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6528d2ff90d1bd94689bdd28f19ca1fb, type: 3}
---- !u!4 &144217220166311850 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5374207681756732092, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 144217220166311849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4017065861637808047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6810,6 +6804,16 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 8442347190910744247, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 2094593891}
+    - target: {fileID: 8442347190910744247, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _frozenDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
