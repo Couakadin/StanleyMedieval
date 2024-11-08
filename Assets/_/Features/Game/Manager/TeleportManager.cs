@@ -27,7 +27,7 @@ namespace Game.Runtime
             {
                 foreach (GameObject item in _objectsToEnable)
                     item.SetActive(true);
-                _audioReader.AudioPlay(_audioList[_audioList.Count-1]);
+                //_audioReader.AudioPlay(_audioList[_audioList.Count-1]);
             }
 
             _playerController?.GoToThisPosition(_positionToTeleport.transform.position);

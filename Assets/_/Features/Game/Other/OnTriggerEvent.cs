@@ -13,19 +13,24 @@ namespace Game.Runtime
             {
                 _eventTimer-= Time.deltaTime;
 
-                if (_eventTimer < 0)
-                    _eventAtTimerEnd.Raise();
+                if (_eventTimer < 0 && !_timerEnded)
+                { 
+                    _eventAtTimerEnd.Raise(); 
+                    _timerEnded = true;
+                }
             }
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == 3)
+            if (other.gameObject.layer == 3 && !_wasCalled)
             {
                 if (_eventAtStart != null)
                     _eventAtStart.Raise();
 
                 if (_eventAtTimerEnd != null) 
                     _countingDownForEvent = true;
+
+                _wasCalled = true;
             }
         }
         #endregion
@@ -37,6 +42,8 @@ namespace Game.Runtime
         [SerializeField] private VoidScriptableEvent _eventAtTimerEnd;
         [SerializeField] private float _eventTimer;
 
+        private bool _wasCalled = false;
+        private bool _timerEnded = false;
         private bool _countingDownForEvent = false;
 
         #endregion
