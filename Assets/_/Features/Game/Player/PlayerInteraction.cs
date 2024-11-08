@@ -57,7 +57,7 @@ namespace Game.Runtime
             Ray ray = _camera.ScreenPointToRay(_mouseCurrentPosition.ReadValue());
 
             
-            if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer))
+            if (Physics.Raycast(ray, out RaycastHit hit2, _distanceInteract, _pickableLayer)) // ----------- PICK UP
             {
                 _textPickup.SetActive(true);
                 _hitObject = hit2.collider.gameObject;
@@ -75,13 +75,20 @@ namespace Game.Runtime
                     else
                         _audioReader.AudioSet(pickedItem.m_pickupDialogue);
 
+
+                    foreach (GameObject item in pickedItem.m_toActivate)
+                        item.SetActive(true);
+
+                    foreach (GameObject item in pickedItem.m_toDeactivate)
+                        item.SetActive(false);
+
                     _itemBlackboard.SetValue<ItemData>(pickedItem.m_itemData.m_name, pickedItem.m_itemData);
                     _playerInventory.InventoryUpdate();
                     _hitObject.SetActive(false);
                     _textPickup.SetActive(false);
                 }
             }
-            else if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer))
+            else if (Physics.Raycast(ray, out RaycastHit hit, _distanceInteract, _interactableLayer)) // --------------- INTERACT
             {
                 _hitObject = hit.collider.gameObject;
 
