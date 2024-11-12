@@ -20,14 +20,15 @@ namespace Game.Runtime
             {
                 if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _itemRequired && !_isOpen)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
                         OnSuccess();
                         _rb.isKinematic = false;
                         _isOpen = true;
-                        _itemBlackboard.RemoveKey("ActiveItem");
-                        _itemBlackboard.RemoveKey(_itemRequired.m_name);
-                        _inventoryUpdateEvent.Raise();
+                        GetComponent<Rigidbody>().AddForce(transform.forward * 30);
+                        //_itemBlackboard.RemoveKey("ActiveItem");
+                        //_itemBlackboard.RemoveKey(_itemRequired.m_name);
+                        //_inventoryUpdateEvent.Raise();
                     }
                 }
             }
@@ -51,6 +52,7 @@ namespace Game.Runtime
         public void OnSuccess()
         {
             _audioReader.AudioSet(_clipSuccess);
+            
         }
 
         public void OnFailure()
