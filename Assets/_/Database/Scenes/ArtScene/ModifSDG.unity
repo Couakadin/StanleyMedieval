@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f50c89878a79b84dbd55d7024a0f3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bridpeUpCollider: {fileID: 0}
-  _bridgeDownCollider: {fileID: 0}
+  _objectToActivate: {fileID: 0}
+  _objectToDeactivate: {fileID: 0}
   _animator: {fileID: 0}
   _event: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422, type: 2}
 --- !u!1 &295641885
@@ -1688,12 +1688,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &537203772 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7639137168733416820, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-    type: 3}
-  m_PrefabInstance: {fileID: 6146482709963730078}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &554481525
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3162,11 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 3494329757191969952, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Name
+      value: Cheminee_Prefab
+      objectReference: {fileID: 0}
     - target: {fileID: 3989306708576437247, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
@@ -6091,10 +6090,40 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
-    - target: {fileID: 3017078370794137100, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+    - target: {fileID: 2159359590424958560, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
-      propertyPath: m_Layer
-      value: 11
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.range
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.maxLights
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.rangeCurve.scalar
+      value: 399.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333039016079283623, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: LightsModule.randomDistribution
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3457105261703016327, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
@@ -6136,32 +6165,11 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
-    - target: {fileID: 5873981674294132908, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-        type: 3}
-      propertyPath: _cameraShakeEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac,
-        type: 2}
-    - target: {fileID: 5873981674294132908, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-        type: 3}
-      propertyPath: _toDeactivate.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5873981674294132908, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-        type: 3}
-      propertyPath: _toDeactivate.Array.data[1]
-      value: 
-      objectReference: {fileID: 537203772}
     - target: {fileID: 6230593651901794407, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
       propertyPath: _controller
       value: 
       objectReference: {fileID: 2094593891}
-    - target: {fileID: 6429513268985227430, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 6674589547405108162, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6217,11 +6225,6 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
-    - target: {fileID: 7934320013367454454, guid: 4dfd51a1c1e4f7947853402df32fcfca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 8657271647170841206, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
       propertyPath: _audioReader
