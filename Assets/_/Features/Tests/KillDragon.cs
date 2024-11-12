@@ -5,10 +5,23 @@ using UnityEngine;
 
 public class KillDragon : MonoBehaviour
 {
-    public void TriggerDragonDeath()
+    public void TriggerDragonAwake()
     {
-        print("Dragon is dead");
-        _dragonAnim.SetBool("Dead", true);
+        _dragonAnim.SetBool("Awake", true);
+    }
+    public void TriggerDragonSteak()
+    {
+        _dragonAnim.SetBool("Steak", true);
+    }
+
+    public void TriggerDragonRomance()
+    {
+        _dragonAnim.SetBool("Romance", true);
+    }
+
+    public void TriggerDragonUnplug()
+    {
+        _dragonAnim.SetBool("Unplug", true);
     }
 
     [SerializeField] private Animator _dragonAnim;

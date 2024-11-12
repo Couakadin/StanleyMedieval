@@ -29,13 +29,13 @@ namespace Game.Runtime
         {
             if (m_items.Count > 1)
             {
-                if (Input.GetAxisRaw("Mouse ScrollWheel") > 0.1 && _activeItemId < m_items.Count-1)
+                if (Input.GetAxisRaw("Mouse ScrollWheel") < -0.1 && _activeItemId < m_items.Count-1)
                 {
                     _activeItemId += 1;
                     ActiveItemChange(_activeItemId);
 
                 }
-                else if (Input.GetAxisRaw("Mouse ScrollWheel") < -0.1 && _activeItemId > 0)
+                else if (Input.GetAxisRaw("Mouse ScrollWheel") > 0.1 && _activeItemId > 0)
                 {
                     _activeItemId -= 1;
                     ActiveItemChange(_activeItemId);

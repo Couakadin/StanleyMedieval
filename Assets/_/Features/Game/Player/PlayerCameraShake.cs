@@ -13,10 +13,8 @@ namespace Game.Runtime
         {
             if (_cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain >= 0 && _isShaking)
                 ResetCameraShake();
-            else if (_isShaking && _shakeDuration < 0)
+            else if (_isShaking && _cameraStanding.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain < 0)
                 _isShaking = false;
-            else if (_isShaking)
-                _shakeDuration -= Time.deltaTime;
         }
 
         #endregion
@@ -61,7 +59,6 @@ namespace Game.Runtime
         [SerializeField] private CinemachineVirtualCamera _cameraStanding;
         [SerializeField] private CinemachineVirtualCamera _cameraCrouch;
         [SerializeField] private float _shakeIntensity;
-        [SerializeField] private float _shakeDuration;
 
         private bool _isShaking;
 
