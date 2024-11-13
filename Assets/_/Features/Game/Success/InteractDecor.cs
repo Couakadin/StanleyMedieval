@@ -15,14 +15,14 @@ namespace Game.Runtime
             {
                 if (_itemRequired == null)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
                         OnSuccess();
                     }
                 }
                 else if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _itemRequired)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
                         OnSuccess();
                     }

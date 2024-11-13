@@ -39,8 +39,14 @@ namespace Game.Runtime
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        private void Start() =>
-            _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
+        private void Start()
+            {
+                _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
+
+                _itemBlackboard.SetValue("Fist", _fistItemData);
+                _itemBlackboard.SetValue("ActiveItem", _fistItemData);
+                GetComponent<PlayerInventory>().InventoryUpdate();
+            }
 
         private void OnEnable()
         {
@@ -81,14 +87,17 @@ namespace Game.Runtime
 
             if (Input.GetMouseButtonDown(0) && _hitCoolDown <= 0)
             {
-                HitAction();
-                Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-                if (Physics.Raycast(ray, out RaycastHit hit, _distancePunch, _interactableLayer))
+                if (_itemBlackboard.GetValue<ItemData>("ActiveItem") == _fistItemData)
                 {
-                    _punchFx.transform.position = hit.point;
-                    _punchFx.transform.forward = hit.normal;
-                    _punchFx.Play();
+                    HitAction();
+                    Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+                    if (Physics.Raycast(ray, out RaycastHit hit, _distancePunch, _interactableLayer))
+                    {
+                        _punchFx.transform.position = hit.point;
+                        _punchFx.transform.forward = hit.normal;
+                        _punchFx.Play();
+                    }
                 }
             }
             else if (_hitCoolDown < 0)
@@ -259,7 +268,9 @@ namespace Game.Runtime
 
         [Title("Data")]
         [SerializeField] private Blackboard _playerBlackboard;
+        [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private Blackboard _audioBlackboard;
+        [SerializeField] private ItemData _fistItemData;
 
         [Title("Components")]
         [SerializeField] private CapsuleCollider _capsuleCollider;
