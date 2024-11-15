@@ -40,13 +40,13 @@ namespace Game.Runtime
         }
 
         private void Start()
-            {
-                _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
+        {
+            _playerBlackboard.SetValue<Vector3>("InitialPosition", transform.position);
 
-                _itemBlackboard.SetValue("Fist", _fistItemData);
-                _itemBlackboard.SetValue("ActiveItem", _fistItemData);
-                GetComponent<PlayerInventory>().InventoryUpdate();
-            }
+            _itemBlackboard.SetValue<ItemData>("ActiveItem", _fistItemData);
+            _itemBlackboard.SetValue<ItemData>("Fist", _fistItemData);
+            GetComponent<PlayerInventory>().InventoryUpdate();
+        }
 
         private void OnEnable()
         {
