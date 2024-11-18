@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5567185802865775321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1401,7 +1401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3619572378704017179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3263,11 +3263,9 @@ GameObject:
   - component: {fileID: 4039858143019483710}
   - component: {fileID: 8524097473729064097}
   - component: {fileID: 7580087627494225682}
-  - component: {fileID: 9041149897187835441}
   - component: {fileID: 2932657151538762771}
   - component: {fileID: 5450867268945015218}
   - component: {fileID: 3096590780671716733}
-  - component: {fileID: 7189664117231016497}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3440,15 +3438,7 @@ MonoBehaviour:
     m_Id: a6bda0a1-aa39-480f-8cab-f966453aa05c
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6df3fe27-5bc6-4ba9-9b1d-29e1d2c6dbda
-      m_Path: <Keyboard>/leftShift
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Run
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
   _hitAction:
     m_Name: Hit
@@ -3472,6 +3462,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04c38e1e58e09764d97559fe64be8c55, type: 3}
   - {fileID: 8300000, guid: fcefca0729da1434cb7152894514d7ad, type: 3}
   _cameraStanding: {fileID: 4774577421392408519}
+  _jumpForce: 3
+  _movementSpeed: 0
+  _walkSpeed: 250
+  _runSpeed: 300
+  _crouchSpeed: 75
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 63441
@@ -3662,21 +3657,6 @@ MonoBehaviour:
   _cameraStanding: {fileID: 4774577421392408519}
   _cameraCrouch: {fileID: 4504193166208985318}
   _shakeIntensity: 2
---- !u!114 &9041149897187835441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7134330694788526304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c578c272f180fd64b8dd509d804c5608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cameraStanding: {fileID: 4774577421392408519}
-  _cameraCrouch: {fileID: 4504193166208985318}
-  _shakeIntensity: 2
 --- !u!114 &2932657151538762771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3734,34 +3714,6 @@ MonoBehaviour:
         m_CallState: 2
   m_listener: {fileID: 11400000, guid: 9252738e2aca7f3419bfc5cbe5ab8422, type: 2}
 --- !u!114 &3096590780671716733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7134330694788526304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9041149897187835441}
-        m_TargetAssemblyTypeName: Game.Runtime.PlayerCameraShake, Game.Runtime
-        m_MethodName: SmallCameraShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_listener: {fileID: 11400000, guid: ff59678ea17818e4c831e2aa3f7b23ac, type: 2}
---- !u!114 &7189664117231016497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3917,7 +3869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1071923444640618803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9405,7 +9357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7130965261035877794
 RectTransform:
   m_ObjectHideFlags: 0
