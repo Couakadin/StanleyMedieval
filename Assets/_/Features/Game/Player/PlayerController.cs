@@ -22,19 +22,6 @@ namespace Game.Runtime
             _initialStandHeight = 2f;
             _standHeight = _initialStandHeight;
 
-
-            if (_playerBlackboard.ContainsKey("WalkSpeed"))
-                _walkSpeed = _playerBlackboard.GetValue<float>("WalkSpeed");
-
-            if (_playerBlackboard.ContainsKey("RunSpeed"))
-                _runSpeed = _playerBlackboard.GetValue<float>("RunSpeed");
-
-            if (_playerBlackboard.ContainsKey("CrouchSpeed"))
-                _crouchSpeed = _playerBlackboard.GetValue<float>("CrouchSpeed");
-
-            if (_playerBlackboard.ContainsKey("JumpForce"))
-                _jumpForce = _playerBlackboard.GetValue<float>("JumpForce");
-
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -306,10 +293,10 @@ namespace Game.Runtime
 
         private bool _isGrounded, _isTunnel;
 
-        private float _jumpForce;
+        [SerializeField] private float _jumpForce;
         private float _horizontal, _vertical;
         private float _standHeight, _initialStandHeight;
-        private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
+        [SerializeField] private float _movementSpeed, _walkSpeed, _runSpeed, _crouchSpeed;
         private float _lastPlayTime;
         private float _hitCoolDown = 0.4f;
         private float _hitTimer;
