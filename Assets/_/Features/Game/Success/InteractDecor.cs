@@ -49,6 +49,9 @@ namespace Game.Runtime
                 foreach (InteractDecor otherAudio in _sharedIndex)
                     otherAudio.m_sharedClipIndex += 1;
             }
+            if (_interactFX != null)
+                _fxReader.AudioPlay(_interactFX);
+
             else
                 _audioReader.AudioSet(_clips);
 
@@ -108,8 +111,10 @@ namespace Game.Runtime
 
         [Header("-- Audio --")]
         [SerializeField] private AudioReader _audioReader;
+        [SerializeField] private FXReader _fxReader;
         [SerializeField] private bool _multipleTimes;
         [SerializeField] private List<DialogueScriptableObject> _clips;
+        [SerializeField] private AudioClip _interactFX;
 
         [Header("-- Items --")]
         [SerializeField] private Blackboard _itemBlackboard;

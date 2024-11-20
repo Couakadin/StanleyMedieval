@@ -10,6 +10,7 @@ namespace Game.Runtime
         public ItemData m_itemData;
 
         [Header("-- Audio Parameters --")]
+        public AudioClip m_pickupFX;
         public List<DialogueScriptableObject> m_pickupDialogue;
         public List<Pickable> m_sharedAudio;
         public int _clipIndex;

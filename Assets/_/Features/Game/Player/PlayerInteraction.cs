@@ -75,6 +75,10 @@ namespace Game.Runtime
                     else
                         _audioReader.AudioSet(pickedItem.m_pickupDialogue);
 
+                    if (pickedItem.m_pickupFX != null)
+                    {
+                        _fxReader.AudioPlay(pickedItem.m_pickupFX);
+                    }
 
                     foreach (GameObject item in pickedItem.m_toActivate)
                         item.SetActive(true);
@@ -155,8 +159,8 @@ namespace Game.Runtime
         private InputAction _interactAction;
 
         [Title("Audios")]
-        [SerializeField]
-        private AudioReader _audioReader;
+        [SerializeField] private AudioReader _audioReader;
+        [SerializeField] private FXReader _fxReader;
 
         [Title("Gameobjects")]
         [SerializeField]
