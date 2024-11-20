@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7669871835773779797, guid: aa196518d05cd4843b8888cf21313698,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6003470243728150023, guid: aa196518d05cd4843b8888cf21313698,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -188,14 +193,19 @@ MonoBehaviour:
   _itemRequired: {fileID: 0}
   _text: {fileID: 0}
   _audioReader: {fileID: 0}
+  _fxReader: {fileID: 0}
   _multipleTimes: 0
   _clips: []
+  _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 0}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &7177484068878069250
 MonoBehaviour:
   m_ObjectHideFlags: 0
