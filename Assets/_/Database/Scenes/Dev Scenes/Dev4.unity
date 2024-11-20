@@ -702,7 +702,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 932243036}
     m_Modifications:
     - target: {fileID: 1098398156487808252, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
@@ -718,6 +718,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dorm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832028794229862627, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353338699772424044, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4991922523715705561, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
@@ -747,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000076293945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
@@ -762,17 +772,17 @@ PrefabInstance:
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
@@ -809,6 +819,21 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 5940019356161226496, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001005486415373327, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001005486415373327, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6086130541919545617, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: _text
@@ -829,6 +854,11 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 6788350460014382623, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6903100887628147420, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
         type: 3}
       propertyPath: _text
@@ -3844,6 +3874,7 @@ Transform:
   - {fileID: 1073850965}
   - {fileID: 79364322}
   - {fileID: 166629679}
+  - {fileID: 1912846129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &936304739
@@ -4621,6 +4652,31 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 595994707077448820, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 595994707077448820, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 595994707077448820, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 595994707077448820, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 595994707077448820, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 603788407828431321, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _text
@@ -4648,19 +4704,40 @@ PrefabInstance:
       objectReference: {fileID: 9667449}
     - target: {fileID: 1450403725199782398, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
+      propertyPath: _itemLost
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c4b31ea8b813304eb086d29d5b3bfe2,
+        type: 2}
+    - target: {fileID: 1450403725199782398, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 1467897659108236379, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2519366557752883919, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 2895956478067391072, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3989306708576437247, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 4096253813155080050, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4273496471339680784, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _text
@@ -4731,6 +4808,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5290052109228869992, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290052109228869992, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290052109228869992, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290052109228869992, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290052109228869992, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6661053126114048695, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _text
@@ -4738,19 +4840,50 @@ PrefabInstance:
       objectReference: {fileID: 9667449}
     - target: {fileID: 6661053126114048695, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
+      propertyPath: _itemLost
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c4b31ea8b813304eb086d29d5b3bfe2,
+        type: 2}
+    - target: {fileID: 6661053126114048695, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 6958909417464931956, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042479372468778363, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113631517606507398, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8718029727683933544, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: m_Name
       value: Guardroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718029727683933544, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8783097021089091591, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 9126481255631607169, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7190,6 +7323,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb32ada8c2d22984f97c7e2a8ee6e9f5, type: 3}
+--- !u!4 &1912846129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 61426687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914644671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8399,6 +8538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossway
       objectReference: {fileID: 0}
+    - target: {fileID: 3542658260894565753, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4619076327028116132, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
         type: 3}
       propertyPath: _audioReader
@@ -8575,6 +8719,16 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 1943560528282854610, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943560528282854610, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3457105261703016327, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
       propertyPath: _audioReader
@@ -8695,6 +8849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prison
       objectReference: {fileID: 0}
+    - target: {fileID: 8884250257883866146, guid: 4dfd51a1c1e4f7947853402df32fcfca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9156632149104522444, guid: 4dfd51a1c1e4f7947853402df32fcfca,
         type: 3}
       propertyPath: _text
@@ -8729,7 +8888,6 @@ SceneRoots:
   - {fileID: 78716226}
   - {fileID: 1622041095}
   - {fileID: 932243036}
-  - {fileID: 61426687}
   - {fileID: 166081342}
   - {fileID: 1908423456}
   - {fileID: 1502543566}
