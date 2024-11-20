@@ -2343,6 +2343,8 @@ GameObject:
   - component: {fileID: 1204359145035857245}
   - component: {fileID: 6567991018526793885}
   - component: {fileID: 3484599219828644517}
+  - component: {fileID: 7524823647537402497}
+  - component: {fileID: 7195780213678137688}
   m_Layer: 3
   m_Name: Player Canvas
   m_TagString: Untagged
@@ -2544,6 +2546,62 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_listener: {fileID: 11400000, guid: dd1b5229727fc0941aeab08d3a331f20, type: 2}
+--- !u!114 &7524823647537402497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737730938739088057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 606570234943730934}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerFadeUI, Game.Runtime
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: 44cee8b9ae595d64e88af859a612858d, type: 2}
+--- !u!114 &7195780213678137688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737730938739088057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f736f5822c8aa844b4539ffaa166714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 606570234943730934}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerFadeUI, Game.Runtime
+        m_MethodName: SuddenBlack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_listener: {fileID: 11400000, guid: c22e9eb0db5bde64b818bd6474bfd79a, type: 2}
 --- !u!1 &5896455007337002643
 GameObject:
   m_ObjectHideFlags: 0
