@@ -60,7 +60,6 @@ namespace Game.Runtime
 
         public void InventoryUpdate()
         {
-            print("item changed");
             m_items.Clear();
             m_items = new List<ItemData>();
 

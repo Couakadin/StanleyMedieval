@@ -42,6 +42,13 @@ namespace Game.Runtime
                 _audioReader.AudioPlay(_clips[_clipIndex]);
                 _clipIndex++;
             }
+            else if (m_sharedClipIndex < _clips.Count && _sharedIndex.Count > 0)
+            {
+                _audioReader.AudioPlay(_clips[m_sharedClipIndex]);
+
+                foreach (InteractDecor otherAudio in _sharedIndex)
+                    otherAudio.m_sharedClipIndex += 1;
+            }
             else
                 _audioReader.AudioSet(_clips);
 
@@ -56,6 +63,11 @@ namespace Game.Runtime
             if (_itemGained != null)
             {
                 _itemBlackboard.SetValue(_itemGained.m_name, _itemGained);
+                _inventoryUpdateEvent.Raise();
+            }
+            if (_itemLost != null)
+            {
+                _itemBlackboard.RemoveKey(_itemLost.m_name);
                 _inventoryUpdateEvent.Raise();
             }
 
@@ -102,6 +114,7 @@ namespace Game.Runtime
         [Header("-- Items --")]
         [SerializeField] private Blackboard _itemBlackboard;
         [SerializeField] private ItemData _itemGained;
+        [SerializeField] private ItemData _itemLost;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
 
         [Header("-- GameObjects to activate / deactivate --")]
@@ -110,6 +123,10 @@ namespace Game.Runtime
 
         [Header("-- Events to launch --")]
         [SerializeField] private List<VoidScriptableEvent> _events;
+
+        [Header("-- Comunicating with other items --")]
+        [SerializeField] private List<InteractDecor> _sharedIndex;
+        public int m_sharedClipIndex;
 
         private int _clipIndex;
 
