@@ -5820,6 +5820,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1689b2116a817b46b4e997ddaf68497, type: 2}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 11400000, guid: bd85f45482e5e334aa8e6acdc07cbbd3,
     type: 2}
   _toActivate:
@@ -5830,6 +5831,8 @@ MonoBehaviour:
   - {fileID: 849019874}
   - {fileID: 1857400308}
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!1001 &854901480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6488,11 +6491,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 156cd3077ed9f1045981f14c212e3f33, type: 2}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events:
   - {fileID: 11400000, guid: a4de6498f6d1db340abe2f47d3e38b9a, type: 2}
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!65 &930549097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8027,6 +8033,21 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 1202571042348812374, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008885516535557493, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038793103663325719, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66ee8f53354dba3408afbb658ef9c082, type: 2}
     - target: {fileID: 2519366557752883919, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
@@ -8102,6 +8123,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256574649840506569, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66ee8f53354dba3408afbb658ef9c082, type: 2}
     - target: {fileID: 8718029727683933544, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: m_Name
@@ -11880,10 +11906,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a717fa4c9480c96468bd369fb21d73d9, type: 2}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &1863986496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11905,10 +11934,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c1b4c4ca9f06f7459d39a2c99e2fbf6, type: 2}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!65 &1863986497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12941,10 +12973,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aa7de9725491014c8fc36fa2e8c6e31, type: 2}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!1 &1979418575
 GameObject:
   m_ObjectHideFlags: 0
