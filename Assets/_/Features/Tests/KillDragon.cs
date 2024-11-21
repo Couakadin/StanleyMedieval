@@ -16,7 +16,7 @@ public class KillDragon : MonoBehaviour
             _endDuration -= Time.deltaTime;
             if (_endDuration < 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(1);
             }
         }
     }
