@@ -574,15 +574,20 @@ MonoBehaviour:
   _itemRequired: {fileID: 11400000, guid: c1a6836270f99a644ba35b91b400a716, type: 2}
   _text: {fileID: 0}
   _audioReader: {fileID: 0}
+  _fxReader: {fileID: 0}
   _multipleTimes: 0
   _clips:
   - {fileID: 11400000, guid: bd576fcec697e16428f10913b29c8d3e, type: 2}
+  _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &2674943430591046349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,15 +618,20 @@ MonoBehaviour:
   _itemRequired: {fileID: 11400000, guid: c1a6836270f99a644ba35b91b400a716, type: 2}
   _text: {fileID: 0}
   _audioReader: {fileID: 0}
+  _fxReader: {fileID: 0}
   _multipleTimes: 0
   _clips:
   - {fileID: 11400000, guid: bd576fcec697e16428f10913b29c8d3e, type: 2}
+  _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &8227035624864938991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,15 +662,20 @@ MonoBehaviour:
   _itemRequired: {fileID: 11400000, guid: c1a6836270f99a644ba35b91b400a716, type: 2}
   _text: {fileID: 0}
   _audioReader: {fileID: 0}
+  _fxReader: {fileID: 0}
   _multipleTimes: 0
   _clips:
   - {fileID: 11400000, guid: bd576fcec697e16428f10913b29c8d3e, type: 2}
+  _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &4212272041423481701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,15 +706,20 @@ MonoBehaviour:
   _itemRequired: {fileID: 11400000, guid: c1a6836270f99a644ba35b91b400a716, type: 2}
   _text: {fileID: 0}
   _audioReader: {fileID: 0}
+  _fxReader: {fileID: 0}
   _multipleTimes: 0
   _clips:
   - {fileID: 11400000, guid: bd576fcec697e16428f10913b29c8d3e, type: 2}
+  _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
+  _itemLost: {fileID: 0}
   _inventoryUpdateEvent: {fileID: 0}
   _toActivate: []
   _toDeactivate: []
   _events: []
+  _sharedIndex: []
+  m_sharedClipIndex: 0
 --- !u!114 &5821453395200959776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,6 +3440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952302444983802008, guid: 005eef19fc38cbb499e315d1c9208461,
         type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952302444983802008, guid: 005eef19fc38cbb499e315d1c9208461,
+        type: 3}
       propertyPath: m_Limits.max
       value: 120
       objectReference: {fileID: 0}
@@ -3427,6 +3452,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Limits.min
       value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 952302444983802008, guid: 005eef19fc38cbb499e315d1c9208461,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 952302444983802008, guid: 005eef19fc38cbb499e315d1c9208461,
         type: 3}
@@ -14018,6 +14048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_itemData: {fileID: 11400000, guid: f9419ab62886cf34198af289815ef12f, type: 2}
+  m_pickupFX: {fileID: 0}
   m_pickupDialogue: []
   m_sharedAudio: []
   _clipIndex: 0
@@ -14036,6 +14067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_itemData: {fileID: 11400000, guid: f9419ab62886cf34198af289815ef12f, type: 2}
+  m_pickupFX: {fileID: 0}
   m_pickupDialogue: []
   m_sharedAudio: []
   _clipIndex: 0

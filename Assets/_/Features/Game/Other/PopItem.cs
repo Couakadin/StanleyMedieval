@@ -12,7 +12,7 @@ namespace Game.Runtime
         }
         private void Update()
         {
-            if (transform.localScale.x <= 0.95f && _popping)
+            if (transform.localScale.x <= 1f && _popping)
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, _popSpeed * Time.deltaTime);
         }
 
