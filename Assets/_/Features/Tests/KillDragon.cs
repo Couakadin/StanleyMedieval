@@ -1,10 +1,24 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
+using Game.Runtime;
 using UnityEngine;
 
 public class KillDragon : MonoBehaviour
 {
+    private void Awake()
+    {
+        _interaction = GetComponent<InteractDecor>();
+    }
+
+    private void Update()
+    {
+        if (_isEnding)
+        {
+            _endDuration -= Time.deltaTime;
+            if (_endDuration < 0)
+            {
+
+            }
+        }
+    }
     public void TriggerDragonAwake()
     {
         _dragonAnim.SetBool("Awake", true);
@@ -24,5 +38,15 @@ public class KillDragon : MonoBehaviour
         _dragonAnim.SetBool("Unplug", true);
     }
 
+    public void EndGame(float duration)
+    {
+        _endDuration = duration;
+        _isEnding = true;
+        _interaction.enabled = false;
+    }
+
     [SerializeField] private Animator _dragonAnim;
+    private InteractDecor _interaction;
+    private float _endDuration;
+    private bool _isEnding;
 }
