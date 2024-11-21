@@ -83,7 +83,7 @@ namespace Game.Runtime
                     if (m_items[i] != null)
                     {
                         _inventorySlots[i].gameObject.SetActive(true);
-                        _inventorySlots[i].sprite = m_items[i].m_sprite;
+                        _inventorySprites[i].sprite = m_items[i].m_sprite;
                     }
                     else
                     {
@@ -107,6 +107,7 @@ namespace Game.Runtime
         #region PRIVATE AND PROTECTED
 
         [SerializeField] private List<Image> _inventorySlots;
+        [SerializeField] private List<Image> _inventorySprites;
         [SerializeField] private GameObject _selector;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
         [SerializeField] private VoidScriptableEventistener _inventoryUpdateListener;

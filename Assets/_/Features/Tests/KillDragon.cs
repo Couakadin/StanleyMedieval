@@ -1,5 +1,6 @@
 using Game.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillDragon : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class KillDragon : MonoBehaviour
             _endDuration -= Time.deltaTime;
             if (_endDuration < 0)
             {
-
+                SceneManager.LoadScene(2);
             }
         }
     }
