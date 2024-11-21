@@ -37,23 +37,24 @@ namespace Game.Runtime
 
         protected override void OnSuccess()
         {
-            if (_clipIndex < _clips.Count && _multipleTimes)
-            {
-                _audioReader.AudioPlay(_clips[_clipIndex]);
-                _clipIndex++;
-            }
-            else if (m_sharedClipIndex < _clips.Count && _sharedIndex.Count > 0)
+            if (m_sharedClipIndex < _clips.Count && _sharedIndex.Count > 0 && !_wasPlayed)
             {
                 _audioReader.AudioPlay(_clips[m_sharedClipIndex]);
+                _wasPlayed = true;
 
                 foreach (InteractDecor otherAudio in _sharedIndex)
                     otherAudio.m_sharedClipIndex += 1;
             }
+            else if (_clipIndex < _clips.Count && _multipleTimes && _sharedIndex.Count <= 0 && !_wasPlayed)
+            {
+                _audioReader.AudioPlay(_clips[_clipIndex]);
+                _clipIndex++;
+            }
+            else if (!_wasPlayed && _sharedIndex.Count <= 0)
+                _audioReader.AudioSet(_clips);
+
             if (_interactFX != null)
                 _fxReader.AudioPlay(_interactFX);
-
-            else
-                _audioReader.AudioSet(_clips);
 
             if (_events.Count > 0)
             {
@@ -134,6 +135,7 @@ namespace Game.Runtime
         public int m_sharedClipIndex;
 
         private int _clipIndex;
+        private bool _wasPlayed;
 
         #endregion
     }
