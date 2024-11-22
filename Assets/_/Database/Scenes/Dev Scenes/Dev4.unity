@@ -3177,6 +3177,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 558333299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &582630011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8593880281302370224, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 144217220166311849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601987073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1041449034200274940, guid: 62a1450045ded014c9e9a27d551e187d,
@@ -9088,6 +9094,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 461911429}
   m_LocalEulerAnglesHint: {x: 16.035, y: 170.117, z: 22.152}
+--- !u!1 &831493924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5249345376077468629, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 144217220166311849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839750016
 GameObject:
   m_ObjectHideFlags: 0
@@ -15087,6 +15099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134330694788526304, guid: 56afd6cbf516229428cb14a16f0650de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7662120083026047727, guid: 56afd6cbf516229428cb14a16f0650de,
         type: 3}
@@ -34198,6 +34215,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossway
       objectReference: {fileID: 0}
+    - target: {fileID: 4872599028610668607, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: _toDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872599028610668607, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: _toDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 582630011}
+    - target: {fileID: 5937704196986371452, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6632296251748145030, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
         type: 3}
       propertyPath: _audioReader
@@ -34208,6 +34240,21 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 7827858182696826099, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315183107085019169, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: _toDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315183107085019169, guid: 6528d2ff90d1bd94689bdd28f19ca1fb,
+        type: 3}
+      propertyPath: _toDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 831493924}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
