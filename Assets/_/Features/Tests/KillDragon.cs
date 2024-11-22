@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class KillDragon : MonoBehaviour
 {
-    private void Awake()
-    {
-        _interaction = GetComponent<InteractDecor>();
-    }
 
     private void Update()
     {
@@ -47,7 +43,7 @@ public class KillDragon : MonoBehaviour
     }
 
     [SerializeField] private Animator _dragonAnim;
-    private InteractDecor _interaction;
+    [SerializeField] private InteractDecor _interaction;
     private float _endDuration;
     private bool _isEnding;
 }
