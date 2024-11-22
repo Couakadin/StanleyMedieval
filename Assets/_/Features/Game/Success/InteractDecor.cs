@@ -92,7 +92,7 @@ namespace Game.Runtime
 
             if (_events.Count > 0)
             {
-                for (int i = 0; i < _toDeactivate.Count; i++)
+                for (int i = 0; i < _events.Count; i++)
                 {
                     _events[i].Raise();
                 }

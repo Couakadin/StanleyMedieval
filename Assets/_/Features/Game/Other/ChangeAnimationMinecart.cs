@@ -8,7 +8,9 @@ namespace Game.Runtime
     {
         public void ChangeAnimation()
         {
-            GetComponent<Animator>().SetBool("BridgeDown", true);
+            m_animator.defaultBool = true;
         }
+
+        public AnimatorControllerParameter m_animator;
     }
 }
