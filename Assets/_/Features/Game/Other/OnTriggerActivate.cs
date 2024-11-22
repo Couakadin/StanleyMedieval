@@ -12,12 +12,12 @@ namespace Game.Runtime
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == 3)
+            if (other.gameObject.layer == 3 && !_activated)
             {
                 GameObjectActivation();
                 GameObjectDeactivation();
 
-                gameObject.SetActive(false);
+                _activated = true;
             }
 
         }
