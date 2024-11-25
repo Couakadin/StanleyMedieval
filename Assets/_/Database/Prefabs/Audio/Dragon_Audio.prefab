@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 2400399214175696146}
   - component: {fileID: 3566765545609874907}
   - component: {fileID: 889645121883501677}
+  - component: {fileID: 4999605546622790135}
   m_Layer: 0
   m_Name: In Front of Dragon
   m_TagString: Untagged
@@ -107,7 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 11400000, guid: cc7e4acd1db8cea43b8567bccaa3faea, type: 2}
-  - {fileID: 11400000, guid: f640b1b9d76b80744bb8d11d60ab6c71, type: 2}
   - {fileID: 11400000, guid: 3e5d4dd41b3b32640ad6b262b7a32f67, type: 2}
   - {fileID: 11400000, guid: a01548acbea0fab4db57ed284ea28e19, type: 2}
   _audioReader: {fileID: 0}
@@ -128,10 +128,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
-  _frozenDuration: 10
+  _frozenDuration: 15
   _eventAtEnd: {fileID: 0}
   _eventAtStart: {fileID: 11400000, guid: 81803078376d9c143a371fe7568fab1d, type: 2}
 --- !u!114 &889645121883501677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889168524106030373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1136a72e407685247883c386c126c9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toActivate: []
+  _toDeactivate:
+  - {fileID: 7047844790685821296}
+--- !u!114 &4999605546622790135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,6 +333,7 @@ GameObject:
   - component: {fileID: 2602080297318374057}
   - component: {fileID: 1017615148742992554}
   - component: {fileID: 6173290815366792772}
+  - component: {fileID: 2732559222806949327}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -385,6 +401,22 @@ MonoBehaviour:
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 8969225967415682284}
   _clipIndex: 0
+--- !u!114 &2732559222806949327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437644259995152933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdc63fe3e69a1e468cdb01a57bc8931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _frozenDuration: 13
+  _eventAtEnd: {fileID: 0}
+  _eventAtStart: {fileID: 0}
 --- !u!1 &7047844790685821296
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +430,7 @@ GameObject:
   - component: {fileID: 3958252176959284987}
   - component: {fileID: 4103321808427768097}
   - component: {fileID: 2912108609542538961}
+  - component: {fileID: 3402412292218072168}
   m_Layer: 0
   m_Name: In Front of Dragon (Back)
   m_TagString: Untagged
@@ -476,10 +509,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
-  _frozenDuration: 10
+  _frozenDuration: 15
   _eventAtEnd: {fileID: 0}
   _eventAtStart: {fileID: 0}
 --- !u!114 &2912108609542538961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047844790685821296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1136a72e407685247883c386c126c9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toActivate: []
+  _toDeactivate:
+  - {fileID: 1889168524106030373}
+--- !u!114 &3402412292218072168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -505,6 +553,7 @@ GameObject:
   - component: {fileID: 2287048981340846665}
   - component: {fileID: 5785818538619991983}
   - component: {fileID: 2255276613613388979}
+  - component: {fileID: 8252370136293099498}
   m_Layer: 0
   m_Name: Enter (Back)
   m_TagString: Untagged
@@ -572,3 +621,19 @@ MonoBehaviour:
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 8969225967415682284}
   _clipIndex: 0
+--- !u!114 &8252370136293099498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969225967415682284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdc63fe3e69a1e468cdb01a57bc8931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _frozenDuration: 13
+  _eventAtEnd: {fileID: 0}
+  _eventAtStart: {fileID: 0}
