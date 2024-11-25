@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,12 +48,12 @@ namespace Game.Runtime
         public void RestartLevel()
         {
             Time.timeScale = 1;
-            Scene scene = SceneManager.GetActiveScene();
+            UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
         public void QuitGame()
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
 
         #endregion
