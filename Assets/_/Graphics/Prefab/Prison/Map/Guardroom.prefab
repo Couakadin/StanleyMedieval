@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28432239221421703}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3963378702255220558}
   - component: {fileID: 8477288345984664805}
   - component: {fileID: 4194177106720774852}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enter_Secret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6829779046134002236}
   - component: {fileID: 7729127377852383786}
   - component: {fileID: 6596255590135687709}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enter_Secret (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1338,9 @@ MonoBehaviour:
   _audioReader: {fileID: 0}
   _fxReader: {fileID: 0}
   _multipleTimes: 0
-  _clips: []
+  _clips:
+  - {fileID: 11400000, guid: 548d0b7ced48e9149bae1e1b3ae2927e, type: 2}
+  - {fileID: 11400000, guid: 880e2a9969d278a42b95f447700699b6, type: 2}
   _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
@@ -2507,7 +2509,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_itemData: {fileID: 11400000, guid: 93feeb221ae5214498fd3042898298e8, type: 2}
   m_pickupFX: {fileID: 0}
-  m_pickupDialogue: []
+  m_pickupDialogue:
+  - {fileID: 11400000, guid: 2ccb547159cf8a145b3e30e7d8976eac, type: 2}
   m_sharedAudio: []
   _clipIndex: 0
   m_toActivate:
@@ -2801,7 +2804,7 @@ GameObject:
   - component: {fileID: 6970891558469202680}
   - component: {fileID: 1170201619899665986}
   - component: {fileID: 5846458536600250238}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enter_Secret (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10219,7 +10222,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7792732685641361417}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10349,9 +10352,8 @@ GameObject:
   - component: {fileID: 886125329731418202}
   - component: {fileID: 2686697073452784122}
   - component: {fileID: 553675027539491590}
-  - component: {fileID: 7267725651894145873}
-  - component: {fileID: 1266022840940478191}
-  m_Layer: 0
+  - component: {fileID: 5807676819262524310}
+  m_Layer: 2
   m_Name: Enter_Foodstore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10367,7 +10369,7 @@ Transform:
   m_GameObject: {fileID: 8139848260874639140}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.251, y: 6.38, z: 24.031}
+  m_LocalPosition: {x: 0.387, y: 5.672, z: 26.818}
   m_LocalScale: {x: 1.1946638, y: 1.1768, z: 1.8860574}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10392,8 +10394,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9549999, y: 3.9433434, z: 1}
-  m_Center: {x: -0.47749984, y: -1.4716681, z: 0}
+  m_Size: {x: 0.7375093, y: 3.9433436, z: 1.2723054}
+  m_Center: {x: -1.0862458, y: -1.4716682, z: -0.09513446}
 --- !u!114 &553675027539491590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10414,7 +10416,7 @@ MonoBehaviour:
   _toActivate: {fileID: 0}
   _toDeactivate: {fileID: 0}
   _clipIndex: 0
---- !u!114 &7267725651894145873
+--- !u!114 &5807676819262524310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10423,23 +10425,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8139848260874639140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8981aa42aec256740a77da2c6685b9b4, type: 3}
+  m_Script: {fileID: 11500000, guid: efdc63fe3e69a1e468cdb01a57bc8931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_itemRequired: []
---- !u!114 &1266022840940478191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8139848260874639140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8981aa42aec256740a77da2c6685b9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_itemRequired: []
+  _controller: {fileID: 0}
+  _frozenDuration: 5
+  _eventAtEnd: {fileID: 0}
+  _eventAtStart: {fileID: 0}
 --- !u!1 &8146002560140501456
 GameObject:
   m_ObjectHideFlags: 0
@@ -20325,7 +20317,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003760531373827479}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20353,7 +20345,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4061652163282073421}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20409,7 +20401,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5370325115887048743}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20463,7 +20455,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6235823135917888160}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20491,7 +20483,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6307263645924324669}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20519,7 +20511,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601449758509266120}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20547,7 +20539,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6796380017302476619}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20608,7 +20600,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8087535443156788377}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29821,6 +29813,12 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 77bdefeb1a3df334e843e1da45794322, type: 3}
+    - target: {fileID: 2652938561611019749, guid: 89c25c926de0bd243b1d79afda22a851,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9,
+        type: 2}
     - target: {fileID: 8202087120221064727, guid: 89c25c926de0bd243b1d79afda22a851,
         type: 3}
       propertyPath: LightsModule.range
@@ -31949,6 +31947,12 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9f54a9d945907784f9aa3aaf2e22827d, type: 3}
+    - target: {fileID: 2652938561611019749, guid: 89c25c926de0bd243b1d79afda22a851,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9,
+        type: 2}
     - target: {fileID: 8202087120221064727, guid: 89c25c926de0bd243b1d79afda22a851,
         type: 3}
       propertyPath: LightsModule.range
@@ -33667,10 +33671,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 12.392
       objectReference: {fileID: 0}
+    - target: {fileID: 1292579803218222910, guid: 4a1dca9bef4df1c47b9d16c313607bc7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1834310647114469865, guid: 4a1dca9bef4df1c47b9d16c313607bc7,
         type: 3}
       propertyPath: m_Name
       value: GuardRoomAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982293483608743442, guid: 4a1dca9bef4df1c47b9d16c313607bc7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5194669119876357424, guid: 4a1dca9bef4df1c47b9d16c313607bc7,
         type: 3}
@@ -34303,6 +34317,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3581592621543828609, guid: 005eef19fc38cbb499e315d1c9208461,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9,
+        type: 2}
     - target: {fileID: 4138712456674267749, guid: 005eef19fc38cbb499e315d1c9208461,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -34393,6 +34413,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurPortePrison
       objectReference: {fileID: 0}
+    - target: {fileID: 7587675190879730748, guid: 005eef19fc38cbb499e315d1c9208461,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5082a6c91c93cb941970e4c238af81a9,
+        type: 2}
     - target: {fileID: 8500634779129806356, guid: 005eef19fc38cbb499e315d1c9208461,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
