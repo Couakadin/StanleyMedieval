@@ -178,7 +178,7 @@ namespace Game.Runtime
                 _rigidbody.velocity.y,
                 _movement.z * _movementSpeed * Time.fixedDeltaTime);
 
-            if (_rigidbody.velocity.magnitude > 0.5f && Time.time - _lastPlayTime > .7f && !IsJumping())
+            if (_rigidbody.velocity.magnitude > 0.5f && Time.time - _lastPlayTime > .7f && IsGrounded())
                 PlayStepsSounds();
         }
 
