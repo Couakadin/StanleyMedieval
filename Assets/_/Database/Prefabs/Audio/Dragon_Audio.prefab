@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 2602080297318374057}
   - {fileID: 2287048981340846665}
+  - {fileID: 6900876661638790845}
   - {fileID: 995467389315942597}
   - {fileID: 3516117148640055613}
   - {fileID: 4159069682943385728}
@@ -48,6 +49,7 @@ GameObject:
   - component: {fileID: 6548077758297457932}
   - component: {fileID: 2400399214175696146}
   - component: {fileID: 3566765545609874907}
+  - component: {fileID: 889645121883501677}
   m_Layer: 0
   m_Name: In Front of Dragon
   m_TagString: Untagged
@@ -105,7 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 11400000, guid: cc7e4acd1db8cea43b8567bccaa3faea, type: 2}
-  - {fileID: 11400000, guid: b5c3c30dd2664244dae32e8984ef1584, type: 2}
   - {fileID: 11400000, guid: f640b1b9d76b80744bb8d11d60ab6c71, type: 2}
   - {fileID: 11400000, guid: 3e5d4dd41b3b32640ad6b262b7a32f67, type: 2}
   - {fileID: 11400000, guid: a01548acbea0fab4db57ed284ea28e19, type: 2}
@@ -130,6 +131,107 @@ MonoBehaviour:
   _frozenDuration: 10
   _eventAtEnd: {fileID: 0}
   _eventAtStart: {fileID: 11400000, guid: 81803078376d9c143a371fe7568fab1d, type: 2}
+--- !u!114 &889645121883501677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889168524106030373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1136a72e407685247883c386c126c9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toActivate: []
+  _toDeactivate:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!1 &3115420930351595573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6900876661638790845}
+  - component: {fileID: 3252542328016800442}
+  - component: {fileID: 5176511144824406436}
+  m_Layer: 0
+  m_Name: Iddle Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6900876661638790845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115420930351595573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 88.28, y: -83.15, z: -249.77}
+  m_LocalScale: {x: 34.95694, y: 10.220589, z: 4.1895}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3623945285128929222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3252542328016800442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115420930351595573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8162434, y: 0.6604443, z: 32.626163}
+  m_Center: {x: 0.14924738, y: -0.16977821, z: 0.26506478}
+--- !u!114 &5176511144824406436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115420930351595573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098a36ece50d9c47a6a9c4904991079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 11400000, guid: b3b322081f40dd64c83d62f67bc0eba2, type: 2}
+  - {fileID: 11400000, guid: 48850acf0d6e36e4da418d018bd38419, type: 2}
+  - {fileID: 11400000, guid: afb08910755ce27438a79d576ac12538, type: 2}
+  - {fileID: 11400000, guid: aba851da50e8f8746a5b1cdae458cca0, type: 2}
+  - {fileID: 11400000, guid: a5e734eb0d913aa45a8fb23145095577, type: 2}
+  - {fileID: 11400000, guid: a25ea066b0e82684ca75d327d582e0fe, type: 2}
+  - {fileID: 11400000, guid: 2c9de5abcd882a64d9e6be9a4ae1cb71, type: 2}
+  - {fileID: 11400000, guid: 0b4cedc40bcfc1c4baaea08015f0f037, type: 2}
+  - {fileID: 11400000, guid: 6aaa7810cfe224948843606993771862, type: 2}
+  - {fileID: 11400000, guid: 01939fe8c9675ee46b83f95c75cfc773, type: 2}
+  - {fileID: 11400000, guid: e5c72b7fd18a6694db021882c4b59c47, type: 2}
+  - {fileID: 11400000, guid: fdbc76935bbbf2b4b9b5ec845c828d7d, type: 2}
+  - {fileID: 11400000, guid: a09d639d21bed9040af5392a29cb84a7, type: 2}
+  _audioReader: {fileID: 0}
+  _sharedIndex: []
+  _toActivate: {fileID: 0}
+  _toDeactivate: {fileID: 0}
+  _clipIndex: 0
 --- !u!1 &3971983964858706859
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,12 +397,13 @@ GameObject:
   - component: {fileID: 8595825093882730257}
   - component: {fileID: 3958252176959284987}
   - component: {fileID: 4103321808427768097}
+  - component: {fileID: 2912108609542538961}
   m_Layer: 0
-  m_Name: In Front of Dragon (1)
+  m_Name: In Front of Dragon (Back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3516117148640055613
 Transform:
@@ -311,7 +414,7 @@ Transform:
   m_GameObject: {fileID: 7047844790685821296}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.16176136, z: -0, w: 0.98682994}
-  m_LocalPosition: {x: 61.05, y: -50.19, z: -192.64}
+  m_LocalPosition: {x: 64.01, y: -50.19, z: -200.01}
   m_LocalScale: {x: 34.95694, y: 10.220589, z: 4.1895}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -336,8 +439,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3960788, y: 1.1853322, z: 0.6402097}
-  m_Center: {x: 0.030243248, y: 0.069024466, z: -1.342473}
+  m_Size: {x: 0.3960788, y: 1.1853322, z: 0.18678905}
+  m_Center: {x: 0.030243242, y: 0.06902446, z: -1.569181}
 --- !u!114 &3958252176959284987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 11400000, guid: cc7e4acd1db8cea43b8567bccaa3faea, type: 2}
   - {fileID: 11400000, guid: b5c3c30dd2664244dae32e8984ef1584, type: 2}
   - {fileID: 11400000, guid: f640b1b9d76b80744bb8d11d60ab6c71, type: 2}
   - {fileID: 11400000, guid: 3e5d4dd41b3b32640ad6b262b7a32f67, type: 2}
@@ -377,6 +479,21 @@ MonoBehaviour:
   _frozenDuration: 10
   _eventAtEnd: {fileID: 0}
   _eventAtStart: {fileID: 0}
+--- !u!114 &2912108609542538961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047844790685821296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1136a72e407685247883c386c126c9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toActivate: []
+  _toDeactivate:
+  - {fileID: 0}
 --- !u!1 &8969225967415682284
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +506,7 @@ GameObject:
   - component: {fileID: 5785818538619991983}
   - component: {fileID: 2255276613613388979}
   m_Layer: 0
-  m_Name: Enter (1)
+  m_Name: Enter (Back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
