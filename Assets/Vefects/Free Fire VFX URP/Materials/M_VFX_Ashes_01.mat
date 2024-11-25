@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_VFX_Ashes_01
   m_Shader: {fileID: 4800000, guid: b8a99704b1204314e816971e63a2a521, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0
@@ -20,6 +22,7 @@ Material:
   disabledShaderPasses:
   - DistortionVectors
   - TransparentBackface
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -85,14 +88,14 @@ Material:
     - _BlendMode: 1
     - _CamOffSet: 0
     - _CameraOffset: 0
-    - _Cull1: 2
+    - _Cull1: 0.43
     - _CullMode: 2
     - _CullModeForward: 2
     - _DepthFade: 1
-    - _Dissolve: 0
-    - _Distortion: 1.5
+    - _Dissolve: 0.46
+    - _Distortion: 1.98
     - _DistortionEnable: 0
-    - _DistortionIntensity: 0
+    - _DistortionIntensity: -0.02
     - _DistortionMask: 0
     - _DistortionMask1: 0
     - _DistortionOnly: 1
@@ -100,24 +103,24 @@ Material:
     - _DoubleSidedNormalMode: 2
     - _Dst1: 10
     - _DstBlend: 1
-    - _EmissionIntensity: 42
+    - _EmissionIntensity: 1.44
     - _Emissive: 40
     - _Emissive_Amount: 10
     - _EnableFogOnTransparent: 1
     - _Global_Speed: 1
     - _Intensity: 1
-    - _MaskMoveMultiply: 1
-    - _MaskMovePower: 1
+    - _MaskMoveMultiply: 0.8
+    - _MaskMovePower: 2.22
     - _MaskMove_Multiply: 1
     - _MaskMove_Power: 1
-    - _MaskMultiply: 1
-    - _MaskPower: 1
+    - _MaskMultiply: 1.8
+    - _MaskPower: 1.58
     - _MaskSpeed: 0
     - _Mask_Multiply: 1
     - _Mask_Power: 1
     - _Mask_Speed: 0
     - _NoisesMultiply: 1
-    - _NoisesPower: 1
+    - _NoisesPower: 3.17
     - _Noises_Multiply: 1
     - _Noises_Power: 1
     - _OpacityBoost: 1
@@ -128,10 +131,11 @@ Material:
     - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _ReceivesSSR: 0
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Src1: 5
+    - _Src1: 10.71
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -155,7 +159,7 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _WindSpeed: 1
+    - _WindSpeed: 1.4
     - _ZTest1: 2
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
@@ -174,7 +178,7 @@ Material:
     - _Mask_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Mask_Scale: {r: 1, g: 1, b: 0, a: 0}
     - _Noise01Scale: {r: 3, g: 3, b: 0, a: 0}
-    - _Noise01Speed: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Noise01Speed: {r: 0.71, g: 0.08, b: 0, a: 0}
     - _Noise02Scale: {r: 1, g: 1, b: 0, a: 0}
     - _Noise02Speed: {r: 0, g: 0, b: 0, a: 0}
     - _NoiseDistortionScale: {r: 1, g: 1, b: 0, a: 0}
