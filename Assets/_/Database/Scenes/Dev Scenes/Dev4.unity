@@ -9486,8 +9486,8 @@ MonoBehaviour:
   _toDeactivate:
   - {fileID: 849019874}
   - {fileID: 1857400308}
-  - {fileID: 1763272098}
-  - {fileID: 315849892}
+  - {fileID: 0}
+  - {fileID: 0}
   _events: []
   _sharedIndex: []
   m_sharedClipIndex: 0
@@ -9576,7 +9576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1871237458}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &839750016
 GameObject:
@@ -30534,6 +30534,16 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 889645121883501677, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _toDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 889645121883501677, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _toDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 4017065861637808049}
     - target: {fileID: 1445031960940487364, guid: c6b71aad9778f8044bf474db2b1702f2,
         type: 3}
       propertyPath: m_Name
@@ -30572,6 +30582,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a01548acbea0fab4db57ed284ea28e19,
         type: 2}
+    - target: {fileID: 2912108609542538961, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _toDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2146243729}
     - target: {fileID: 3516117148640055613, guid: c6b71aad9778f8044bf474db2b1702f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30686,6 +30701,11 @@ PrefabInstance:
       propertyPath: _frozenDuration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5176511144824406436, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _audioReader
+      value: 
+      objectReference: {fileID: 1430990571}
     - target: {fileID: 6173290815366792772, guid: c6b71aad9778f8044bf474db2b1702f2,
         type: 3}
       propertyPath: _audioReader
@@ -31089,3 +31109,4 @@ SceneRoots:
   - {fileID: 1044896555}
   - {fileID: 196984833}
   - {fileID: 1759420854}
+  - {fileID: 792799662}
