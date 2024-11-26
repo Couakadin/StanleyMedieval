@@ -770,7 +770,7 @@ MonoBehaviour:
   _multipleTimes: 0
   _clips:
   - {fileID: 11400000, guid: bd576fcec697e16428f10913b29c8d3e, type: 2}
-  _interactFX: {fileID: 0}
+  _interactFX: {fileID: 8300000, guid: 1608cea0f682e524d9c340328e88e508, type: 3}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
   _itemLost: {fileID: 0}
@@ -15870,8 +15870,36 @@ PrefabInstance:
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 5285876549542656360}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3231391266482700625, guid: dc474cf652f694243a49849ef1e547d3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7420829561662964500}
   m_SourcePrefab: {fileID: 100100000, guid: dc474cf652f694243a49849ef1e547d3, type: 3}
+--- !u!1 &5029197938069330146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3231391266482700625, guid: dc474cf652f694243a49849ef1e547d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7571529386533296563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7420829561662964500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029197938069330146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c614cf52c2c889438ba0ab44f137839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCameras:
+  - {fileID: 0}
+  - {fileID: 0}
+  _frozenDuration: 25
+  _eventAtEnd: {fileID: 0}
+  _eventAtStart: {fileID: 0}
 --- !u!1 &7639137168733416820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 220908496645338311, guid: dc474cf652f694243a49849ef1e547d3,
@@ -16241,6 +16269,8 @@ MonoBehaviour:
   _clipSuccess: []
   _clipFail:
   - {fileID: 11400000, guid: 2041fe4b88c80a948b6c77099e6e2841, type: 2}
+  _fxReader: {fileID: 0}
+  _audioClip: {fileID: 8300000, guid: a78c28edadc77004c97a5eb2f59f626e, type: 3}
   _interactable: {fileID: 6481847566224918272}
   _toActivate:
   - {fileID: 2087739723910477476}
@@ -17794,6 +17824,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4964430953778594515, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
+        type: 3}
+      propertyPath: m_pickupFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b17d82fa6a872e945916ae7bc3e2adaf, type: 3}
     - target: {fileID: 4964430953778594515, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
         type: 3}
       propertyPath: m_pickupDialogue
@@ -19354,6 +19389,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4964430953778594515, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
+        type: 3}
+      propertyPath: m_pickupFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b17d82fa6a872e945916ae7bc3e2adaf, type: 3}
     - target: {fileID: 4964430953778594515, guid: b616155fd5d01f64b9841a5c7e5bf6dd,
         type: 3}
       propertyPath: m_pickupDialogue

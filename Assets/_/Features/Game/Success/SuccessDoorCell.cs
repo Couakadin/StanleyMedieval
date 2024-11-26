@@ -52,6 +52,7 @@ namespace Game.Runtime
         public void OnSuccess()
         {
             _audioReader.AudioSet(_clipSuccess);
+            _fxReader.AudioPlay(_audioClip);
             
         }
 
@@ -91,6 +92,8 @@ namespace Game.Runtime
         [Header("-- Audio --")]
         [SerializeField] private List<DialogueScriptableObject> _clipSuccess;
         [SerializeField] private List<DialogueScriptableObject> _clipFail;
+        [SerializeField] private FXReader _fxReader;
+        [SerializeField] private AudioClip _audioClip;
 
         [Header("-- Refs --")]
         [SerializeField] private Interactable _interactable;
