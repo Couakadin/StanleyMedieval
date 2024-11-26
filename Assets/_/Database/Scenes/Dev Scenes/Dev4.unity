@@ -2943,7 +2943,9 @@ MonoBehaviour:
   _audioReader: {fileID: 1430990571}
   _fxReader: {fileID: 1636539115}
   _multipleTimes: 0
-  _clips: []
+  _clips:
+  - {fileID: 11400000, guid: 14830e6f212912b43b8a319ce3bb14b5, type: 2}
+  - {fileID: 11400000, guid: 559285d876e3e874e840f14efd6b21d8, type: 2}
   _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 0}
@@ -11048,10 +11050,10 @@ Transform:
   - {fileID: 1785316009}
   - {fileID: 454948221}
   - {fileID: 689721844}
+  - {fileID: 1912846129}
   - {fileID: 166629679}
   - {fileID: 558333300}
   - {fileID: 521071532}
-  - {fileID: 1912846129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &936304739
@@ -16857,7 +16859,8 @@ MonoBehaviour:
   _audioReader: {fileID: 1430990571}
   _fxReader: {fileID: 1636539115}
   _multipleTimes: 0
-  _clips: []
+  _clips:
+  - {fileID: 11400000, guid: 850960da80e1bf0448109257f3b658d0, type: 2}
   _interactFX: {fileID: 0}
   _itemBlackboard: {fileID: 11400000, guid: 5be7d60317f40ba4d9c4cf029ca7b1c1, type: 2}
   _itemGained: {fileID: 11400000, guid: 3bd323a2672a9e14b9bd2a1e7f589d62, type: 2}
@@ -17060,6 +17063,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -14.587
       objectReference: {fileID: 0}
+    - target: {fileID: 1414546127298714298, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Range
+      value: 6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414546127298714298, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 222.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1450403725199782398, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _text
@@ -17075,6 +17088,11 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 2022771337815010076, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.544
+      objectReference: {fileID: 0}
     - target: {fileID: 2519366557752883919, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
       propertyPath: _audioReader
@@ -17274,6 +17292,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -124.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339762821373133070, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Range
+      value: 157.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339762821373133070, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 8718029727683933544, guid: 6dcf383fe66c79a4387279cd3ec4bb51,
         type: 3}
@@ -31375,6 +31403,17 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 5311929490937231350, guid: bdb6acb1d13e7424aa97fcf7899bb189,
+        type: 3}
+      propertyPath: _clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311929490937231350, guid: bdb6acb1d13e7424aa97fcf7899bb189,
+        type: 3}
+      propertyPath: _clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ec4dfa335926a64fa1cfa9c835f1227,
+        type: 2}
     - target: {fileID: 6713981384547263062, guid: bdb6acb1d13e7424aa97fcf7899bb189,
         type: 3}
       propertyPath: _audioReader
