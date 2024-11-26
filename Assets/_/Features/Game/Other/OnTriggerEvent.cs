@@ -27,8 +27,12 @@ namespace Game.Runtime
                 if (_eventAtStart != null)
                     _eventAtStart.Raise();
 
-                if (_eventAtTimerEnd != null) 
+                if (_eventAtTimerEnd != null)
+                { 
                     _countingDownForEvent = true;
+                    if (_fxReader != null)
+                        _fxReader.AudioPlay(_audioClip);
+                }
 
                 _wasCalled = true;
             }
@@ -41,6 +45,9 @@ namespace Game.Runtime
         [SerializeField] private VoidScriptableEvent _eventAtStart;
         [SerializeField] private VoidScriptableEvent _eventAtTimerEnd;
         [SerializeField] private float _eventTimer;
+
+        [SerializeField] private FXReader _fxReader;
+        [SerializeField] private AudioClip _audioClip;
 
         private bool _wasCalled = false;
         private bool _timerEnded = false;

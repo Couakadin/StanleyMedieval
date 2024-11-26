@@ -11,7 +11,6 @@ namespace Game.Runtime
         {
             if (collision.gameObject.layer == 17) 
             {
-                print("Bridge Down");
                 BridgeDown();
                 _event.Raise();
             }
@@ -22,9 +21,7 @@ namespace Game.Runtime
         public void BridgeDown()
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            /*objectToActivate.SetActive(true);
-            _objectToDeactivate.SetActive(false);
-            _animator.SetBool("Fall", true);*/
+            _fxReader.AudioPlay(_audioClip);
         }
 
         #region PRIVATE
@@ -33,6 +30,8 @@ namespace Game.Runtime
         [SerializeField] private GameObject _objectToDeactivate;
         [SerializeField] private Animator _animator;
         [SerializeField] private VoidScriptableEvent _event;
+        [SerializeField] private FXReader _fxReader;
+        [SerializeField] private AudioClip _audioClip;
 
         #endregion
     }
