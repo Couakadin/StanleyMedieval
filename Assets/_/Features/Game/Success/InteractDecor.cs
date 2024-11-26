@@ -68,6 +68,8 @@ namespace Game.Runtime
             {
                 _itemBlackboard.SetValue(_itemGained.m_name, _itemGained);
                 _inventoryUpdateEvent.Raise();
+                if (_itemShower != null)
+                    _itemShower.FadeIn(_itemGained.m_sprite);
             }
             if (_itemLost != null)
             {
@@ -122,6 +124,7 @@ namespace Game.Runtime
         [SerializeField] private ItemData _itemGained;
         [SerializeField] private ItemData _itemLost;
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
+        [SerializeField] private NewItemShower _itemShower;
 
         [Header("-- GameObjects to activate / deactivate --")]
         [SerializeField] private List<GameObject> _toActivate;

@@ -87,6 +87,7 @@ namespace Game.Runtime
                         item.SetActive(false);
 
                     _itemBlackboard.SetValue<ItemData>(pickedItem.m_itemData.m_name, pickedItem.m_itemData);
+                    _itemShower.FadeIn(pickedItem.m_itemData.m_sprite);
                     _playerInventory.InventoryUpdate();
                     _hitObject.SetActive(false);
                     _textPickup.SetActive(false);
@@ -169,6 +170,7 @@ namespace Game.Runtime
         private GameObject _textPickup;
 
         [Title("Privates")]
+        [SerializeField] private NewItemShower _itemShower;
         private Camera _camera;
         private Transform _cameraTransform;
         private LayerMask _interactableLayer;

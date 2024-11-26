@@ -112,6 +112,7 @@ namespace Game.Runtime
         [SerializeField] private VoidScriptableEvent _inventoryUpdateEvent;
         [SerializeField] private VoidScriptableEventistener _inventoryUpdateListener;
         [SerializeField] private Blackboard _itemBlackboard;
+        [SerializeField] private NewItemShower _itemShower;
         [SerializeField] private int _activeItemId;
 
         #endregion

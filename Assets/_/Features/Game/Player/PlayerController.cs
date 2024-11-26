@@ -140,6 +140,7 @@ namespace Game.Runtime
             _jumpAction.Disable();
             _crouchAction.Disable();
             _hitAction.Disable();
+            
         }
 
         public void UnfreezePlayer() 
