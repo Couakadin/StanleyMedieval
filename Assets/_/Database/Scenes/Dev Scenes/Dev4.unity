@@ -1095,7 +1095,11 @@ PrefabInstance:
       objectReference: {fileID: 1430990571}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5636627941550312049, guid: 463a2fd3a4c1fab4481d327c6b0eef5a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1800794127}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 463a2fd3a4c1fab4481d327c6b0eef5a, type: 3}
 --- !u!1001 &64307612
@@ -24642,6 +24646,79 @@ Transform:
   - {fileID: 1375781791}
   m_Father: {fileID: 932243036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1800794124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800794127}
+  - component: {fileID: 1800794126}
+  - component: {fileID: 1800794125}
+  m_Layer: 0
+  m_Name: DormAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1800794125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800794124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098a36ece50d9c47a6a9c4904991079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 11400000, guid: 77eee58998c50b94aa1104ab1add48af, type: 2}
+  _audioReader: {fileID: 1430990571}
+  _sharedIndex: []
+  _toActivate: {fileID: 0}
+  _toDeactivate: {fileID: 0}
+  _clipIndex: 0
+--- !u!65 &1800794126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800794124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.6781845, y: 1, z: 5.3600945}
+  m_Center: {x: -0.2030983, y: 0, z: 0.7538237}
+--- !u!4 &1800794127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800794124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.03, y: 1.28, z: 0}
+  m_LocalScale: {x: 1, y: 2.4273, z: 2.8816}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912846129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1849219124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1645579476005686990, guid: 85f2154a26376a340867ee8946dde119,
@@ -25768,6 +25845,29 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 692253868635305054, guid: 68798e1f371584f4b807dd7bbb83c18e,
+        type: 3}
+      propertyPath: _clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 692253868635305054, guid: 68798e1f371584f4b807dd7bbb83c18e,
+        type: 3}
+      propertyPath: _clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 911c9bd766cb1644485c071f7e7fac21,
+        type: 2}
+    - target: {fileID: 692253868635305054, guid: 68798e1f371584f4b807dd7bbb83c18e,
+        type: 3}
+      propertyPath: _clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a6a830de1bf79d94e904c7c8b1918b9a,
+        type: 2}
+    - target: {fileID: 692253868635305054, guid: 68798e1f371584f4b807dd7bbb83c18e,
+        type: 3}
+      propertyPath: _clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71e3df0112a50384ab85e19cf11b8ee7,
+        type: 2}
     - target: {fileID: 1743097836389776463, guid: 68798e1f371584f4b807dd7bbb83c18e,
         type: 3}
       propertyPath: _fxReader
@@ -31940,6 +32040,11 @@ PrefabInstance:
       propertyPath: _audioReader
       value: 
       objectReference: {fileID: 1430990571}
+    - target: {fileID: 2255276613613388979, guid: c6b71aad9778f8044bf474db2b1702f2,
+        type: 3}
+      propertyPath: _toDeactivate
+      value: 
+      objectReference: {fileID: 347208972}
     - target: {fileID: 2400399214175696146, guid: c6b71aad9778f8044bf474db2b1702f2,
         type: 3}
       propertyPath: _audioReader
@@ -32122,7 +32227,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enter (Back)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8252370136293099498, guid: c6b71aad9778f8044bf474db2b1702f2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
